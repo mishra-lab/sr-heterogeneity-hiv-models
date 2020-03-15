@@ -1,0 +1,22 @@
+# old files
+.old/
+
+# code
+.tags
+*.pyc
+__pycache__/
+
+# tex
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*-blx.bib
+*.run.xml
+*.synctex
+*.synctex.gz
+
+# windows
+.DS_Store
