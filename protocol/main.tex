@@ -1,0 +1,244 @@
+% !TeX TS-program = pdflatex
+% !BIB TS-program = bibtex
+\documentclass{article}
+\input{config}
+\input{meta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+\tableofcontents
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{General Information}
+% ==============================================================================
+\subsection{Identifying Information}
+\paragraph{Date} 2020 February
+\paragraph{Principle Investigators \& Affiliations}\n
+Jesse Knight\aff{1};
+Sharmistha Mishra\aff{1}
+\par
+\aff{1}Institute of Medical Sciences, University of Toronto
+\paragraph{Co-Investigators}
+N/A
+\paragraph{Review Title}\n
+\textit{\reviewtitle}
+\paragraph{Research Funding}
+NSERC CGS-D
+% ==============================================================================
+\subsection{Background \& Rationale}
+\input{rationale}
+\clearpage % TEMP
+% ==============================================================================
+\subsection{Review Questions}
+\label{ss:questions}
+\input{research-qs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods}
+\label{s:methods}
+% ==============================================================================
+\subsection{Eligibility Criteria}
+\label{ss:eligibility}
+We have different scopes for each of our research questions as follows:
+\begin{enumerate}[itemsep=0pt]
+  \item any type of transmission model, in \ssa context
+  \item deterministic compartmental transmission models, in any context
+  \item deterministic compartmental transmission models, in \ssa context
+\end{enumerate}
+Most of our eligibility criteria apply for all 3 questions,
+but regarding these three scopes, let:
+\ss{c} = criteria for deterministic compartmental transmission models, and
+\ss{s} = criteria for \ssa context.
+%\footnote{We define \ssa as the following countries: \input{ssa.names}.}
+Our criteria are:
+% ------------------------------------------------------------------------------
+\paragraph{Publication Details}\n
+\begin{criteria}{Include}
+  \item English language
+  \item published before 2020
+  \item peer-reviewed journal article (not review)
+\end{criteria}
+\begin{criteria}{Exclude}
+  \item non-English language
+  \item published in 2020 or later
+  \item non-peer reviewed journal article
+  \item review article (references will be screened)
+  \item textbook, grey literature, opinions, comments, conference abstracts
+\end{criteria}
+% ------------------------------------------------------------------------------
+\paragraph{Mathematical Model of Transmission}\n
+\begin{criteria}{Include}
+  \item dynamical model
+  \item between-host dynamics
+  \item deterministic model\ss{c}
+  \item compartmental model\ss{c}
+\end{criteria}
+\begin{criteria}{Exclude}
+  \item no mathematical modelling
+  \item non-dynamical model
+  \item within-host/cellular/protein modelling
+  \item mouse models
+  \item stochastic (random) model\ss{c}
+  \item individual-based model\ss{c}
+\end{criteria}
+% ------------------------------------------------------------------------------
+\paragraph{Epidemic Context}\n
+\begin{criteria}{Include}
+  \item \hiv modelled (at least)
+  \item any region in Sub-Saharan Africa (\ssa)\ss{s}
+\end{criteria}
+\begin{criteria}{Exclude}
+  \item only other infections modelled
+  \item theoretical context or only region(s) outside of \ssa modelled\ss{s}  
+\end{criteria}
+\clearpage % TEMP
+% ==============================================================================
+\subsection{Information Sources}
+We search the following databases: \textsc{medline}, \textsc{embase} via Ovid.
+% ==============================================================================
+\subsection{Search Strategy}
+Our search strategy aims to identify
+any type of \hiv transmission model applied in any context.
+We will later manually identify
+which models were deterministic and compartmental,
+and which works applied the model to \ssa context.
+% ------------------------------------------------------------------------------
+\paragraph{Validation References}\n
+Before performing the search, we identified
+9 publications of \hiv modelling applied to \ssa,
+and 9 publications of \hiv modelling applied elsewhere.
+We ensure that these 9+9 validation references (VR)
+are contained in our search results,
+as an indicator that the search is performing well.
+\par
+\valrefs{\ssa}{validation/ssa.bibid}
+\valrefs{other contexts}{validation/extra.bibid}
+% ------------------------------------------------------------------------------
+\paragraph{Search Terms}\n
+We operationalize our inclusion \& exclusion criteria
+using the following search terms, where \lstinline|term/| denotes a MeSH term,
+\lstinline|tw| searches all text fields, and
+\lstinline|kf| searches all heading fields.
+We implement publication year and language criteria via Ovid ``limits'',
+but did not filter publication types (review, etc.),
+as we found such classifications to be unreliable.
+Additionally, we exclude the MeSH term \lstinline|animal/|.
+\begin{center}
+  % search terms in search/ folder
+  \begin{tabular}{rp{0.75\linewidth}}
+  	\toprule
+  	Criteria & Search Terms        \\
+  	\midrule
+  	    \hiv & \getsearch{hiv}     \\
+  	\midrule
+  	   model & \getsearch{model}   \\
+  	\midrule
+  	 exclude & \getsearch{exclude} \\
+  	\midrule
+  	  limits & \getsearch{limits}  \\
+  	\bottomrule
+  \end{tabular}
+\end{center}
+% ------------------------------------------------------------------------------
+\paragraph{Results}\n
+The results from \textsc{medline} \& \textsc{embase} on 2020 March 15 were:
+\begin{center}
+\begin{tabular}{crrp{0.75\linewidth}}
+	\toprule
+	  &    Total Hits &  VR & Terms                              \\
+	\midrule
+	1 &  \num{773236} & 9+9 & \getsearch{hiv}                    \\
+	\midrule
+	2 & \num{1294099} & 9+9 & \getsearch{model}                  \\
+	\midrule
+	3 & \num{8519337} & 0+0 & \getsearch{exclude}                \\
+	\midrule
+	4 &   \num{15133} & 9+9 & \lstinline|1 AND 2|                \\
+	\midrule
+	5 &   \num{13948} & 9+9 & \lstinline|1 AND 2 NOT 3|          \\
+	\midrule
+	6 &   \num{13553} & 9+9 & \lstinline|1 AND 2 NOT 3 (limits)| \\
+	\bottomrule
+\end{tabular}
+\end{center}
+where VR = validation references hit.
+These results (6) then form our initial database for screening.
+% ==============================================================================
+\subsection{Data Management}
+Based on the initial search,
+the bibliographic information (including abstract)
+of non-duplicate matching items will be
+exported from the search result in \textsc{xml} format,
+and uploaded to Covidence for abstract screening.
+Covidence provides tools for including and excluding items
+based on a set of user-defined criteria,
+tracking the results of review.
+\par
+The full texts of included items will then be sought
+using institutional access and support.
+For each item, the data extraction form given in Appendix~\ref{app:form}
+(Google Forms) will be completed.
+Upon submission of the form, a row in the linked tabular database
+(Google Sheets) will be automatically populated with the results.
+Analysis of the tabular data will then be performed in Python,
+with the aim of generating statistics and figures to answer
+the \nameref{ss:questions}.
+% ==============================================================================
+\subsection{Selection Process}
+Following upload of the initial search results to Covidence,
+one reviewer (JK) will screen the abstracts for inclusion
+using the \nameref{ss:eligibility}.
+Unclear edge cases will be resolved by discussion with SM.
+% ==============================================================================
+\subsection{Data Extraction}
+Appendix~\ref{app:form} gives the data extraction form to be used
+for each included reference.
+The form includes a combination of
+short text inputs and pre-defined categorical variables
+in the following sections:
+\newcommand{\ibox}[1]{\parbox{0.25\linewidth}{#1}}
+\begin{itemize}
+	\item \ibox{Article meta-data:}     authors, journal, title, etc.
+	\item \ibox{Model context:}         geography, time, research questions
+	\item \ibox{Model approach:}        model type, code
+	\item \ibox{Modelled populations:}  sex, age, risk, turnover, interventions
+	\item \ibox{Modelled biology:}      \cdf, viral load, treatment
+	\item \ibox{Modelled transmission:} modes, types of acts, partnership types, modifiers
+	\item \ibox{Data:}                  calibration targets
+\end{itemize}
+Some short text inputs will capture semi-structured data,
+such as the relative sizes of population strata, like:
+\par
+  \lstinline|HSF-low: 0.35, HSF-medium: 0.125, HSF-high: 0.025, ...|
+\par
+corresponding to: heterosexual females in the low risk group representing
+$0.35$ proportion of the total population, etc.
+Provided the input are structured in the suggested way,
+the text can later be parsed in Python,
+even though the population strata definitions may change from model to model.
+\par
+Data extraction and subsequent analysis will be completed by one reviewer (JK).
+% ==============================================================================
+\subsection{Quality Assessment}
+N/A
+% ==============================================================================
+\subsection{Data Synthesis [TBD]}
+% ------------------------------------------------------------------------------
+\subsubsection{Question \ref{q:context}: Context}
+% ------------------------------------------------------------------------------
+\subsubsection{Question \ref{q:hetero}: Parameterizations}
+% ------------------------------------------------------------------------------
+\subsubsection{Question \ref{q:trends}: Trends}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+\clearpage
+\appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\includepdf[pages=1,pagecommand={\section{Data Extraction Form}\label{app:form}}]
+%{../data/extraction-form.pdf}
+%\includepdf[pages=2-,pagecommand={}]
+%{../data/extraction-form.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

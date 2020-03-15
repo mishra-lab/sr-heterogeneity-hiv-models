@@ -1,0 +1,85 @@
+% spacing
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\emergencystretch=5ex
+\usepackage[group-separator={,}]{siunitx}
+% fonts
+\usepackage{mathpazo}
+%\usepackage{ebgaramond}
+%\usepackage[ebgaramond]{newtxmath}
+\renewcommand*{\ttdefault}{cmtt}
+% links links links
+\usepackage[
+  colorlinks,
+  linkcolor=blue,
+  citecolor=red,
+]{hyperref}
+% formatting
+\usepackage{enumitem,booktabs}
+\setitemize{itemsep=0pt}
+\newcommand{\aff}[1]{\textsuperscript{#1}}
+% shorthands
+\usepackage{xspace}
+\newcommand{\hiv}{\textsc{hiv}\xspace}
+\newcommand{\vl}{\textsc{vl}\xspace}
+\newcommand{\art}{\textsc{art}\xspace}
+\newcommand{\fsw}{\textsc{fsw}\xspace}
+\newcommand{\cdf}{\textsc{cd}{\oldstylenums4}\xspace}
+\newcommand{\ssa}{\textsc{ssa}\xspace}
+\renewcommand{\ss}[1]{\textsuperscript{#1}}
+% search stuff
+\usepackage{listings}
+\lstdefinelanguage{search}{
+  keywords = {AND,OR,NOT,ADJ3},
+  keywordstyle = \color{blue},
+  }
+\lstdefinestyle{search}{
+  aboveskip = -0.5\baselineskip,
+  belowskip = -1.0\baselineskip,
+  breaklines = true,
+  breakindent = 0pt,
+  breakatwhitespace = true,
+  language = search,
+  basicstyle = \ttfamily\footnotesize,
+}
+\lstset{
+  style = search,
+  language = search,
+}
+\newcommand{\getsearch}[1]{\lstinputlisting{search/#1.search}}
+% paragraphs
+\usepackage{titlesec}
+\titleformat{\paragraph}[runin]{\bfseries}{}{0pt}{}[:]
+\titlespacing{\paragraph}{0pt}{0pt}{1em}
+\newcommand{\n}{\mbox{}\par}
+\newenvironment{criteria}[1]%
+{\begin{minipage}[t]{0.5\linewidth}{\textit{#1}}\begin{itemize}[topsep=0.5em]}
+{\end{itemize}\end{minipage}}
+% file stuff
+\usepackage{tikz,catchfile}
+\newcommand\loadfile[1]{\CatchFileDef\filedata{#1}{\endlinechar=-1}}
+% references
+\usepackage[
+  style=numeric,
+  doi=false,
+  url=true,
+  backend=bibtex,
+  sorting=none,
+]{biblatex}
+\renewcommand*{\bibfont}{\footnotesize}
+\renewcommand\namelabeldelim{\addnbspace}
+\renewcommand\multicitedelim{\addcomma\nobreakspace}
+\addbibresource{refs.bib}
+\usepackage{pdfpages}
+% validation refs
+\newcommand{\printref}[1]{\cite{#1}~(\citeyear{#1})~\citeauthor{#1}}
+\newcommand{\valrefs}[2]{%
+  \begin{minipage}[t]{0.5\linewidth}
+    \textit{#1}
+    \loadfile{#2}
+    \begin{enumerate}[itemsep=0pt]
+      \foreach \bibid in \filedata{\item \printref{\bibid}}
+    \end{enumerate}
+  \end{minipage}
+}

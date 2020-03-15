@@ -1,0 +1,146 @@
+% --------------------------------------------------------------------------------------------------
+\subsubsection*{Different Populations need Different \hiv Interventions}
+Advances in \hiv antiretroviral treatment (\art)
+have produced highly effective drug regimens,
+whereby circulating levels of \hiv virus
+in adherent patients are reduced to undetectable levels%
+~\cite{TBD}.
+Viral suppression by \art has clear individual-level benefits
+for health and quality of life~\cite{TBD}.
+Moreover, recent trials have suggested that
+virally suppressed individuals cannot transmit \hiv,
+a finding described as:
+``undetectable = untransmittable'' (U=U)~\cite{Eisinger2019}.
+Inspired by U=U, researchers and policymakers have called for
+rapid scale-up of \art coverage
+as the main intervention by which to reduce \hiv incidence (``treatment as prevention'')
+in the widespread epidemics of Sub-Saharan Africa~\cite{TBD}.
+Global ambition to scale up \art coverage is further motivated by
+the \textsc{unaids} \mbox{90-90-90} targets, defined as:
+90\% of people living with \hiv are diagnosed;
+90\% of those diagnosed are on \art; and
+90\% of those on \art are virally suppressed.
+\par
+Unfortunately, several large-scale trials aiming to demonstrate
+population-level impact of treatment as prevention in Sub-Saharan Africa
+have failed to show a significant reduction in new infections%
+~\cite{Iwuji2018,Havlir2018,Hayes2019}.
+As suggested by \textcite{Baral2019} and others, these unexpected results
+might be attributable to implementation challenges at scale.
+Such challenges can emerge at several steps along the treatment cascade, including:
+testing for \hiv,
+linkage to care after a positive test,
+starting \art after linkage to care,
+achieving viral suppression after starting \art~\cite{TBD}.
+Moreover, individuals who are most likely to experience challenges in \hiv care
+are often at the highest risk of \hiv acquisition and onward transmission~\cite{TBD}.
+Groups of vulnerable individuals in the epidemic
+are sometimes described as ``key populations''.
+\par
+Several key populations have been identified, including:
+adolescent girls and young women;
+sex workers;
+men who have sex with men;
+transgender people;
+prisoners;
+and people who inject drugs~\cite{WHO2014HIVKP}.
+Key populations often experience
+several risk factors for \hiv transmission and barriers to care, such as:
+violence and coercion into unsafe sex;
+criminalization of lifestyle;
+stigma related to lifestyle or \hiv status;
+housing and financial instability;
+and substance abuse~\cite{Mountain2014, WHO2014HIVKP}.
+To meet the unique \hiv prevention and treatment needs of key populations,
+specific interventions are needed which
+address known vulnerabilities~\cite{WHO2014HIVKP}.
+For example, risk of \hiv transmission can be reduced through
+needle exchange programs~\cite{Kurth2011},
+increased access to condoms~\cite{TBD},
+and financial support to reduce transactional sex~\cite{Pettifor2012}.
+Similarly, outreach and support by community peers
+can increase engagement of key populations in \hiv care~\cite{WHO2014HIVKP}.
+\par
+Despite considerable evidence supporting the need for diversified \hiv interventions,
+recent large-scale studies of treatment as prevention
+have not considered the unique needs of key populations%
+~\cite{Iwuji2018,Havlir2018,Hayes2019}.
+Failure to deliver appropriate interventions to key populations
+has left these groups far behind global progress toward
+the \mbox{90-90-90} targets~\cite{Gupta2017},
+threatening to undermine the expected benefits of treatment as prevention.
+% --------------------------------------------------------------------------------------------------
+\subsubsection*{Mathematical Modelling of \hiv Transmission}
+Population-level models of \hiv transmission have long been used to
+project \hiv epidemic trajectories
+(e.g.\ incidence over time)
+and predict intervention impacts
+(e.g.\ reduction in incidence after X years)%
+~\cite{Eaton2012}.
+In popular compartmental models,
+overall populations are stratified by disease state and risk group,
+while differential equations are used to govern movement of individuals between compartments.
+% TODO: a figure could be helpful here.
+Many different compartmental model structures have been used,
+from a 3-compartment model, representing
+3 disease states in a homogeneous population~\cite{Moghadas2003},
+to a 294-compartment model, representing
+21 disease states and 14 risk groups~\cite{Kerr2015}.
+\par
+Unfortunately, differences in model structure and assumptions
+have been shown to substantially influence projections of
+epidemic trajectory and intervention impact~\cite{Eaton2012,Hontelez2013}.
+Most importantly, failure to model heterogeneity in risk
+results in lower basic reproduction number $R_0$~\cite{Anderson1986},
+which could lead to overestimated ease of epidemic control
+through universal treatment as prevention~\cite{Hontelez2013}.
+And yet, several mathematical models that were used to support treatment as prevention
+did not consider heterogeneity in risk of \hiv acquisition or transmission%
+~\cite{Granich2009,Eaton2012,TBD}.
+Even models that did consider risk heterogeneity
+rarely acknowledged known differences in the treatment cascade across risk groups%
+~\cite{Eaton2012,TBD},
+such as among key populations~\cite{Gupta2017}.
+\textcite{Knight2019} showed that
+the modelled impact of achieving \mbox{90-90-90} in a population overall
+was highly dependent on which risk groups were left behind in the remaining \mbox{``10-10-10''},
+emphasizing that differences in treatment cascade cannot be ignored.
+Finally, simulated sexual mixing between risk groups
+has generally been simpler than observed in reality~\cite{TBD},
+with potential implications for validity of modelling results.
+For example, \textcite{Wang2019} have shown that
+failure to model assortative mixing by \hiv status among men who have sex with men
+may result in underestimated impact of pre-exposure prophylaxis.
+\par
+One major reason why risk groups and mixing may be missing
+from \hiv transmission models is lack of data.
+Despite best efforts, key populations are often not captured by
+large-scale demographic and health surveys, such as those by \textcite{DHS},
+due to several barriers:
+household-based sampling methodologies,
+criminalization of lifestyle,
+social desirability bias,
+and stigma~\cite{Abdul-Quader2014}.
+For example, in the 2006-07 Eswatini demographic and health survey~\cite{DHS-SWZ}
+just 0.2\% male respondents reported paying for sex, while estimates of
+commercial sex client populations in similar regions were as high as 8\%~\cite{Carael2006}.
+% TODO: FSW too/instead?
+In many cases, parallel surveys with specific sampling methodologies and community involvement
+can overcome these barriers, facilitating data collection on key populations~\cite{SwaziKP2014}.
+Moreover, collection of key populations data can and should be integrated with
+modelling work and evaluation of tailored interventions.
+% --------------------------------------------------------------------------------------------------
+\subsubsection*{Future Work}
+This review aims to identify parameterizations of risk heterogeneity and mixing
+used in previous transmission models of \hiv in Sub-Saharan Africa.
+Identified parameterizations will then be considered in a systematic model comparison study,
+similar to that by \textcite{Hontelez2013}.
+For example, the projected impact of universal treatment as prevention will be compared
+in models with versus without female sex workers, or
+in models with versus without mixing by risk group.
+In comparing parameterizations, potential biases and uncertainties associated with
+simpler models can be estimated.
+Furthermore, considering the importance of data to inform complex models,
+the model comparison study will identify key pieces of information
+which are necessary to construct accurate models,
+so that these data may be prioritized for collection going forward.
