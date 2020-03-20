@@ -1,0 +1,6 @@
+no,term,hits
+1,{[model]},1369153
+2,{[hiv]},954470
+3,{[ssa]},982505
+4,{1 AND 2 AND 3},2190
+5,{4 NOT [exclude]},1384

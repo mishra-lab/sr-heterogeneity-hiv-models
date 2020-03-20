@@ -19,6 +19,8 @@
 \usepackage{enumitem,booktabs}
 \setitemize{itemsep=0pt}
 \newcommand{\aff}[1]{\textsuperscript{#1}}
+\setlength{\abovecaptionskip}{1ex}
+\setlength{\belowcaptionskip}{1ex}
 % shorthands
 \usepackage{xspace}
 \newcommand{\hiv}{\textsc{hiv}\xspace}
@@ -29,25 +31,34 @@
 \newcommand{\ssa}{\textsc{ssa}\xspace}
 \renewcommand{\ss}[1]{\textsuperscript{#1}}
 % search stuff
-\usepackage{listings}
-\lstdefinelanguage{search}{
-  keywords = {AND,OR,NOT,ADJ3},
-  keywordstyle = \color{blue},
+\usepackage{listofitems,ifthen,xcolor}
+\newcommand{\hstyle}[1]{\textcolor{orange}{\textbf{#1}}}
+\newcommand{\highlight}[1]{%
+  \setsepchar{ }
+  \readlist\parsedinput{#1}
+  \foreachitem\word\in\parsedinput{%
+    \ifthenelse{%
+      \equal{\word}{OR}   \OR \equal{\word}{OR/}  \OR
+      \equal{\word}{AND}  \OR \equal{\word}{AND/} \OR
+      \equal{\word}{NOT}  \OR \equal{\word}{NOT/} \OR
+      \equal{\word}{ADJ3}
+    }{\hstyle{\word\ }}{\word\ }%
   }
-\lstdefinestyle{search}{
-  aboveskip = -0.5\baselineskip,
-  belowskip = -1.0\baselineskip,
-  breaklines = true,
-  breakindent = 0pt,
-  breakatwhitespace = true,
-  language = search,
-  basicstyle = \ttfamily\footnotesize,
 }
-\lstset{
-  style = search,
-  language = search,
+\newcommand{\searchtext}[1]{{\ttfamily\footnotesize\highlight{#1}}}
+\usepackage{csvsimple}
+\newcommand{\cell}[2]{\parbox[t]{#1\linewidth}{#2}}
+\newcommand{\searchtable}[1]{%
+  \csvreader[
+    tabular = rrl,
+    table head = \toprule & Hits & Term \\ \midrule,
+    table foot = \bottomrule,
+    head to column names
+  ]{search/#1.search.csv}{}%
+  {\cell{0.03}{\hfill\no} &
+   \cell{0.10}{\hfill\num{\hits}} &
+   \cell{0.8}{\searchtext{\term}}}
 }
-\newcommand{\getsearch}[1]{\lstinputlisting{search/#1.search}}
 % paragraphs
 \usepackage{titlesec}
 \titleformat{\paragraph}[runin]{\bfseries}{}{0pt}{}[:]
@@ -74,12 +85,9 @@
 \usepackage{pdfpages}
 % validation refs
 \newcommand{\printref}[1]{\cite{#1}~(\citeyear{#1})~\citeauthor{#1}}
-\newcommand{\valrefs}[2]{%
-  \begin{minipage}[t]{0.5\linewidth}
-    \textit{#1}
-    \loadfile{#2}
-    \begin{enumerate}[itemsep=0pt]
-      \foreach \bibid in \filedata{\item \printref{\bibid}}
-    \end{enumerate}
-  \end{minipage}
+\newcommand{\valrefs}[1]{%
+  \loadfile{#1}
+  \begin{enumerate}[itemsep=0pt]
+    \foreach \bibid in \filedata{\item \printref{\bibid}}
+  \end{enumerate}
 }
