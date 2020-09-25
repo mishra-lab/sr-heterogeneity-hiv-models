@@ -2,6 +2,7 @@
 .old/
 
 # code
+Rplots.pdf
 .tags
 *.pyc
 __pycache__/
