@@ -1,0 +1,26 @@
+% !TeX TS-program = pdflatex
+% !BIB TS-program = bibtex
+\documentclass{article}
+\input{config}
+\input{meta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+\tableofcontents
+\clearpage
+\section*{Key Messages}\input{key-messages}
+\clearpage
+% ==============================================================================
+\section{Introduction}\label{s:intro}     \input{intro}
+\section{Methods}     \label{s:methods}   \input{methods}
+\section{Results}     \label{s:results}   \input{results}
+\clearpage
+\section{Discussion}  \label{s:discussion}\input{discussion}
+% ==============================================================================
+\clearpage
+\appendix
+\section{Search Terms}\label{a:search}    \input{app.search}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,33 @@
+\newcommand{\prisman}[2]{\footnotesize#1\\($N~{=}~#2$)}
+\newcommand{\prismax}{\vspace{1ex}\raggedright%
+  \foreach \n/\reason in {%
+    164/{publication type},
+    67/{no transmission modeling},
+    52/{model is not dynamical},
+    23/{not \hiv or not \ssa}
+  }{($\n$)~\reason\\}
+}
+%84/{publication type},
+%37/{no transmission modeling},
+%32/{model is not dynamical},
+%13/{not \hiv or not \ssa}
+\begin{tikzpicture}
+  \node[prisma](sh) at (0\dx,8\dx) {\prisman{Database Search Hits}{1384}};
+  \node[prisma](ch) at (6\dx,8\dx) {\prisman{Cited References}    {4}};
+  \node[prisma](ds) at (0\dx,6\dx) {\prisman{Deduplicated}        {1388}};
+  \node[prisma](dr) at (6\dx,6\dx) {\prisman{Duplicates Removed}  {17}};
+  \node[prisma](as) at (0\dx,4\dx) {\prisman{Abstracts Screened}  {1367}};
+  \node[prisma](ar) at (6\dx,4\dx) {\prisman{Studies Irrelevant}  {595}};
+  \node[prisma](ts) at (0\dx,2\dx) {\prisman{Full Texts Screened} {772}};
+  \node[prisma](tr) at (6\dx,2\dx) {\prisman{Studies Excluded}    {TBC}\\\prismax};
+  \node[prisma](si) at (0\dx,0\dx) {\prisman{Studies Included}    {\x{n.all}}};
+  \coordinate(x) at (3\dx,6.5\dx);
+  \draw[arrow] (sh) -- (ds);
+  \draw[arrow] (ch) |- (x) -| (ds);
+  \draw[arrow] (ds) -- (as);
+  \draw[arrow] (ds) -- (dr);
+  \draw[arrow] (as) -- (ts);
+  \draw[arrow] (as) -- (ar);
+  \draw[arrow] (ts) -- (si);
+  \draw[arrow] (ts) -- (tr.west|-ts.east);
+\end{tikzpicture}

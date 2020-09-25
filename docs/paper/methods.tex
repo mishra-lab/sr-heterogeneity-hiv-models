@@ -1,0 +1,127 @@
+We searched \textsc{medline} and \textsc{embase} via Ovid
+using search terms related to \hiv, \ssa, and transmission modelling
+(full search terms and hits are given in Appendix~\ref{a:search}).
+Duplicate studies were automatically removed.
+Potentially relevant studies was identified by title and abstract screening.
+The final selection of studies were identified by review of
+the full text and any available supplementary material.
+Data extraction also considered the full text and supplementary material.
+One reviewer (JK) conducted the search and data extraction.
+% ==============================================================================
+\subsection{Inclusion/Exclusion Criteria}
+\label{ss:meth:inex}
+Studies published after 2019 were included if
+they applied a dynamical model of sexual \hiv transmission
+to any context within \ssa.
+A \hiv transmission model projects the number of new \hiv infections
+in a population based on initial conditions.
+In a \emph{dynamical} transmission model,
+the number of infections projected at time $t$ is influenced by
+the number of infections previously projected by the model before time $t$.
+Thus dynamical models can capture
+higher-order (nonlinear) population-level transmission dynamics,
+such as indirect benefits of prevention interventions.
+Models were only included if they considered sexual transmission of \hiv,
+possibly alongside other routes of transmission,
+such as mother-to-child and parenteral,
+and possibly alongside transmission of other infectious diseases
+such as other \sti, tuberculosis, or malaria.
+We excluded studies without primary modelling results,
+such as reviews and commentaries,
+as well as conference publications.
+% ==============================================================================
+\subsection{Data Extraction}
+\label{ss:meth:data}
+% ------------------------------------------------------------------------------
+\paragraph{Epidemic Context}
+Studies were categorized by the geographic scale of the simulated epidemic
+(city, sub-national, national, super-national)
+and by whether multiple geographic contexts were considered.
+Whenever the impact of interventions was assessed,
+the epidemic scale was classified according to overall \hiv prevalence:
+low ($<1\%$), medium ($1-5\%$), or high ($>5\%$).
+% ------------------------------------------------------------------------------
+\paragraph{Interventions}
+We examined which of the following interventions were included in the model.
+We classified each simulated intervention as either
+part of \emph{historical} interventions
+(typically constituting a ``status-quo'' scenario,
+and possibly including historical behaviour change),
+or part of \emph{counterfactual} interventions
+(typically to assess intervention impact in roll-out/scale-up scenarios).
+\begin{itemize}
+  \item \art\cdf: any increase in \art coverage according to a \cdf threshold
+%  \item \art\who: any scale-up of \art coverage according to \who clinical criteria
+  \item \art\utt: any increase in \art coverage without initiation condition
+        (``universal test \& treat'')
+  \item \vmmc: voluntary medical male circumcision
+  \item \prep: pre-exposure prophylaxis, by any route of administration
+  \item Condoms: any intervention which was simulated to increase condom use
+  \item Partners: any intervention which reduces the rate of partnership formation
+  \item \sti: any intervention reducing \hiv transmission by reducing \sti symptom burden
+  \item Generic: an unspecified generic \hiv prevention interventions
+%  \item Vaccine: a hypothetical \hiv vaccine
+%  \item Cure: a hypothetical \hiv cure
+%  \item Structural: any intervention addressing social or economic risk factors for transmission,
+%        such as decriminalization of sex work, violence reduction, cash transfer, etc.
+\end{itemize}
+For each simulated intervention scenario,
+we noted which combinations of interventions were considered, including
+combinations of historical interventions,
+counterfactual interventions on top of historical interventions, and
+combinations of counterfactual interventions.
+We categorized each counterfactual simulated intervention as focusing one of the following risk groups:
+all women; all men; all people; young women; young men; all young people;
+\fsw; clients; \msm; other generic high or low risk group.
+For studies that simulated historical or counterfactual interventions
+reaching multiple risk groups concurrently,
+such as ``80\% \art coverage overall'',
+we noted whether intervention coverage was assumed to be equal across modelled risk groups,
+possibly ignoring historical gaps/future challenges in reaching higher risk groups.
+\par
+We noted whether each study quantified the impact of counterfactual interventions
+on each of the following outcomes:
+\hiv epidemic (incidence, prevalence, total infections, and/or mortality);
+reproduction number;
+transmitted drug resistance; and
+any economic analysis.
+% ------------------------------------------------------------------------------
+\paragraph{Risk Heterogeneity}
+Risk heterogeneity was identified in compartmental models
+as population stratifications other than age, health state, or intervention involvement
+that conferred differential risk of \hiv acquisition and/or transmission.
+We documented the defining characteristics of modelled risk groups, including:
+sex, different rates of partnership formation, and different types of partnerships formed.
+We noted whether each of the following key populations was included in the model:
+female sex workers (\fsw);
+male clients of \fsw (\cli);
+adolescent girls and young women (\agyw);
+men who have sex with men (\msm);
+and people who inject drugs (\pwid).
+\par
+We noted which of the following characteristics were used to define
+simulated sexual partnerships:
+the risk groups involved;
+different volumes of sex (total number coital acts per partnership); and
+different levels of condom use.
+We noted whether simulated partnerships represented
+any of the following identifiable types:
+main/spousal;
+casual/extramarital;
+commercial/sex work;
+transactional (exchange of gifts/favours for sex,
+outside the context of formal sex work). % TODO: this definition?
+Finally, we noted whether models simulated any degree of assortative vs proportionate
+partnership formation (mixing) between risk groups.
+If some partnership types were only formed by certain risk groups,
+mixing was automatically considered assortative.
+\par
+We additionally noted the number of unique age groups, the nature of age group mixing---%
+proportionate, assortative without age differences, or assortative with age differences
+(e.g. younger females with older males)---%
+and whether age conferred any additional risk differences beyond mixing
+(e.g. higher rates of partnership formation).
+Finally, we counted the number \hiv infection states modelled (excluding treatment),
+and noted which characteristic was used to define the states, including:
+early infection (must include increased infectivity),
+\who clinical criteria, \cdf count, and viral load.
