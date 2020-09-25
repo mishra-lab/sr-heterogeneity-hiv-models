@@ -6,6 +6,9 @@
 *.pyc
 __pycache__/
 
+# pdfs
+refs/pdf/
+
 # tex
 *.aux
 *.log
