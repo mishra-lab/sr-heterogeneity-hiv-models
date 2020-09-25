@@ -1,6 +1,0 @@
-no,term,hits
-1,{[model] AND [hiv] AND [ssa]},2190
-2,{1 NOT animal/},2160
-3,{limit 2 to english language},2155
-4,{limit 3 to yr="1860 - 2019"},2125
-5,{remove duplicates from 4},1384

@@ -1,9 +1,0 @@
-no,term,hits
-1,{exp HIV/},290863
-2,{exp HIV infections/},651624
-3,{(HIV OR HIV1* OR HIV2* OR HIV-1* OR HIV-2*).mp.},753274
-4,{hiv infect*.mp.},369182
-5,{(human immun*deficiency virus OR human immun* deficiency virus).mp.},538214
-6,{exp Acquired Immunodeficiency Syndrome/},216228
-7,{(acquired immun*deficiency syndrome OR acquired immun* deficiency syndrome).mp.},235971
-8,{OR/ 1-7},954470
