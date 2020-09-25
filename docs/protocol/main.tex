@@ -1,0 +1,349 @@
+% !TeX TS-program = pdflatex
+% !BIB TS-program = bibtex
+\documentclass{article}
+\input{config}
+\input{meta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+\tableofcontents
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{General Information}
+% ==============================================================================
+\subsection{Identifying Information}
+\paragraph{Date} 2020 February
+\paragraph{Principle Investigators \& Affiliations}\n
+Jesse Knight\aff{1};
+Sharmistha Mishra\aff{1}
+\par
+\aff{1}Institute of Medical Sciences, University of Toronto
+\paragraph{Co-Investigators}
+N/A
+\paragraph{Review Title}\n
+\textit{\reviewtitle}
+\paragraph{Research Funding}
+NSERC CGS-D
+% ==============================================================================
+\subsection{Background \& Rationale}
+\input{rationale}
+\clearpage % TEMP
+% ==============================================================================
+\subsection{Review Questions}
+\label{ss:questions}
+\input{research-qs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods}
+\label{s:methods}
+% <<< SM_REVIEW >>>
+% ==============================================================================
+\subsection{Eligibility Criteria}
+\label{ss:eligibility}
+Note that for Question~\ref{q:context},
+our analysis is not limited to
+\emph{deterministic compartmental} transmission models.
+So, let \ss{c} denote criteria for
+\emph{deterministic compartmental} transmission models
+applied only to Questions~\ref{q:hetero}~and~\ref{q:trends}.
+Our criteria are:
+% ------------------------------------------------------------------------------
+\paragraph{Publication Details}\n
+\begin{criteria}{Include}
+  \item English language
+  \item published before 2020
+  \item peer-reviewed journal article (not review)
+\end{criteria}
+\begin{criteria}{Exclude}
+  \item non-English language
+  \item published in 2020 or later
+  \item non-peer reviewed journal article
+  \item review article (references will be screened)
+  \item textbook, grey literature, opinions, comments, conference abstracts
+\end{criteria}
+% ------------------------------------------------------------------------------
+\paragraph{Mathematical Model of Transmission}\n
+\begin{criteria}{Include}
+  \item dynamical transmission model\footnotemark[1]
+  \item between-host dynamics
+  \item deterministic model\ss{c}
+  \item compartmental model\ss{c}
+\end{criteria}
+\begin{criteria}{Exclude}
+  \item no transmission modelling
+  \item transmission model is not dynamical
+  \item within-host/cellular/protein modelling
+  \item stochastic (random) model\ss{c}
+  \item individual-based model\ss{c}
+\end{criteria}
+\footnotetext[1]{We define a \emph{dynamical model} as one where
+  the rates of change of system variables are
+  a function of the current system state
+  (e.g. a first-order ODE system),
+  with fixed functional form.
+}
+% ------------------------------------------------------------------------------
+\paragraph{Epidemic Context}\n
+\begin{criteria}{Include}
+  \item \hiv modelled (at least)
+  \item any region in Sub-Saharan Africa (\ssa)
+\end{criteria}
+\begin{criteria}{Exclude}
+  \item only other infections modelled
+  \item theoretical context or only region(s) outside of \ssa modelled
+\end{criteria}
+\clearpage % TEMP
+% ==============================================================================
+\subsection{Information Sources}
+We search the following databases: \textsc{medline}, \textsc{embase} via Ovid.
+% ==============================================================================
+\subsection{Search Strategy}
+Our search strategy aims to identify
+any type of \hiv transmission model applied in any context.
+We will later manually identify
+which models were deterministic and compartmental,
+and which works applied the model to \ssa context.
+% ------------------------------------------------------------------------------
+\paragraph{Validation References}\n
+Before performing the search, we identified
+9 publications of \hiv modelling applied to \ssa.
+We ensure that these 9 validation references (VR)
+are contained in our search results,
+as an indicator that the search is performing well.
+\par
+\valrefs{validation/ssa.bibid}
+% ------------------------------------------------------------------------------
+\paragraph{Search Terms}\n
+We operationalize our inclusion \& exclusion criteria
+using the search terms shown in Appendix~\ref{app:search}.
+We implement publication year and language criteria via Ovid ``limits'',
+but did not filter publication types (review, etc.),
+as we found such classifications to be unreliable.
+% ------------------------------------------------------------------------------
+\paragraph{Results}\n
+The results from \textsc{medline} \& \textsc{embase} on 2020 March 20 were:
+\begin{table}[h]
+  \centerline{\searchtable{summary}}
+\end{table}
+\par
+These results (5) then form our initial database for screening.
+% <<< SM_REVIEW >>>
+% ==============================================================================
+\subsection{Data Management}
+Based on the initial search,
+the bibliographic information (including abstract)
+of non-duplicate matching items will be
+exported from the search result in \textsc{xml} format,
+and uploaded to Covidence for abstract screening.
+Covidence provides tools for including and excluding items
+based on a set of user-defined criteria,
+tracking the results of review.
+\par
+The full texts of included items will then be sought
+using institutional access and support.
+%For each item, the data extraction form given in Appendix~\ref{app:form}
+%(Google Forms) will be completed.
+%Upon submission of the form, a row in the linked tabular database
+%(Google Sheets) will be automatically populated with the results.
+%Analysis of the tabular data will then be performed in Python,
+%with the aim of generating statistics and figures to answer
+%the \nameref{ss:questions}.
+% ==============================================================================
+\subsection{Selection Process}
+Following upload of the initial search results to Covidence,
+one reviewer (JK) will screen the abstracts for inclusion
+using the \nameref{ss:eligibility}.
+Unclear edge cases will be resolved by discussion with SM.
+% ==============================================================================
+\subsection{Data Extraction}
+%Appendix~\ref{app:form} gives the data extraction form to be used
+%for each included reference.
+%The form includes a combination of
+%short text inputs and pre-defined categorical variables
+%in the following sections:
+%\newcommand{\ibox}[1]{\parbox{0.25\linewidth}{#1}}
+%\begin{itemize}
+%	\item \ibox{Article meta-data:}     authors, journal, title, etc.
+%	\item \ibox{Model context:}         geography, time, research questions
+%	\item \ibox{Model approach:}        model type, code
+%	\item \ibox{Modelled populations:}  sex, age, risk, turnover, interventions
+%	\item \ibox{Modelled biology:}      \cdf, viral load, treatment
+%	\item \ibox{Modelled transmission:} modes, types of acts, partnership types, modifiers
+%	\item \ibox{Data:}                  calibration targets
+%\end{itemize}
+%Some short text inputs will capture semi-structured data,
+%such as the relative sizes of population strata, like:
+%\par
+%  \searchtext{HSF-low: 0.35, HSF-medium: 0.125, HSF-high: 0.025, ...}
+%\par
+%corresponding to: heterosexual females in the low risk group representing
+%$0.35$ proportion of the total population, etc.
+%Provided the input are structured in the suggested way,
+%the text can later be parsed in Python,
+%even though the population strata definitions may change from model to model.
+\par
+Data extraction and subsequent analysis will be completed by one reviewer (JK).
+% ==============================================================================
+\subsection{Quality Assessment}
+N/A
+% ==============================================================================
+\subsection{Data Synthesis}
+% ------------------------------------------------------------------------------
+\subsubsection{Question \ref{q:context}: Context}
+% In which contexts (geographies, populations, time periods) within SSA,
+% and for what applications (research questions) have HIV transmission models been used?
+\paragraph{Geography}
+We will summarize the proportion of models representing
+each of the following scales of geography:
+\emph{city, multiple cities, province, multiple provinces, country, multiple countries, regional}.
+Additionally, we will summarize the number of times each country has been modelled at the national level.
+\paragraph{Epidemic Phase}
+Since the efficacy of various interventions may depend on the epidemic phase, % Boily2002
+we will approximate epidemic phase using % @SM
+(a) the trend of overall \hiv incidence and prevalence
+at time of intervention roll-out (where applicable), using one of:
+\emph{increasing, decreasing, flat ($\pm 5\%$ relative per year), varies}; or
+(b) whether the time of intervention roll-out (where applicable) is:
+\emph{before, after, or within 5 years of peak overall \hiv prevalence}.
+\paragraph{Key Populations}
+For each of the following key populations:
+\begin{itemize}[topsep=0pt]
+  \item adolescent girls and young women (\textsc{agyw}) % @SM
+  \item female sex workers (\fsw)
+  \item \fsw clients
+  \item men who have sex with men (\textsc{msm})
+  \item people who inject drugs (\textsc{pwid})
+\end{itemize}
+we will summarize the proportion of models that:
+\begin{itemize}[topsep=0pt]
+  \item specifically model the population
+  \item use at least one population-specific behavioural data source for that country
+  \item calibrate the model to reflect at least one population-specific \hiv prevalence and/or incidence estimate
+\end{itemize}
+\paragraph{Interventions}
+For each of the following interventions:
+\begin{itemize}[topsep=0pt]
+  \item ART
+  \item PrEP
+  \item VMMC
+  \item HIV vaccine
+  \item TB treatment
+  \item STI coinfection treatment
+  \item condom use
+  \item other behavioural interventions
+\end{itemize}
+we will summarize the proportion of models that:
+\begin{itemize}[topsep=0pt]
+  \item model the intervention to reflect historical events
+  \item model future intervention as part of a research question
+  \item model the intervention as applied to all model populations equally
+        vs focused on specific populations
+\end{itemize}
+For those papers examining focused interventions,
+we will report the distribution of interventions and target populations.
+\paragraph{Research Questions}
+We aim to categorize all research questions according to the following idea:
+\emph{the impact of (X) on (Y)},
+where \emph{X} can be:
+\begin{itemize}[topsep=0pt]
+  \item epidemic context
+  \item intervention type
+  \item intervention targeting or scale
+  \item model assumptions
+\end{itemize}
+and \emph{Y} can be:
+\begin{itemize}[topsep=0pt]
+  \item projected epidemic
+  \item projection accuracy
+  \item intervention impact
+  \item intervention cost effectiveness
+\end{itemize}
+Papers may have multiple \emph{X} or \emph{Y}.
+% ------------------------------------------------------------------------------
+\subsubsection{Question \ref{q:hetero}: Parameterizations}
+% What parameterizations have been used to represent risk heterogeneity and mixing
+% in deterministic compartmental HIV transmission models applied to SSA?
+\paragraph{Risk}
+First, we will summarize the \emph{number} of risk groups employed by each model.
+Next, noting the proportionality between the basic reproduction number $R_o$
+and heterogeneity in partner change rates $H_c$:
+\begin{equation}
+  R_o \ge \beta D \underbrace{\left(\mu_c + \frac{\sigma_c^2}{\mu_c}\right)}_{H_c}
+\end{equation}
+we will estimate $H_c$ using:
+(a) the relative sizes of each risk group (as a proportion of total population), and
+(b) the average contact rates of each risk group;
+We will also note:
+(c) the relative incidence rates experienced by each risk group
+(relative to the lowest risk group).
+We will also consider alternative measures of risk dispersion based on the same data, such as
+the \emph{Gini coefficient}, and the \emph{index of dispersion}.
+Where risk group sizes and/or contact rates and/or relative incidence rates
+vary across time and/or model fits,
+we will attempt to use any reported posterior means where available,
+else any reported prior means,
+else we will exclude that paper from this part of the analysis.
+\paragraph{Transmission Modifiers}
+We will summarize the proportion of models which consider modification of
+the probability of transmission by each of the following factors:
+\begin{itemize}[topsep=0pt]
+  \item male circumcision
+  \item condom use
+  \item STI coinfection
+\end{itemize}
+Specifically, we will report proportions of models that consider:
+\begin{itemize}[topsep=0pt]
+  \item differences in the modifier by risk group
+  \item changes to the modifier over time
+\end{itemize}
+We will also note the proportion of models which simulated transmission
+at the sex-act vs partnership level.
+\paragraph{Age}
+\paragraph{Health}
+The major health dimensions of interest are as follows:
+\begin{itemize}[topsep=0pt]
+  \item \hiv viral load
+  \item \cdf count
+  \item \textsc{sti} coinfection
+\end{itemize}
+For each dimension, we will report:
+\begin{itemize}[topsep=0pt]
+  \item the proportion of papers which stratified by the dimension
+  \item the distribution of how many strata were defined along the dimension across papers
+  \item the proportion of papers that calibrated to country-specific data for this dimension
+\end{itemize}
+% ------------------------------------------------------------------------------
+\subsubsection{Question \ref{q:trends}: Trends}
+% How and why are particular parameterizations of risk heterogeneity and mixing
+% in deterministic compartmental HIV transmission models
+% associated with specific contexts and applications within SSA?
+In this research question, we are interested to know whether
+systemic biases have emerged in terms of which parameterizations
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography
+\clearpage
+\appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Full Search Terms \& Results}\label{app:search}
+Our search strategy and component results are as follows, where
+\searchtext{[section]} refers to the result from another section,
+\searchtext{term/} denotes a MeSH term, and
+\searchtext{.mp} searches the main text fields, including
+title, abstract, and heading words.
+\small
+\paragraph{Combined} \n\nobreak\searchtable{summary}
+\paragraph{Model}    \n\nobreak\searchtable{model}
+\paragraph{HIV}      \n\nobreak\searchtable{hiv}
+\paragraph{Exclude}  \n\nobreak\searchtable{exclude}
+\paragraph{SSA}      \n\nobreak\searchtable{ssa}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\includepdf[pages=1,pagecommand={\section{Data Extraction Form}\label{app:form}}]
+%{../data/extraction-form.pdf}
+%\includepdf[pages=2-,pagecommand={}]
+%{../data/extraction-form.pdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

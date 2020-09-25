@@ -1,0 +1,9 @@
+no,term,hits
+1,{model, theoretical/},238076
+2,{model, biological/},334921
+3,{computer simulation/},302802
+4,{patient-specific modeling/},196814
+5,{monte carlo method/},67459
+6,{exp stochastic processes/},32801
+7,{(model* ADJ3 (math* OR transmission OR dynamic* OR epidemi* OR compartmental OR deterministic OR individual OR agent OR network OR infectious disease* OR markov OR dynamic* OR simulat*)).mp.},455312
+8,{OR/ 1-7},1369153
