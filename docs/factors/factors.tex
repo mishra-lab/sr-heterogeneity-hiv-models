@@ -1,0 +1,198 @@
+\scriptsize
+% arrows
+\def\up{$+$}
+\def\mixed{$\pm$}
+\def\down{$-$}
+\def\unclear{$?$}
+% table
+\begin{tabular}{llp{.12\linewidth}p{.28\linewidth}cp{.30\linewidth}}
+\toprule
+  \textbf{Factor}
+& \textbf{Sub-Factor}
+& \textbf{Model Parameter(s)}
+& \textbf{Definition}
+& 
+& \textbf{Possible marginal influence on ART prevention impact and why}
+\\
+\midrule
+\multicolumn{6}{l}{Biological}
+\\
+\midrule
+  HIV Infection
+& Acute Infection
+& Trans Prob Per Act
+& Increased transmission probability immediately following infection
+& \down
+& Acute infection transmissions are unlikely to be prevented by ART
+\\
+  HIV Infection
+& Late Stage
+& Trans Prob Per Act
+& Increased transmission probability during late stage (symptomatic) phase
+& \up
+& Late-stage transmissions are more lilely to be prevented by ART
+\\
+  HIV Infection
+& Drug Resistance
+& Trans Prob Per Act
+& Factor (possibly transmitted) that delays viral suppression among a population subset
+& \down
+& Transmissions during longer delay to achieving viral suppression will not be prevented by ART
+\\
+  Sex Acts
+& Gender Differences
+& Trans Prob Per Act
+& Biological differences in transmission probability are considered (higher susceptibility among women)
+& \unclear
+& Unclear
+\\
+  Sex Acts
+& Circumcision
+& Trans Prob Per Act
+& Decreased transmission probability (lower susceptiblity among men)
+& \unclear
+& Unclear
+\\
+  Sex Acts
+& Anal Sex
+& Trans Prob Per Act; N Acts
+& Anal sex is considered, with higher receptive transmission probability
+& \down
+& If higher risk groups practice anal sex more; then higher risk heterogeneity increases R0 and the challenge of epidemic control
+\\
+  Sex Acts
+& STI Co-Infection
+& Trans Prob Per Act
+& Increased transmission probability due to coinfection
+& \down
+& If disproportionately affecting higher risk groups, then higher risk heterogeneity increases R0 and the challenge of epidemic control
+\\
+  HIV Infection
+& HIV Mortality
+& Mortality Rate
+& Increased HIV/AIDS associated mortality at during late-stage disease
+& \down
+& Reduced mortality via ART could increase the overall HIV prevalence
+\\
+\midrule
+\multicolumn{6}{l}{Social}
+\\
+\midrule
+  HIV Infection
+& HIV Morbidity
+& Partner Rate; N Acts
+& Reduced sexual activity associated with symptomatic HIV/AIDS during late stage disease
+& \up
+& Reduced morbidity via ART could increase HIV prevalence among sexually active population
+\\
+  Population Strata
+& Age
+& Partner Rate; Condom Use
+& Any stratification defined by age
+& \unclear
+& Unclear
+\\
+  Population Strata
+& Activity
+& Partner Rate; Condom Use
+& Any stratification defined by rate of partnership formation
+& \down
+& Higher risk heterogeneity increases R0 and the challenge of epidemic control
+\\
+  Population Strata
+& Key Populations
+& Partner Rate; Condom Use
+& Any epidemiologically defined higher risk groups, including: FSW, Clients, MSM, PWID, AGYW
+& \down
+& Higher risk heterogeneity increases R0 and the challenge of epidemic control
+\\
+  Turnover
+& Population
+& Birth Rate; Mortality Rate
+& Individuals enter into and exit from the overall population, reflecting the lifecourse of sexual activity
+& \down
+& Replacement of virally suppressed individuals ceasing sexual activity with susceptible individuals entering sexual activity could make ART coverage more difficult to achieve
+\\
+  Turnover
+& Activity; Key Pops
+& Internal Turnover
+& Individuals move between activity groups and/or key populations
+& \mixed
+& Lower risk heterogeneity as cumulative exposure to risk experienced by any one individual is reduced; but viral suppression may be achieved only after periods of highest risk
+\\
+  Mixing
+& Age
+& Mixing Matrix
+& Any assortative or semi-assortative mixing by age group, including older men with younger women
+& \unclear
+& Unclear
+\\
+  Mixing
+& Activity
+& Mixing Matrix
+& Any assortative mixing by activity group and/or key populations
+& \down
+& Higher risk heterogeneity increases R0 and the challenge of epidemic control
+\\
+  Partnership Types
+& Duration; Condom Use
+& N Acts
+& Some partnership types (casual, sex work) have decreased volume of sex and/or higher condom use versus other partnership types (steady)
+& \up
+& If only higher risk groups form such partnerships, then risk heterogeneity is reduced versus assuming all partnerships are equal
+\\
+  Partnership Types
+& Concurrent Types
+& Partner Rate
+& Partnership types are not defined by the risk groups involved, so e.g.\ higher risk groups can form steady partnerships too
+& \down
+& Higher risk heterogeneity versus assuming higher risk groups cannot form steady partnerships
+\\
+\midrule
+\multicolumn{6}{l}{Intervention}
+\\
+\midrule
+  Behaviour Change
+& HIV Counselling
+& Partner Rate; Condom Use
+& Reduced sexual activity / increased condom use associated with HIV diagnosis
+& \up
+& Increased HIV testing as part of ART scale-up can contribute to prevention benefits even before viral suppression is achieved
+\\
+  Behaviour Change
+& Risk Compensation
+& Partner Rate; Condom Use
+& Increased sexual activity / reduced condom use associated with ART (before or after viral suppression)
+& \down
+& Higher risk bevhaviour, especially before achieving viral suppression, could increas transmission risk
+\\
+  Historical
+& Any Prevention
+& Multiple
+& Any increase in prevention interventions reflecting observed trends
+& \down
+& Declining incidence due to other interventions reduces the potential for ART prevention benefit
+\\
+  Historical
+& ART 
+& Testing; Initiation; Viral Suppression Rates
+& Any increase in ART coverage reflecting observed trends
+& \down
+& Declining incidence due to other interventions reduces the potential for additional ART prevention benefit
+\\
+  Combination
+& Any Prevention
+& Multiple
+& Any increase in prevention interventions reflecting projected trends
+& \down
+& Declining incidence due to other interventions reduces the potential for additional ART prevention benefit
+\\
+  Gaps
+& ART 
+& Testing; Initiation; Viral Suppression Rates
+& Differential ART cascade coverage across activity groups and/or key populations, where higher risk groups have lower coverage
+& \down
+& Lower viral suppression among higher risk groups specifically could allow higher volumes of onward transmission to persist
+\\
+\bottomrule
+\end{tabular}
