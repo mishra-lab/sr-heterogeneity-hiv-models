@@ -1,0 +1,85 @@
+\newcommand{\projectroot}{../..}
+% spacing
+\usepackage[margin=4cm]{geometry}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\emergencystretch=5ex
+\usepackage[group-separator={,}]{siunitx}
+% fonts
+\usepackage[sc]{mathpazo}
+%\usepackage{tgpagella}
+\renewcommand*{\ttdefault}{cmtt}
+% links links links
+\usepackage[
+  colorlinks,
+  linkcolor=blue,
+  citecolor=red,
+]{hyperref}
+% formatng
+\usepackage{authblk}
+\usepackage{enumitem}
+\setitemize{itemsep=0pt}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage[table]{xcolor}
+%\rowcolors{2}{gray!20!white}{white}
+\graphicspath{{\projectroot/out/fig/}}
+\newcommand{\aff}[1]{\textsuperscript{#1}}
+\newcommand{\tn}[1]{{\textsuperscript{~#1}}}
+\newcommand{\tnt}[2][]{\textsuperscript{#1~}{#2}}
+\newcommand{\tabitem}{{\textbullet}~~}
+\newcommand{\underlabel}[2]{\underbrace{#1}_{\tiny\textrm{#2}}}
+\setlength{\abovecaptionskip}{1ex}
+\setlength{\belowcaptionskip}{1ex}
+\newcommand{\floatfoot}[2][\linewidth]{\vskip 1ex
+  \begin{minipage}{#1}\footnotesize#2\end{minipage}}
+\newcommand{\x}[1]{\input{\projectroot/out/tex/#1}\unskip}
+\usepackage{pdflscape,afterpage}
+% shorthands
+\renewcommand{\ss}[1]{\textsuperscript{#1}}
+\newcommand{\hreftt}[1]{\href{#1}{\texttt{#1}}}
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc}
+\newlength{\dx}\setlength{\dx}{.8cm}
+\tikzset{
+  prisma/.style = {
+    anchor = north,
+    draw = gray,
+    fill = gray!10!white,
+    align = center,
+    text width = 5.8\dx,
+    minimum height = 1.2\dx,
+    rounded corners = .1\dx,
+  },
+  arrow/.style = {
+    > = Latex,
+    ->,
+    thick,
+  }
+}
+% references
+\usepackage[
+  style=nature,
+  autocite=superscript,
+  doi=false,
+  url=false,
+  isbn=false,
+  natbib=true,
+  backend=bibtex,
+  sorting=none,
+]{biblatex}
+\renewcommand*{\bibfont}{\footnotesize}
+\renewcommand\namelabeldelim{\addnbspace}
+\renewcommand\multicitedelim{\addcomma\nobreakspace}
+\let\cite\supercite
+\addbibresource{/home/jesse/refs/library.bib}
+\addbibresource{/home/jesse/phd/proj/sr/refs/v2.bib}
+% search stuff
+\newcommand{\searchsize}{\footnotesize}
+\newcommand{\searchstyle}{\ttfamily\searchsize}
+\newcommand{\st}[1]{{\searchstyle#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1\linewidth}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1\linewidth}}

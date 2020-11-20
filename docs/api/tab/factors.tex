@@ -1,0 +1,116 @@
+\scriptsize\centering
+\renewcommand{\emph}[1]{\textbf{#1}}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{llp{.38\linewidth}p{.4\linewidth}}
+% {lcp{.3\linewidth}p{.4\linewidth}}
+
+  \toprule
+  \textbf{Factor}
+& \textbf{MP\tn{a}}
+& \textbf{Definition}
+& \textbf{Possible mechanism(s) of influence on ART prevention impact}
+\\
+\midrule
+  Acute Infection
+& $\beta_i$
+& Increased infectiousness immediately following infection\cite{Pilcher2004}
+& \emph{Biological}: transmissions during acute infection are unlikely to be prevented by ART
+\\
+  Late Stage Infection
+& $\beta_i$
+& Increased infectiousness during late stage infection
+& \emph{Biological}: transmissions during late-stage are more likely to be prevented by ART
+\\
+  Drug Resistance
+& $\beta_i$
+& Transmitted factor that requires regimen switch to achieve viral suppression
+& \emph{Biological}: transmissions during longer delay to achieving viral suppression will not be prevented by ART
+\\
+\midrule
+  HIV Mortality % ~ always included: remove?
+& $\mu$
+& Increased HIV/AIDS-associated mortality during late-stage disease\cite{}
+& \emph{Epidemic}: reduced mortality via ART could increase the overall HIV prevalence\cite{Salomon2005}
+\\
+  Population Turnover % ~ always included: remove?
+& $\nu$; $\mu$
+& Individuals enter into and exit from the sexually active population reflecting sexual lifecourse
+& \emph{Epidemic}: net replacement of exiting virally suppressed individuals with entering susceptible individuals
+could require greater ART initiation rates for the same coverage
+\\
+  Concurrent Interventions
+& varies
+& Any increase in prevention interventions reflecting observed or projected trends
+& \emph{Epidemic}: Declining incidence due to prevention interventions could reduce the potential for ART prevention benefit
+\\
+\midrule
+  HIV Morbidity
+& $c$; $\eta$
+& Reduced sexual activity during late stage disease\cite{}
+& \emph{Behavioural}: reduced morbidity via ART could increase HIV prevalence among the sexually active population
+\\
+  HIV Counselling
+& $c$; $\kappa$
+& Reduced sexual activity and/or increased condom use after HIV diagnosis
+& \emph{Behavioural}: increased HIV testing with ART scale up can contribute to prevention even before viral suppression is achieved
+\\
+  Risk Compensation
+& $c$; $\kappa$
+& Increased sexual activity and/or reduced condom use after ART initiation
+& \emph{Behavioural}: increased risk behaviour before achieving viral suppression could increase transmission risk
+\\
+\midrule
+  Activity Groups
+& $c$; $\kappa$
+& Any stratification by rate of partnership formation
+& \emph{Network}: higher transmission risk among higher activity
+\\
+  Key~Populations
+& $c$; $\kappa$
+& Any epidemiologically defined higher risk groups, including: FSW, Clients, MSM, PWID, AGYW
+& \emph{Network \& Coverage} higher transmission risk and barriers to viral suppression among key populations\cite{}
+\\
+  Age Groups
+& $c$; $\kappa$
+& Any stratification by age
+& \emph{Network \& Coverage}: higher transmission risk and barriers to viral suppression among youth\cite{}
+\\
+  Internal Turnover
+& $\phi$
+& Individuals move between activity groups and/or key populations reflecting sexual lifecourse
+& \emph{Network \& Coverage}: counteract effect of stratification due to shorter periods in higher risk;\cite{}
+viral suppression may be achieved only after periods of higher risk
+\\
+  Assortative Mixing
+& $m$
+& Any degree of assortative mixing by age, activity, and/or key populations
+& \emph{Network \& Coverage}: assortative sexual networks compound effect of stratification\cite{}
+\\
+  Partnership Types
+& $\eta$; $\kappa$
+& Different partnership types are simulated, with different volumes of sex and/or condom usage
+& \emph{Network \& Coverage}: generally shorter duration and higher condom use among higher risk partnerships
+\\
+  Anal Sex
+& $\beta_s$; $\eta$
+& Anal sex is simulated, with higher receptive transmission probability\cite{Baggaley2018}
+& \emph{Network \& Coverage}: higher prevalence of anal sex among key populations\cite{Owen2017}
+\\
+  STI Infection
+& $\beta_i$; $\beta_s$
+& Increased transmission probability due to STI infection\cite{}
+& \emph{Network \& Coverage}: higher prevalence of STI coincides with higher sexual activity\cite{}
+\\
+  ART Cascade Gaps
+& $\tau$; $\alpha$
+& Lower ART cascade coverage among higher risk groups or key populations\cite{}
+& \emph{Coverage}: ART prevention benefits may be allocated among lowest risk
+\\
+\bottomrule
+\end{tabular}
+\floatfoot{\tnt[a]{MP: Model Parameters ---
+  \input{params}}
+}
+% JK: factors we might be missing:
+%     - anything related to susceptibility? @RK
+%     - more specific mention of drop-out / adherence (e.g. Andrews2012)

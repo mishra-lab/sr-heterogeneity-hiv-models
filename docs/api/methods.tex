@@ -1,0 +1,151 @@
+We searched MEDLINE and EMBASE via Ovid
+using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling
+(Appendix~\ref{aa:search:terms}).
+Duplicate studies were removed automatically and also manually.
+Potentially relevant studies were identified by title and abstract screening.
+Further selection of studies and subsequent data extraction used
+the full text and any available supplementary material.
+One reviewer (JK) conducted the search and data extraction.
+% ==============================================================================
+\subsection{Inclusion/Exclusion Criteria}
+\label{ss:meth:criteria}
+A first set of criteria identified any studies applying
+dynamical models of sexual HIV transmission
+to any research question and context within SSA.
+A dynamical transmission model projects the number of new HIV infections
+based on model inputs and previous model outputs,
+thereby capturing nonlinear population-level transmission dynamics,
+such as indirect benefits of prevention interventions.
+Models were only included if they considered sexual transmission of HIV,
+possibly alongside other routes of transmission,
+such as mother-to-child and parenteral,
+and possibly alongside transmission of other infectious diseases
+such as other STI, tuberculosis, or malaria.
+We excluded studies without primary modelling results,
+such as commentaries and reviews, as well as conference publications.
+\par
+A second set of criteria was used to select studies using
+compartmental (vs individual-based) HIV transmission models,
+applied to assess the any outcome related to
+the prevention benefits of ART scale-up.
+These studies formed the basis of the analysis to answer
+our first and second research questions.
+A third set of criteria was used to select a subset of the above
+to answer our third research question.
+The subset were selected if they specifically examined
+scale-up of ART coverage alone (vs combination intervention),
+and reported incidence reduction or cumulative infections averted after X years,
+as compared to a base-case scenario reflecting reality.
+Complete inclusion/exclusion criteria are given in
+Appendix~\ref{aa:search:criteria}.
+% ==============================================================================
+\subsection{Data Extraction}
+\label{ss:meth:data}
+Most variables were extracted per-study,
+vs per-scenario within the study.
+We also noted whether studies used the same model,
+and whether identical analyses were conducted in multiple studies
+(for example, if a second study only added economic analysis to
+modelling results from an earlier study).
+% ------------------------------------------------------------------------------
+\subsubsection{Epidemic Context}
+\label{sss:meth:context}
+To answer our first research question, we extracted the following data.
+Studies were categorized by the geographic location (country and SSA region)
+and scale of the simulated population (city, sub-national, national, super-national),
+including whether multiple geographic contexts were considered.
+The epidemic phase was categorized based on
+the overall HIV prevalence and incidence at the time of
+intervention roll-out/scenario divergence,
+as well as the sign ($+/-/=$) of the first and second order derivatives of
+HIV prevalence and incidence, assessed visually from plots.
+Finally, we noted whether any key populations were simulated,
+in addition to the so-called general population.
+% ------------------------------------------------------------------------------
+\subsubsection{Factors of Risk Heterogeneity}
+\label{sss:meth:factors}
+For our second research question, we examined if and how
+the factors of risk heterogeneity outlined in Table~\ref{tab:heterogeneity}
+were simulated in each study.
+\par
+Special focus was given to the factors related to Network and Coverage Effects,
+due to the large variation in how these factors were simulated.
+% JK: @SM: two questions
+%     1. If so, ^ is this sufficient justification?
+%     2. Since most other factors in Table 1 are extracted like "included: yes/no",
+%        I didn't want to waste space here to re-define them all. Is that ok?
+We examined the number and defining characteristics of
+\emph{activity groups}, including
+sex, different rates of partnership formation, and different types of partnerships.
+We noted whether each of the following \emph{key populations} was included in the model:
+female sex workers (FSW);
+male clients of FSW (Cli);
+adolescent girls and young women (AGYW);
+men who have sex with men (MSM);
+and people who inject drugs (PWID).
+Any \emph{turnover} of individuals between
+activity groups and/or key populations was noted.
+Similarly, we noted whether ART coverage was assumed to be
+equal across modelled risk groups,
+possibly ignoring historical gaps/future challenges in reaching higher risk groups.
+\par
+We noted which of the following characteristics were used to define
+different sexual \emph{partnership types}:
+the risk groups involved;
+different volumes of sex
+(total number of coital acts per partnership,
+subsuming frequency and partnership duration);
+and different levels of condom use.
+We noted whether simulated partnerships represented
+any of the following identifiable types:
+main/spousal;
+casual/extramarital;
+commercial/sex work;
+and transactional (exchange of gifts/favours for sex, outside formal sex work).
+We noted whether models simulated any degree of assortative vs proportionate
+\emph{mixing} between activity groups.
+% If some partnership types were only formed by certain risk groups,
+% mixing was automatically considered assortative.
+% JK: ^ never actually comes up I think ...
+The number of unique \emph{age groups} was noted, as well as
+whether \emph{mixing} by age groups was
+proportionate, strictly assortative, or assortative with age differences.
+Finally, we noted whether age conferred any additional risk beyond mixing,
+such as higher rates of partnership formation.
+% JK: [TODO] anal sex & STI co-infection ?
+% ------------------------------------------------------------------------------
+\subsubsection{ART Prevention Impact}
+\label{sss:meth:api}
+For our third research question, we examined the subset of studies
+reporting incidence reduction or infections averted
+due to ART scale-up alone (see \ref{ss:meth:criteria}).
+We then extracted the following data for each ART scale-up scenario within each study.
+We noted: the years that ART scale-up started and stopped, corresponding to
+the time each scenario diverged from the base-case scenario;
+the time ART coverage or initiation rates stabilized following scale-up;
+the final overall ART coverage achieved and/or
+the final ART initiation rate (per person-year among PLHIV);
+the criteria for ART initiation (e.g. CD4 count);
+and the assumed relative reduction in transmission probability on ART .
+Then, we extracted two population-level ART prevention outcomes
+from in-text, tabular, and figure data:
+relative reduction in incidence (\%) or proportion of infections averted (\%)
+reported for different time horizons relative to the start of ART scale-up.
+Figure data were extracted for any of the following time horizons, if available:
+5, 10, 15, 20, 30, and 40 years,
+with the help of a graphical measurement tool.%
+\footnote{WebPlotDigitizer: \hreftt{https://apps.automeris.io/wpd/}}
+\par
+Finally, to quantify the potential influence of different factors of heterogeneity
+on projected incidence reduction and infections averted (outcomes),
+we fit a multivariate regression model for each outcome,
+and computed the partial correlation coefficients associated with each factor.
+% JK: I'm still not 100% this is the best approach since the outcome is bounded...
+%     I've asked the stats community here: https://stats.stackexchange.com/questions/497305
+%     and what do you think about reaching out to Dr Escobar for his thoughts?
+% ----
+% JK: I use the word "noted" about a bajillion times here
+%     since it is short and unpretentious,
+%     and I personally find the meaning clear in this context. @SM hoping you agree?
+% JK: Also, I use the word "study" to essentially mean article,
+%     but perhaps we should use "article" throughout instead?
