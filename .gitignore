@@ -7,8 +7,9 @@ Rplots.pdf
 *.pyc
 __pycache__/
 
-# pdfs
+# refs
 refs/pdf/
+refs/v2.bib
 
 # tex
 *.aux

@@ -1,0 +1,61 @@
+[
+  {
+    "name": "database hits",
+    "N": 2134,
+    "removed": {
+      "duplicate": 767
+    }
+  },{
+    "name": "abstract screening",
+    "N": 1367,
+    "removed": {
+      "irrelevant": 595
+    }
+  },{
+    "name": "full text assessed",
+    "N": 772,
+    "removed": {
+      "duplicate": 4,
+      "no full text": 2,
+      "not English": 2,
+      "conference publication": 61,
+      "opinion / comment": 43,
+      "review article": 5,
+      "protocol": 2,
+      "not SSA": 9,
+      "no transmission model": 118,
+      "not dynamical transmission model": 136,
+      "not HIV dynamical transmission model": 25
+    },
+    "added": {
+      "cited studies": 12
+    }
+  },{
+    "name": "dynamical HIV transmission model",
+    "N": 377,
+    "removed": {
+      "individual-based model": 105,
+      "model comparison": 17
+    }
+  },{
+    "name": "compartmental dynamical HIV transmission model",
+    "N": 255,
+    "removed": {
+      "no ART prevention impact": 161
+    }
+  },{
+    "name": "assessed ART prevention impact",
+    "N": 94,
+    "removed": {
+      "only combination interventions": 23,
+      "reported other measures": 14,
+      "no status quo base case": 8,
+      "only targeted ART": 4,
+      "parameter association": 4,
+      "repeated analysis": 1
+    }
+  },{
+    "name": "reported prevention impact of ART alone",
+    "N": 40
+  }
+]
