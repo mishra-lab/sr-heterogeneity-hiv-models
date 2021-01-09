@@ -11,9 +11,10 @@ __pycache__/
 refs/pdf/
 refs/v2.bib
 
-# out
-out/fig/api/  # TEMP
-out/fig/dist/ # TEMP
+# out (TEMP)
+out/fig/api/
+out/fig/dist/
+out/tex/
 
 # tex
 *.aux
