@@ -1,0 +1,25 @@
+\documentclass[margin=5mm]{standalone}
+\usepackage[sc,osf]{mathpazo}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\newlength{\dx}\setlength{\dx}{8mm}
+\tikzset{
+  prisma/.style = {
+    anchor = north,
+    draw = gray,
+    fill = gray!10!white,
+    align = center,
+    text width = 5.5\dx,
+    minimum height = 1.5\dx,
+    rounded corners = .1\dx,
+    inner sep = .2\dx
+  },
+  arrow/.style = {
+    > = Latex,
+    ->,
+    thick,
+  },
+}
+\begin{document}
+\input{prisma}
+\end{document}

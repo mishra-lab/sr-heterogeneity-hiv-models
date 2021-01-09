@@ -1,0 +1,42 @@
+\newcommand{\prismatn}[2]{\textbf{#2} (N~{=}~#1)}%
+\newcommand{\prismain}[2]{\parbox{4ex}{\hfill#1}: #2\\}%
+\begin{tikzpicture}[xscale=5.5,yscale=1.8]
+  \scriptsize
+  % boxes
+  \node[prisma](a0) at (0, 0.0) {\prismatn{2134}{Database search hits\\}};
+  \node[prisma](a1) at (1, 0.0) {\prismatn {767}{Duplicates removed automatically\\}};
+  \node[prisma](b0) at (0,-1.0) {\prismatn{1367}{Abstracts screened\\}};
+  \node[prisma](b1) at (1,-1.0) {\prismatn {595}{Irrelevant\\}};
+  \node[prisma](c0) at (0,-2.0) {\prismatn {772}{Full texts assessed\\}};
+  \node[prisma](c1) at (1,-2.0) {\prismatn {424}{Excluded}\\\raggedright
+    \prismain{  4}{Duplicate}
+    \prismain{115}{Publication type}
+    \prismain{118}{No transmission modelling}
+    \prismain{136}{Not dynamical model}
+    \prismain{ 12}{Not SSA}
+    \prismain{ 25}{Not HIV}
+    \prismain{ 17}{Model comparison}};
+  \node[prisma](d0) at (0,-3.7) {\prismatn{360}{Dynamical HIV transmission model\\}};
+  \node[prisma](d1) at (1,-3.7) {\prismatn{266}{Excluded}\\\raggedright
+    \prismain{105}{Individual-based model}
+    \prismain{161}{No ART scale-up scenario}};
+  \node[prisma](e0) at (0,-4.7) {\prismatn{94}{Any ART scale-up scenario\\}\\\textit{Dataset~A}};
+  \node[prisma](e1) at (1,-4.7) {\prismatn{54}{Excluded}\\\raggedright
+    \prismain{23}{Only combination interventions}
+    \prismain{14}{Reported other measures}
+    \prismain{ 8}{No status quo base case scenario}
+    \prismain{ 4}{Only ART targeted to risk groups}
+    \prismain{ 1}{Repeated modelling analysis}};
+  \node[prisma](f0) at (0,-5.7) {\prismatn{40}{Infections averted / incidence reduction due to ART scale-up for all\\}\\\textit{Dataset~B}};
+  % arroes
+  \draw[arrow] (a0) -- (a1);
+  \draw[arrow] (a0) -- (b0);
+  \draw[arrow] (b0) -- (b1);
+  \draw[arrow] (b0) -- (c0);
+  \draw[arrow] (c0.east) -- (c1.west|-c0.east);
+  \draw[arrow] (c0) -- node[right]{$+12$ Cited Studies} (d0);
+  \draw[arrow] (d0.east) -- (d1.west|-d0.east);
+  \draw[arrow] (d0) -- (e0);
+  \draw[arrow] (e0.east) -- (e1.west|-e0.east);
+  \draw[arrow] (e0) -- (f0);
+\end{tikzpicture}
