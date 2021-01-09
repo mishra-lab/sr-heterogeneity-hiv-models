@@ -1,12 +1,15 @@
-# VERB = TRUE
-VERB = FALSE
+VERB = TRUE
+# VERB = FALSE
+# SAVE = TRUE # TODO: implement this
+set.seed(5040)
+options(width=200,scipen=100)
 
-path.tex = function(name){
-  return(file.path(Sys.getenv('ROOT'),'out','tex',name))
+path.tex = function(...){
+  return(file.path(Sys.getenv('ROOT'),'out','tex',...))
 }
 
-path.fig = function(name){
-  return(file.path(Sys.getenv('ROOT'),'out','fig',name) %>% paste0('.pdf'))
+path.fig = function(...){
+  return(file.path(Sys.getenv('ROOT'),'out','fig',...) %>% paste0('.pdf'))
 }
 
 # FFS R you GD unicorn
@@ -17,24 +20,44 @@ regex = function(re,strings){
   }))
 }
 
-save.tex = function(string,fname){
+save.tex = function(string,fname,dir='',na='---'){
+  string = gsub('NA',na,paste(string))
   if (VERB){ print(paste('tex:',fname)) }
-  cat(string,file=path.tex(fname))
+  cat(string,file=path.tex(dir,fname))
 }
 
-save.plot = function(g,fname,width=6,height=3.5){
-  if (VERB){ print(paste('fig:',fname)); print(g) }
-  ggsave(path.fig(fname),plot=g,width=width,heigh=height)
+save.plot = function(g,fname,dir='',width=6,height=3.5){
+  if (VERB){ print(paste('fig:',fname)); }
+  ggsave(path.fig(dir,fname),plot=g,width=width,heigh=height)
+  return(NULL)
+}
+
+do.count = function(x){
+  return(sum(x,na.rm=TRUE))
+}
+
+print.p = function(p,d=3){
+  pr = round(p,d=d)
+  return(ifelse(pr,paste(pr),paste('$<$',10^-d)))
 }
 
 print.count = function(x,pct=FALSE){
   return(paste0(
-    sprintf('%d',sum(x,na.rm=TRUE)),
+    sprintf('%d',do.count(x)),
     ifelse(pct,sprintf('~(%.0f)',100*mean(x,na.rm=TRUE)),'')
   ))
 }
 
-save.count = function(x,name){
-  save.tex(print.count(x),namefun('n',name))
-  save.tex(print.count(x,pct=TRUE),namefun('n',name,'pct'))
+save.count = function(x,name,dir='',pct=FALSE){
+  save.tex(print.count(x),namefun('n',name),dir)
+  if (pct){
+    save.tex(print.count(x,pct=TRUE),namefun('n',name,'pct'),dir)
+  }
+}
+
+save.count.fct = function(x,name,dir='',pct=FALSE){
+  for (level in levels(x)){
+    save.count(x==level,namefun(name,level),dir,pct)
+  }
+  save.count(is.na(x),namefun(name,'NA'),dir,pct)
 }

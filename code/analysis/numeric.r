@@ -1,139 +1,226 @@
-do.counts = function(X){
-  # general characteristics
-  save.count(X$stage==1,'all')
-  save.count(X$det.or.stoc=='det', 'det')
-  save.count(X$comp.or.ind=='comp','comp')
-  # geo.scale
+numeric.main = function(X){
+  # basic counts
+  dir = tex.dir('n')
+  save.count(X$api.include %in% c('Y','x'),'A',dir)
+  save.count(X$api.include=='Y','B',dir)
+  numeric.geo(X)
+  numeric.co(X)
+  numeric.t0(X)
+  numeric.kp(X)
+  numeric.act(X)
+  numeric.age(X)
+  numeric.pt(X)
+  numeric.hiv(X)
+  numeric.art(X)
+  numeric.cov(X)
+}
+numeric.geo = function(X){
+  dir = tex.dir('geo')
   for (scale in M$geo$all){
-    save.count(X$geo.scale == scale, namefun('geo',scale))
+    save.count(X$geo.scale == scale, namefun(scale), dir)
   }
-  for (scale in c('city','sub.national','national')){
-    save.count(X$geo.scale %in% scale, namefun('geo','any',scale))
+  for (scale in c('sub.ssa','nat','sub.nat','city')){
+    save.count(X$geo.scale %in% M$geo[[scale]], namefun('any',scale), dir)
   }
-  # countries
+}
+numeric.co = function(X){
+  dir = tex.dir('co')
   co.data = load.co.data()
   mph = double(0)
+  n.co.other = 0
   for (co in get.cols.co(X)){
-    name  = sub('co\\.','',co)
+    name = sub('co\\.','',co)
     plhiv = co.data[name,'plhiv']/1e6
     mph.co = sum(X[[co]])/plhiv
     mph = c(mph,ifelse(is.na(mph.co),0,mph.co))
-    save.count(X[[co]], namefun(name))
-    save.tex(round(mph.co,d=2), namefun('mph',name))
+    save.count(X[[co]], namefun(name), dir)
+    save.tex(round(mph.co,d=2), namefun('mph',name), dir)
   }
-  save.tex(median(mph), namefun('mph','med'))
-  # risk groups
-  save.count(X$RG.def.sex, 'RG.sex')
-  save.count(X$RG.def.np,  'RG.np')
-  save.count(X$RG.def.pt,  'RG.pt')
-  save.count(X$RG.turnover,'RG.turnover')
-  save.count(X$RG.turn.bal,'RG.turn.bal')
-  save.count(X$age.n > 1,  'RG.age')
-  save.count(X$risk,       'RG.risk')
-  # key pops
-  for (kp in M$kp$main){
-    save.count(X[[namefun('RG.KP',kp,'semi')]], namefun('KP',kp,'semi'))
-    save.count(X[[namefun('RG.KP',kp)]], namefun('KP',kp))
-  }
-  save.count(0,'KP.agyw')
-  # partnership types
-  for (pt in M$pt$main){
-    name.semi = namefun('PT',pt,'semi')
-    name      = namefun('PT',pt)
-    save.count(X[[name.semi]], name.semi)
-    save.count(X[[name]],      name)
-  }
-  # interventions
-  Xi = X[X$RQi.Any.Any,]
-  for (int in M$int$main){
-    save.count(Xi[[namefun('RQi',int,'Any')]], namefun('RQi',int))
-    save.count(Xi[[namefun('RQi',int,'All')]], namefun('RQi',int,'all'))
-    save.count(Xi[[namefun('RQi',int,'Pri')]], namefun('RQi',int,'pri'))
-  }
-  save.count(Xi$RQi.ARTCD4.Any | Xi$RQi.ARTUTT.Any, namefun('RQi','ART.any'))
-  save.count(Xi$RQi.ARTCD4.Pri | Xi$RQi.ARTUTT.Pri, namefun('RQi','ART.pri'))
-  save.count(Xi$RQi.ARTCD4.Any & Xi$RQi.ARTUTT.Any, namefun('RQi','ART.both'))
-  # historical
-  for (int in M$int$BHi){
-    save.count(X[[namefun('BHi',int)]], namefun('BHi',int))
-  }
-  # ART < 2011, 2015
-  for (year in c(2011,2015)){
-    Xy = X[X$pub.year<year,]
-    save.count(Xy$RQi.ARTCD4.All, namefun('RQi',year,'ARTCD4','all'))
-    save.count(Xy$RQi.ARTUTT.All, namefun('RQi',year,'ARTUTT','all'))
-    save.count(Xy$RQi.ARTCD4.Pri, namefun('RQi',year,'ARTCD4','pri'))
-    save.count(Xy$RQi.ARTUTT.Pri, namefun('RQi',year,'ARTUTT','pri'))
-  }
-  # int combos
-  combos = combo.fun(Xi)
-  for (name in names(combos)){
-    save.tex(combos[[name]],namefun('n.combo',name))
-  }
-  # misc
-  save.count(X$hiv.acute,'hiv.acute')
-  save.count(X$age.risk, 'age.risk')
-  save.count(X$age.n > 1, 'age.any')
-  save.count(X$age.mix=='prop', 'age.mix.prop')
-  save.count(X$age.mix=='asso', 'age.mix.asso')
-  save.count(X$age.mix=='offd', 'age.mix.offd')
+  save.tex(round(median(mph),d=2), namefun('mph','med'), dir)
+  co.popular = c('co.South Africa','co.Kenya','co.Zambia')
+  co.other = setdiff(get.cols.co(X),co.popular)
+  save.count(anyfun(X[,co.other]),namefun('other'), dir)
 }
-
-combo.fun = function(X){
-  Xc = X[X$RQix.combo,]
-  combos = list()
-  for (i in 1:nrow(Xc)){
-    combo = ''
-    for (int in M$int$Any){
-      name = namefun('RQi',int,'Any')
-      if (name %in% names(Xc) & Xc[i,name]){
-        combo = paste(combo,int,sep='.')
+numeric.t0 = function(X){
+  dir = tex.dir('t0')
+  save.distr(X$api.t0,   't0', dir, d=0)
+  save.distr(X$api.prev, 'prev', dir, d=0)
+  save.distr(X$api.inc,  'inc',  dir, d=0)
+  save.count.fct(X$api.prev.cat, 'prev',  dir)
+  save.count.fct(X$api.phase,    'phase', dir)
+}
+numeric.kp = function(X){
+  dir = tex.dir('kp')
+  for (kp in C$kp){
+    save.count(X[[kp]], tailfun(kp), dir)
+  }
+  # FSW
+  save.count(X$kp.FSW.named, 'FSW.named', dir)
+  Xn = X[ X$kp.FSW.named,]
+  Xu = X[!X$kp.FSW.named,]
+  save.count.fct(X$kp.FSW.crit,  'FSW.crit',   dir)
+  save.count.fct(Xn$kp.FSW.crit, 'FSW.n.crit', dir)
+  save.count.fct(Xu$kp.FSW.crit, 'FSW.u.crit', dir)
+  save.count(as.numeric(Xn$kp.FSW.crit) < 3+1, 'FSW.n.crit.fail', dir)
+  # clients
+  save.count(X$kp.Cli.named, 'Cli.named', dir)
+  Xn = X[ X$kp.Cli.named,]
+  Xu = X[!X$kp.Cli.named,]
+  save.count.fct(X$kp.Cli.crit,  'Cli.crit',   dir)
+  save.count.fct(Xn$kp.Cli.crit, 'Cli.n.crit', dir)
+  save.count.fct(Xu$kp.Cli.crit, 'Cli.u.crit', dir)
+  save.count(as.numeric(Xn$kp.Cli.crit) < 1+1, 'Cli.n.crit.fail', dir)
+  save.count(X$kp.Cli.p, 'Cli.p', dir)
+}
+numeric.act = function(X){
+  dir = tex.dir('act')
+  save.distr(X$act.n,   'act.n',   dir, d=0)
+  save.distr(X$act.n.z, 'act.n.z', dir, d=0)
+  for (col in C$act.def){
+    save.count(X[[col]], col,  dir)
+  }
+  save.distr(100 * X$act.HRW.p, 'hrw.p', dir, d=0)
+  save.distr(100 * X$act.HRM.p, 'hrm.p', dir, d=0)
+  save.count(X$act.turn.any, 'turnover.any', dir)
+  save.count.fct(X$act.turnover, 'turnover', dir)
+  save.count(X$mc, 'mc', dir)
+}
+numeric.pt = function(X){
+  dir = tex.dir('pt')
+  save.count.fct(X$act.mix, 'mix', dir)
+  for (pt in M$pt$types){
+    save.count(X[[namefun('pt',pt)]],        namefun(pt),        dir)
+    save.count(X[[namefun('pt',pt,'semi')]], namefun(pt,'semi'), dir)
+    save.count(X[[namefun('pt',pt,'any')]],  namefun(pt,'any'),  dir)
+  }
+  for (def in M$pt$def){
+    Xd = X[X$pt.def == def,]
+    save.count(Xd$pt.feat.vol,    namefun(def,'vol'),    dir)
+    save.count(Xd$pt.feat.condom, namefun(def,'condom'), dir)
+    for (pt in M$pt$types){
+      save.count(Xd[[namefun('pt',pt)]],        namefun(def,pt),        dir)
+      save.count(Xd[[namefun('pt',pt,'semi')]], namefun(def,pt,'semi'), dir)
+      save.count(Xd[[namefun('pt',pt,'any')]],  namefun(def,pt,'any'),  dir)
+    }
+  }
+  save.count.fct(X$pt.def, 'pt', dir)
+  save.count.fct(X$pt.def.act.drive, 'act.drive', dir)
+}
+numeric.age = function(X){
+  dir = tex.dir('age')
+  save.count(X$age.n>1 | X$age.n.cts, 'age.any', dir)
+  save.distr(X[X$age.n>1,'age.n'],    'age.n',   dir, d=0)
+  save.count(X$age.n>1,     'age.cat', dir)
+  save.count(X$age.n.cts,   'age.cts', dir)
+  save.count(X$age.risk,    'risk',    dir)
+  save.count.fct(X$age.mix, 'mix',     dir)
+}
+numeric.hiv = function(X){
+  dir = tex.dir('hiv')
+  save.distr(X$hiv.n, 'hiv.n', dir, d=0)
+  save.count(X$hiv.n.cts,   'hiv.cts',   dir)
+  save.count(X$hiv.x.acute, 'hiv.acute', dir)
+  save.count(X$hiv.x.late,  'hiv.late',  dir)
+  save.count(X$hiv.mort,    'hiv.mort',  dir)
+  for (col in C$hiv.def){
+    save.count(X[[col]], col, dir)
+  }
+  save.count(X$hiv.morb.any,'hiv.morb.any',dir)
+  for (col in C$hiv.morb){
+    save.count(X[[col]], col, dir)
+  }
+}
+numeric.art = function(X){
+  dir = tex.dir('art')
+  save.distr(X$art.rbeta, 'rbeta', dir, d=2)
+  save.count.fct(X$art.rbeta.x, 'rbeta.x', dir)
+  for (col in c(C$art.x,C$art.r)){
+    save.count(X[[col]], col, dir)
+  }
+  save.count(X$art.r.frop, 'art.r.frop', dir)
+  save.count(X$art.drop.any, 'art.drop.any', dir)
+  save.count(X$art.fail.any, 'art.fail.any', dir)
+  save.count(X$art.tdr,      'tdr',    dir)
+  for (col in C$dx.bc){
+    save.count(X[[col]], col, dir)
+  }
+  save.count(X$bc.any, 'bc.any', dir)
+  save.count(X$dx.bc.any, 'dx.bc.any', dir)
+  save.count(X$art.bc.cond, 'art.bc.cond', dir)
+  save.count(X$bc.cond.any, 'bc.cond.any', dir)
+}
+numeric.cov = function(X){
+  dir = tex.dir('cov')
+  save.count(X$diff.any.any,  'diff.any.any',  dir)
+  save.count(X$diff.any.any.j,'diff.any.any.j',dir)
+  for (grp in M$diff$grp){
+    col = namefun('diff','any',grp)
+    save.count(X[[col]], col, dir)
+  }
+  for (col in C$diff){
+    save.count(X[[col]], col, dir)
+    save.count(X[[namefun(col,'H')]],namefun(col,'H'),dir)
+  }
+}
+save.api.count = function(bib,x,name,dir='n'){
+  save.count(x,namefun('s',name),dir)
+  save.count(length(unique(bib[x])),namefun('a',name),dir)
+}
+numeric.api = function(XA,agg=FALSE){
+  # counts
+  save.api.count(XA$bib,!logical(nrow(XA)),'api')
+  save.api.count(XA$bib,XA$api.inc.any,'api.inc')
+  save.api.count(XA$bib,XA$api.chi.any,'api.chi')
+  save.api.count(XA$bib,XA$api.both.any,'api.both')
+  # distributions
+  dir = tex.dir('api')
+  funs = c('q2','q1','q3')
+  for (which in c('chi','inc')){
+    dir = tex.dir(file.path('api',which))
+    XA. = make.api.data(XA,which=which)
+    for (var in M$api$table){
+      if (agg){
+        XA.v = agg.api.data(XA.,fun=median,var)
+      } else {
+        XA.v = XA.
+      }
+      x = XA.v[[var]]
+      y = XA.v[['value']] * 100
+      if (!is.factor(x)){
+        if (is.logical(x)){
+          x = factor(x,levels=c(FALSE,TRUE),labels=c('N','Y'))
+        } else {
+          x = factor(x)
+        }
+      }
+      f = formula(paste('value ~',var))
+      test = kruskal.test(f,data=XA.v)
+      save.tex(print.p(test$p.value,d=3),namefun(var,'pval'),dir=dir)
+      for (level in levels(x)){
+        save.distr(y[x==level],namefun(var,level),dir=dir,d=0,funs=funs)
+        save.count(  x==level, namefun(var,level),dir=dir)
       }
     }
-    combo = sub('^\\.','',combo)
-    if (combo %in% names(combos)){
-      combos[[combo]] = 1 + combos[[combo]]
-    } else {
-      combos[[combo]] = 1
-    }
   }
-  return(combos)
 }
-
-do.distrs = function(X){
-  distr.fun(X$age.n, 'age.n')
-  distr.fun(X$RG.n,  'RG.n')
-  distr.fun(X$RG.z.n,'RGz.n')
-  distr.fun(X$hiv.n, 'hiv.n')
-}
-
-distr.fun = function(x,name){
+save.distr = function(x,name,dir='',d=2,funs=NULL){
+  fun.list = list(
+    mu = function(x){ mean(x) },
+    sd = function(x){ sd(x) },
+    q0 = function(x){ quantile(x,  0) },
+    q1 = function(x){ quantile(x,.25) },
+    q2 = function(x){ quantile(x,.50) },
+    q3 = function(x){ quantile(x,.75) },
+    q4 = function(x){ quantile(x,  1) }
+  )
+  if (is.null(funs)) { funs = names(fun.list) }
   x = x[!is.na(x)]
-  save.tex(round(mean(x),d=2), namefun(name,'mu'))
-  save.tex(round(sd(x),  d=2), namefun(name,'sd'))
-  save.tex(quantile(x,.25),    namefun(name,'q1'))
-  save.tex(quantile(x,.50),    namefun(name,'q2'))
-  save.tex(quantile(x,.75),    namefun(name,'q3'))
-}
-
-do.tests = function(X){
-  # beh vs year
-  S = summary(glm((RQi.Partners.Any|RQi.Condoms.Any)~pub.year,data=X))$coefficients
-  save.tex(round(S['pub.year','Estimate'],3),'behi-vs-pub.year-beta')
-  save.tex(round(S['pub.year','Pr(>|t|)'],3),'behi-vs-pub.year-p')
-  # BHi vs year
-  S = summary(glm(BHix.combo~pub.year,data=X))$coefficients
-  save.tex(round(S['pub.year','Estimate'],3),'BHi-vs-pub.year-beta')
-  save.tex(round(S['pub.year','Pr(>|t|)'],3),'BHi-vs-pub.year-p')
-  # RG.n vs year
-  S = summary(glm(RG.n~pub.year,data=X))$coefficients
-  save.tex(round(S['pub.year','Estimate'],3),'RG.n-vs-pub.year-beta')
-  save.tex(round(S['pub.year','Pr(>|t|)'],3),'RG.n-vs-pub.year-p')
-  # RG.n vs int
-  for (int in M$int$main){
-    RQi = namefun('RQi',int,'Any')
-    S = summary(glm(paste0('RG.n~',RQi),data=X))$coefficients
-    save.tex(round(S[paste0(RQi,TRUE),'Estimate'],3),paste0('RG.n-vs-',int,'-beta'))
-    save.tex(round(S[paste0(RQi,TRUE),'Pr(>|t|)'],3),paste0('RG.n-vs-',int,'-p'))
+  for (f in funs){
+    fun = fun.list[[f]]
+    save.tex(round(fun(x),d=d),namefun(name,f), dir)
   }
+}
+tex.dir = function(dir){
+  dir.create(path.tex(dir), showWarnings=FALSE)
+  return(dir)
 }

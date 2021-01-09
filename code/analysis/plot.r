@@ -1,147 +1,103 @@
+plot.api.list = function(XA,drop=FALSE,...){
+  args = c(...)
+  if (length(args)){ plot.vars = args } else { plot.vars = P$api }
+  for (which in c('chi','inc')){
+    XA. = make.api.data(XA,which=which)
+    for (var in plot.vars){
+      XA. %>% make.bib.wt %>%
+        plot.api(which=which,drop=drop,color=var,size='wt') %>%
+        save.plot(namefun(which,'s',var),dir='api',width=5,height=4)
+      XA. %>% agg.api.data(fun=median,var) %>%
+        plot.api(which=which,drop=drop,color=var) %>%
+        save.plot(namefun(which,'a',var),dir='api',width=5,height=4)
+    }
+  }
+}
+
+plot.api = function(XAi,which='chi',drop=FALSE,...){
+  ylabs = list(
+    'chi' = 'Cumulative HIV Infections Averted',
+    'inc' = 'Reduction in HIV Incidence'
+  )
+  args = list(...)
+  clr = XAi[[ifelse(is.null(args$color),NA,args$color)]]
+  s   = XAi[[ifelse(is.null(args$size), NA,args$size )]]
+  size.lims = 4*c(ifelse(length(s),min(s),1),ifelse(length(s),max(s),1))
+  clr.args = list(option='inferno',end=.85)
+  if (!is.numeric(clr)){ clr.args = c(clr.args,list(discrete=TRUE,drop=drop)) }
+  g = ggplot(XAi,aes_string(x='t',y='value',...,size=3)) +
+      geom_hline(yintercept=0,color='gray') +
+      geom_point(alpha=.6,position='jitter') +
+      ylim(-.15,  1) + ylab(ylabs[[which]]) +
+      xlim(   0, 40) + xlab('Time since Roll-Out (years)') +
+      scale_size(range=size.lims) +
+      guides(size=FALSE) +
+      do.call(scale_color_viridis,clr.args) +
+      theme_light()
+  return(g)
+}
+
 plot.map.co = function(X,fill='PLHIV',size='Count'){
   colnames(X) <- gsub('co.','',colnames(X))
   Xc = load.co.polygons()
   Xc[[size]] = sapply(Xc$name,
-    function(co){ ifelse(co %in% colnames(X), sum(X[[co]],na.rm=TRUE), 0) })
+    function(co){ ifelse(co %in% colnames(X), sum(X[[co]],na.rm=TRUE), NA) })
   g = ggplot(Xc) +
       geom_sf(aes_string(fill=fill),
         alpha = 0.8, color = 'gray') +
       geom_segment(aes(x=X,y=Y,xend=X0,yend=Y0),alpha=.5,size=.2) +
       geom_point(aes_string(x='X',y='Y',size=size),
-        alpha = 0.5) +
-      viridis::scale_fill_viridis(option='viridis') +
-      scale_radius(range=c(-.5,15)) +
+        alpha = 0.6, color = 'red') +
+      scale_fill_viridis(option='inferno',end=.85) +
+      scale_size(range=c(-.5,15)) +
       xlab(NULL) + ylab(NULL) +
       theme_light()
-  
   return(g)
 }
 
-plot.risk.cascade = function(X){
-  comp  = X$comp.or.ind == 'comp'
-  aall  = comp & (X$RQi.Any.All & (X$RQi.ARTCD4.Any | X$RQi.ARTUTT.Any))
-  risk  = aall & (X$risk)
-  kpop  = risk & (X$RG.KP.Any)
-  cgaps = risk & (X$RQix.gaps)
-  ART.by = factor(X$RQi.ARTCD4.Any + 2*X$RQi.ARTUTT.Any,
-    levels = c(0,1,3,2),
-    labels = c('None','CD4','Both','UTT')
-  )
-  g = data.frame(aall,risk,kpop,cgaps,ART.by) %>%
-    pivot_longer(-c('ART.by'),names_to='char',values_to='.') %>%
-    filter(as.logical(.)) %>%
-    mutate(char=fct_relevel(char,'aall','risk','kpop','cgaps')) %>%
-    mutate(char=fct_recode(char,
-      'ART for All Risk' = 'aall',
-      'Any Risk Strata'  = 'risk',
-      'Any Key Pops'     = 'kpop',
-      'Coverage Gaps'    = 'cgaps',
-    )) %>%
-    ggplot(aes(x=char,fill=ART.by)) + geom_bar(alpha=.8) +
-    ylab('Count') + xlab('Model Characteristic') +
-    scale_y_continuous(sec.axis = sec_axis(~100*./sum(aall),name='%')) +
-    viridis::scale_fill_viridis(option='viridis',discrete=TRUE) +
-    theme_light() +
-    theme(legend.position=c(.99,.99),legend.justification=c(1,1))
-  return(g)
-}
-
-plot.ints.cooc.hh = function(X){
-  plot.ints.cooc(
-    get.BHi.ints(X),
-    get.BHi.ints(X)
-  ) + xlab('Historical') + ylab('Historical')
-}
-
-plot.ints.cooc.hn = function(X){
-  plot.ints.cooc(
-    get.BHi.ints(X[X$BHix.combo,]),
-    get.RQi.ints(X[X$BHix.combo,])
-  ) + xlab('Historical') + ylab('Counterfactual')
-}
-
-plot.ints.cooc.nn = function(X){
-  plot.ints.cooc(
-    get.RQi.ints(X[X$RQix.combo,]),
-    get.RQi.ints(X[X$RQix.combo,])
-  ) + xlab('Counterfactual') + ylab('Counterfactual')
-}
-
-plot.ints.cooc = function(X,Y){
-  XY = t(as.matrix(sapply(X,as.numeric))) %*% as.matrix(sapply(Y,as.numeric))
-  XY[XY==0] = NA
-  g = plot.tile(XY)
-  return(g)
-}
-
-plot.tile = function(XY){
-  g = XY %>%
-    as.data.frame() %>%
-    cbind(nx=row.names(XY), .) %>%
-    pivot_longer(-c('nx'),names_to='ny',values_to='Count') %>%
-    mutate(nx=factor(nx,levels=row.names(XY))) %>%
-    mutate(ny=factor(ny,levels=colnames(XY))) %>%
-    ggplot(aes_string(x='nx',y='ny',fill='Count')) +
-    geom_tile() +
-    viridis::scale_fill_viridis(option='viridis') +
-    xlab(NULL) + ylab(NULL) +
-    theme_light() +
-    theme(legend.position='top')
-  return(g)
-}
-
-plot.ints.vs.pops = function(X){
-  pops = M$pop$main
-  ints = M$int$main
-  N = matrix(ncol=length(pops),nrow=length(ints))
-  colnames(N) = pops
-  rownames(N) = ints
-  g = ggplot()
-  for (p in 1:length(pops)){
-    for (i in 1:length(ints)){
-      col = namefun('RQi',ints[i],M$pop$pretty[[pops[p]]])
-      rows = X[[col]]
-      if (sum(rows)){
-        x = X[rows,]
-        x = x[order(-x$RG.n),]
-        x = cbind(x, hex.coord(p,i,1:sum(rows),s=.15))
-        x$Risk.Groups = cut(x$RG.n,
-          breaks=c(0,1,2,8,12,99),
-          labels=c('1','2','3-8','9-12','13+')
-        )
-        g = g + geom_circle(data=x,aes(x0=x0,y0=y0,r=r,fill=Risk.Groups))
-      }
-    }
+plot.distr.list = function(X){
+  for (var in P$dist){
+    X %>% plot.distr(var) %>%
+      save.plot(namefun('d',var),dir='dist',width=5,height=4)
   }
-  scale.fun = function(name,labels){
-    return(list(name,
-      breaks=1:length(labels),
-      labels=gsub('\\.',' ',labels),
-      minor=FALSE
-    ))
+}
+
+plot.distr = function(X,var){
+  x = X[[var]]
+  if (is.numeric(x)){
+    geom = geom_histogram
+    args = list(bins=16,alpha=.4,color='red',fill='red')
+  } else {
+    geom = geom_bar
+    args = list(alpha=.4)
   }
-  g = g +
-    do.call(scale_x_continuous,scale.fun('Population',  pops)) +
-    do.call(scale_y_continuous,scale.fun('Intervention',ints)) +
-    viridis::scale_fill_viridis(option='viridis',discrete=TRUE) +
+  clr.args = list(option='inferno',discrete=TRUE,end=.85,na.value='gray')
+  g = ggplot(X,aes_string(x=var,color=var,fill=var)) +
+    do.call(geom,args) +
+    do.call(scale_color_viridis,clr.args) +
+    do.call(scale_fill_viridis,clr.args) +
+    ylab('Count') + xlab(detex(D[[decat(var)]])) +
+    guides(color=FALSE,fill=FALSE) +
     theme_light()
   return(g)
 }
 
-hex.coord = function(x0,y0,n,r=.5,s=1,...){
-  yv = sqrt(3)/2; yh = 0; xv = 0.5; xh = 1; n;
-  dxl = c(-xv,-xh,-xv,+xv,+xh,+xv)
-  dyl = c(+yv, yh,-yv,-yv, yh,+yv)
-  repr = function(di,k,end){
-    di = rep(di,each=k)
-    di[6*k] = di[6*k] + end
-    return(di)
+detex = function(name){
+  subs = list('~'=' ','\\$'='','\\\\'='','\\_'='')
+  for (s in names(subs)){
+    name = gsub(s,subs[[s]],name)
   }
-  dx = c(0.0,+1.0,repr(dxl,1,+1.0),repr(dxl,2,+1.0),repr(dxl,3,+1.0))
-  dy = c(0.0, 0.0,repr(dyl,1, 0.0),repr(dyl,2, 0.0),repr(dyl,3, 0.0))
-  return(data.frame(
-    x0 = x0 + s*sapply(n, function(ni){ sum(dx[1:ni]) }),
-    y0 = y0 + s*sapply(n, function(ni){ sum(dy[1:ni]) }),
-    r  = s*r
-  ))
+  return(name)
+}
+
+decat = function(name){
+  return(gsub('\\.cat','',name))
+}
+
+save.plot.lists = function(){
+  dir = tex.dir('config')
+  for (name in names(P)){
+    plot.list.tex = paste(P[[name]],D[ decat(P[[name]]) ],sep='/',collapse=',')
+    save.tex(plot.list.tex,namefun('plot','list',name),dir=dir)
+  }
 }
