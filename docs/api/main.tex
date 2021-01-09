@@ -9,21 +9,25 @@
 \maketitle
 \tableofcontents
 \clearpage
-%\section*{Key Messages}\input{messages}
-%\clearpage
+% \section*{Abstract}\input{abstract}
+\clearpage
 % ==============================================================================
-\section{Introduction} \label{s:intro}      \input{intro}
-\section{Methods}      \label{s:methods}    \input{methods}
-%\section{Results}      \label{s:results}    \input{results}
-%\section{Discussion}   \label{s:discussion} \input{discussion}
+\section{Introduction} \label{s:intro} \input{intro}
+\section{Methods}      \label{s:meth}  \input{methods}
+\section{Results}      \label{s:res}   \input{results}
+\section{Discussion}   \label{s:disc}  \input{discussion}
+% ==============================================================================
 \clearpage
 \printbibliography
-% ==============================================================================
 \appendix
 \clearpage
-\section{Search Strategy}\label{a:search}\input{app.search}
-%\clearpage
-%\section{Supplemental Results}\label{a:results}\input{app.results}
+% ==============================================================================
+\section{Search Strategy}           \label{a:search}  \input{app.search}  \clearpage
+\section{Definitions \& Extraction} \label{a:defs}    \input{app.defs}    \clearpage
+\section{Supplemental Results}      \label{a:results} \input{app.results} \clearpage
+\includepdfcmd
+{../prisma/checklist.pdf}
+{\section{PRISMA-ScR Checklist}\label{a:prisma}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

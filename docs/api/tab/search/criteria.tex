@@ -1,50 +1,52 @@
-\small% TODO: update this to stratify by criteria stage (1,2,3)
-\begin{tabular}{L{.47}L{.47}}
+\footnotesize
+\begin{tabular}{L{.45}L{.49}}
 	\toprule
-	Include                                                       & Exclude                                                  \\
+	Include                                                 & Exclude                                                       \\
 	\midrule
-	\multicolumn{2}{l}{\textbf{Publication information}}                                                                     \\
+	\multicolumn{2}{l}{\textbf{Publication Type}}                                                                           \\
 	\midrule
-	\tabitem English language                                     & \tabitem non-English language                            \\
-	\tabitem published before 2020                                & \tabitem published in or after 2020                      \\
-	\tabitem peer-reviewed journal article                        & \tabitem non-peer-reviewed article                       \\
-	                                                              & \tabitem review article only\tn{1}                       \\
-	                                                              & \tabitem textbook, grey literature                       \\
-	                                                              & \tabitem opinions, comments, correspondence              \\
-	                                                              & \tabitem conference abstracts and proceedings            \\
+	\tabitem English language                               & \tabitem non-English language                                 \\
+	\tabitem published before 2020                          & \tabitem published in or after 2020                           \\
+	\tabitem peer-reviewed journal article                  & \tabitem non-peer-reviewed article                            \\
+	                                                        & \tabitem review article\tn{1}                                 \\
+	                                                        & \tabitem textbook, grey literature                            \\
+	                                                        & \tabitem opinions, comments, correspondence                   \\
+	                                                        & \tabitem conference abstracts and proceedings                 \\
+	                                                        & \tabitem model comparison study                               \\
 	\midrule
-	\multicolumn{2}{l}{\textbf{Mathematical Modelling of HIV Transmission}}                                                  \\
+	\multicolumn{2}{l}{\textbf{Mathematical Modelling of HIV Transmission}}                                                 \\
 	\midrule
-	\tabitem sexual HIV transmission (at least)                   & \tabitem no heterosexual HIV transmission modelled       \\
-	\tabitem dynamical HIV transmission model\tn{2}               & \tabitem HIV transmission model is not dynamical         \\
-	\tabitem population-level dynamics                            & \tabitem only within-host/cellular/protein modelling     \\
-	\tabitem compartmental model\tn{3~*}                          & \tabitem individual-based model\tn{*}                    \\
+	\tabitem sexual HIV transmission model                  & \tabitem no sexual HIV transmission modelled                  \\
+	\tabitem dynamical HIV transmission model\tn{2}         & \tabitem HIV transmission model is not dynamical              \\
+	\tabitem population-level dynamics                      & \tabitem only within-host/cellular/protein modelling          \\
+	\tabitem compartmental model\tn{3}                      & \tabitem individual-based model                               \\
 	\midrule
-	\multicolumn{2}{l}{\textbf{Context}}                                                                                     \\
+	\multicolumn{2}{l}{\textbf{Context \& Research Questions}}                                                              \\
 	\midrule
-	\tabitem any region in Sub-Saharan Africa (SSA)               & \tabitem only regions outside SSA modelled               \\
-	                                                              & \tabitem only theoretical context modelled               \\
-	\midrule
-	\multicolumn{2}{l}{\textbf{Research Question}}                                                                           \\
-	\midrule
-	\tabitem assesses prevention benefits of ART scale-up\tn{4~*} & \tabitem only individual-level benefits of ART modelled  \\
-	                                                              & \tabitem only prevention benefits of other interventions \\
+	\tabitem any region in Sub-Saharan Africa (SSA)\tn{4}   & \tabitem only regions outside SSA modelled                    \\
+	\tabitem assess prevention impact of ART scale-up\tn{5} & \tabitem only theoretical context modelled                    \\
+	                                                        & \tabitem only individual-level benefits of ART modelled       \\
+	                                                        & \tabitem only prevention benefits of other interventions      \\
+	                                                        & \tabitem no base case scenario reflecting status quo\tn{*}    \\
+	                                                        & \tabitem only ART-combination interventions\tn{*}             \\
+	                                                        & \tabitem only ART targeted to some risk groups\tn{*}          \\
+	                                                        & \tabitem ART prevention benefits not reported\tn{5*}          \\
 	\bottomrule
 \end{tabular}
 \floatfoot{
   \tnt[1]{Review articles were included if
-    they also presented new HIV transmission modelling results fitting our criteria,
-    and all review article references were screened.}
+    they also presented new HIV transmission modelling results fitting our criteria.}
   \tnt[2]{We define a \emph{dynamical model} as one where
     the number of infections projected at time $t$ is a function of
     the number of infections previously projected by the model before time $t$.}
   \tnt[3]{We define a \emph{compartmental model} as one where
     the system variables represent the numbers of individuals in each state,
     rather than unique individuals.}
-  \tnt[4]{Studies whose stated objective was to
-    assess reductions in HIV incidence / cumulative infections attributable to
-    scale-up of ART intervention (under any initiation criteria).}
-  \tnt[*]{Applied after initial identification of
-    all HIV transmission models, including individual-based,
-    applied to any research question in a SSA context.}
+  \tnt[4]{SSA was defined based on the countries in
+    the UN regions of East, South, Central, and West Africa, plus South Sudan
+    (see Table~\ref{tab:search-ssa} for full country list).}
+  \tnt[5]{Articles reporting HIV incidence reduction and/or
+    cumulative HIV infections averted among the whole population due to
+    increased coverage or initiation rate of ART for the whole population.}
+  \tnt[*]{Used to defined Dataset~B only.}
 }

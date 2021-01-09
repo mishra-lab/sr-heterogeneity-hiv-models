@@ -5,9 +5,9 @@
 \setlength{\parindent}{0pt}
 \emergencystretch=5ex
 \usepackage[group-separator={,}]{siunitx}
+\usepackage{xspace}
 % fonts
-\usepackage[sc]{mathpazo}
-%\usepackage{tgpagella}
+\usepackage[sc,osf]{mathpazo}
 \renewcommand*{\ttdefault}{cmtt}
 % links links links
 \usepackage[
@@ -25,7 +25,13 @@
 \usepackage{float}
 %\usepackage[table]{xcolor}
 %\rowcolors{2}{gray!20!white}{white}
-\graphicspath{{\projectroot/out/fig/}}
+\graphicspath{
+  {\projectroot/out/fig/}
+  {\projectroot/out/fig/api/}
+  {\projectroot/out/fig/dist/}
+}
+\usepackage{catchfile}
+\newcommand{\filedef}[1]{\CatchFileDef\filedata{#1}{\endlinechar=-1}}
 \newcommand{\aff}[1]{\textsuperscript{#1}}
 \newcommand{\tn}[1]{{\textsuperscript{~#1}}}
 \newcommand{\tnt}[2][]{\textsuperscript{#1~}{#2}}
@@ -33,32 +39,42 @@
 \newcommand{\underlabel}[2]{\underbrace{#1}_{\tiny\textrm{#2}}}
 \setlength{\abovecaptionskip}{1ex}
 \setlength{\belowcaptionskip}{1ex}
+\renewcommand{\paragraph}[1]{\par\textbf{#1:}\hskip 1ex}
 \newcommand{\floatfoot}[2][\linewidth]{\vskip 1ex
   \begin{minipage}{#1}\footnotesize#2\end{minipage}}
 \newcommand{\x}[1]{\input{\projectroot/out/tex/#1}\unskip}
+\newcommand{\xd}[1]{\x{#1.q2}~[\x{#1.q1},~\x{#1.q3}]\xspace}
+\newcommand{\xdm}[1]{\x{#1.q2}~[\x{#1.q0},~(\x{#1.q1},~\x{#1.q3}),~\x{#1.q4}]\xspace}
+\newcommand{\xdmdef}{median [min,~(IQR),~max]\xspace}
 \usepackage{pdflscape,afterpage}
 % shorthands
 \renewcommand{\ss}[1]{\textsuperscript{#1}}
 \newcommand{\hreftt}[1]{\href{#1}{\texttt{#1}}}
+% appendix
+\let\appendixo\appendix
+\renewcommand{\appendix}{\appendixo
+  \counterwithin{table}{section}
+  \counterwithin{figure}{section}}
 % tikz
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,calc}
-\newlength{\dx}\setlength{\dx}{.8cm}
+\usetikzlibrary{arrows.meta,calc,positioning}
+\newlength{\dx}\setlength{\dx}{8mm}
 \tikzset{
   prisma/.style = {
     anchor = north,
     draw = gray,
     fill = gray!10!white,
     align = center,
-    text width = 5.8\dx,
-    minimum height = 1.2\dx,
+    text width = 5.5\dx,
+    minimum height = 1.5\dx,
     rounded corners = .1\dx,
+    inner sep = .2\dx
   },
   arrow/.style = {
     > = Latex,
     ->,
     thick,
-  }
+  },
 }
 % references
 \usepackage[
@@ -76,10 +92,15 @@
 \renewcommand\multicitedelim{\addcomma\nobreakspace}
 \let\cite\supercite
 \addbibresource{/home/jesse/refs/library.bib}
-\addbibresource{/home/jesse/phd/proj/sr/refs/v2.bib}
+\addbibresource{/home/jesse/phd/proj/sr/refs/api/A.bib}
 % search stuff
 \newcommand{\searchsize}{\footnotesize}
 \newcommand{\searchstyle}{\ttfamily\searchsize}
 \newcommand{\st}[1]{{\searchstyle#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1\linewidth}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1\linewidth}}
+\usepackage{pdfpages}
+\newcommand{\includepdfcmd}[2]{%
+  \includepdf[pages=1, width=\textwidth,pagecommand={#2}]{#1}%
+  \includepdf[pages=2-,width=\textwidth,pagecommand={}]{#1}%
+}

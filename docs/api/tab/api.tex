@@ -1,0 +1,73 @@
+\footnotesize
+\newlength{\ntab}\setlength{\ntab}{1ex}
+\setlength{\tabcolsep}{1ex}
+\newcommand{\itab}[2]{
+  \x{api/#1/#2.q2} & ( \x{api/#1/#2.q1}, \x{api/#1/#2.q3} ) & \x{api/#1/n.#2}
+}
+\newcommand{\xtab}[1]{\itab{inc}{#1} & & \itab{chi}{#1} & }
+\newcommand{\ptab}[2]{\itab{inc}{#1} & \x{api/inc/#2.pval} & \itab{chi}{#1} & \x{api/chi/#2.pval}}
+\begin{tabular}{llccrrccrr}
+  \toprule
+                    &        & \multicolumn{4}{c}{HIR (\%)} & \multicolumn{4}{c}{HCIA (\%)} \\
+  \cmidrule(rl){3-6}\cmidrule(rl){7-10}
+  Factor            & Level  &  Median & (IQR) & N\tn{a} & p\tn{b} & Median & (IQR) & N\tn{a} & p\tn{b}\\
+  \midrule
+%\begin{tabular}{lll} % TEMP
+	Time Horizon         & 0-10         & \ptab{t.cat.0}{t.cat}                            \\
+	(years)              & 11-20        & \xtab{t.cat.10}                                  \\
+	                     & 21-30        & \xtab{t.cat.20}                                  \\
+	                     & 31+          & \xtab{t.cat.30}                                  \\[\ntab]
+	HIV Prevalence       & 0-1          & \ptab{api.prev.cat.Low}{api.prev.cat}            \\
+	(\%)                 & 1-10         & \xtab{api.prev.cat.Mid}                          \\
+	                     & 10+          & \xtab{api.prev.cat.High}                         \\
+	\midrule
+	RR Transmission      & 0.0-0.039    & \ptab{art.rbeta.cat.0}{art.rbeta.cat}            \\
+	on ART               & 0.4-0.099    & \xtab{art.rbeta.cat.0.04}                        \\
+	                     & 0.1+         & \xtab{art.rbeta.cat.0.1}                         \\[\ntab]
+	CD4 Threshold for    & 200          & \ptab{art.cd4.200}{art.cd4}                      \\
+	ART Initiation       & 350          & \xtab{art.cd4.350}                               \\
+	                     & 500          & \xtab{art.cd4.500}                               \\
+	                     & Any          & \xtab{art.cd4.All}                               \\[\ntab]
+	ART Coverage         & 0-59         & \ptab{art.cov.cat.0}{art.cov.cat}                \\
+  (\%)                 & 60-84        & \xtab{art.cov.cat.0.6}                           \\
+                       & 85+          & \xtab{art.cov.cat.0.85}                          \\
+  \midrule
+	Acute Infection      & No           & \ptab{hiv.x.acute.N}{hiv.x.acute}                \\
+	                     & Yes          & \xtab{hiv.x.acute.Y}                             \\[\ntab]
+	Late-Stage Infection & No           & \ptab{hiv.x.late.N}{hiv.x.late}                  \\
+	                     & Yes          & \xtab{hiv.x.late.Y}                              \\[\ntab]
+	Trans. Drug Resist.  & No           & \ptab{art.tdr.N}{art.tdr}                        \\
+	                     & Yes          & \xtab{art.tdr.Y}                                 \\
+	\midrule
+	HIV Morbidity        & No           & \ptab{hiv.morb.any.N}{hiv.morb.any}              \\
+	                     & Any          & \xtab{hiv.morb.any.Y}                            \\[\ntab]
+	HTC Behav. Change    & No           & \ptab{bc.any.N}{bc.any}                          \\
+	                     & Any          & \xtab{bc.any.Y}                                  \\
+	\midrule
+	Sex Stratification   & No           & \ptab{act.def.sex.N}{act.def.sex}                \\
+	                     & Yes          & \xtab{act.def.sex.Y}                             \\[\ntab]
+	Activity Groups      & None         & \ptab{act.kp.none}{act.kp}                       \\
+	\& Key Populations   & Yes (no KP)  & \xtab{act.kp.some.no.kp}                         \\
+	                     & Yes + KP     & \xtab{act.kp.any.kp}                             \\[\ntab]
+	Activity Turnover    & No           & \ptab{act.turn.any.N}{act.turn.any}              \\
+	                     & Yes          & \xtab{act.turn.any.Y}                            \\[\ntab]
+	Partnership Types    & Generic      & \ptab{pt.def.gen}{pt.def}                        \\
+	                     & by Groups    & \xtab{pt.def.grp}                                \\
+	                     & Phenom.      & \xtab{pt.def.phen}                               \\
+	\midrule
+	Differential KP      & Priority     & \ptab{diff.any.kp.cat.priority}{diff.any.kp.cat} \\
+	Cascade              & Same         & \xtab{diff.any.kp.cat.same}                      \\
+	                     & Gaps         & \xtab{diff.any.kp.cat.gaps}                      \\ % MAN
+	\bottomrule
+\end{tabular}
+\floatfoot{
+  \tnt[a]{N: number of scenarios.}
+  \tnt[b]{P-values from non-parametric Kruskal-Wallis test for
+    whether two or more independent samples originate from the same distribution.}
+  HIR: HIV incidence reduction;
+  CHIA: cumulative HIV infections averted;
+  RR: relative risk;
+  HTC: HIV testing and counselling;
+  KP: key populations.
+  Factor definitions are given in Appendix~\ref{a:defs}.
+}

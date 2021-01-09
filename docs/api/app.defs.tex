@@ -1,0 +1,128 @@
+Data were obtained from (in order of precedence):
+article text; article tables; article figures; appendix text; appendix tables; appendix figures;
+and likewise for articles cited like ``the model is previously described in X''.
+Data were assessed from figures with the help of a graphical measurement tool.%
+\footnote{WebPlotDigitizer: \hreftt{https://apps.automeris.io/wpd/}}
+\paragraph{Fitted Parameters}
+For the values of fitted parameters, we used the posterior value as reported, including
+the mean or median of the posterior distribution, or the best fitting value.
+If the posterior was not reported, we used the mean or median of the prior distribution,
+including the midpoint of uniform sampling ranges.
+% ==============================================================================
+\subsection{Epidemic Context}
+\label{aa:defs:context}
+Let $t_0$ be the time of ART scale-up/scenario divergence in the model.
+\paragraph{HIV Prevalence}
+As reported at $t_0$:
+\emph{Low}: ${<1\%}$; \emph{Medium}: ${1-10\%}$; \emph{High}: ${>10\%}$.
+\paragraph{Epidemic Phase}
+Based on HIV incidence trend projected in the base case scenario between $t_0$ and roughly $t_0 + 10$ years.
+Increasing (linear or exponential);
+Increasing but stabilizing;
+Stable;
+Decreasing but stabilizing;
+Decreasing (linear or exponential).
+% ==============================================================================
+\subsection{Risk Heterogeneity}
+% ------------------------------------------------------------------------------
+\subsubsection{Key Populations}
+\label{aaa:defs:kp}
+\paragraph{Female Sex Workers}
+Any female activity group meeting 3 criteria:
+representing ${< 5\%}$ of the female population; and
+being ${< 1/3 \times}$ the size of client population or highest heterosexual male activity group; and
+having ${> 50 \times}$ the partners of the lowest sexually active female activity group.
+\cite{}
+We also noted whether the authors described any activity groups as FSW.
+If it was not possible to evaluate any criteria due to lack of data,
+then we assumed the criteria was satisfied.
+\paragraph{Clients of FSW}
+Any male activity group meeting 2 criteria:
+described as representing clients of FSW;
+being ${> 3 \times}$ the size of the FSW population.
+If group sizes were not reported,
+then we assumed an activity group described as clients met the size criterion.
+We also noted whether clients were described as
+comprising a proportion of another male activity group.
+\paragraph{Men who have Sex with Men}
+Any male activity group(s) described by the authors as MSM.
+\paragraph{People who Inject Drugs}
+Any activity group(s) described by the authors as PWID.
+\paragraph{Adolescent Girls and Young Women}
+TODO
+\paragraph{Mobile Populations}
+TODO
+% ------------------------------------------------------------------------------
+\subsubsection{Activity Groups}
+Activity groups were 
+
+Activity groups were counted separately for
+heterosexual women, heterosexual men, and MSM.
+
+Age groups were counted separately, even when age influenced sexual activity.
+% ------------------------------------------------------------------------------
+\subsubsection{Partnership Types}
+\label{aaa:defs:pt}
+\paragraph{Generic}
+If only one type of partnership is simulated in the model.
+\paragraph{Main}
+\paragraph{Casual}
+\paragraph{Sex Work}
+\paragraph{Transactional}
+\paragraph{Defined by the Partners}
+% sex workers have main partnerships: Peltzer2004, Luseno2009?
+% ------------------------------------------------------------------------------
+\subsubsection{Group Turnover}
+\label{aaa:defs:turnover}
+Turnover refers to movement of individuals between
+activity groups and/or key populations reflecting sexual life course.
+We defined the following five classifications of turnover:
+\emph{N/A}: not applicable if no activity groups were modelled;
+\emph{None}: no movement between activity groups;
+\emph{High-Activity}: only movement between one high activity group or key population
+  and one other activity group;
+\emph{Multiple}: movement between multiple pairs of risk groups;
+\emph{Replacement}: only movement from low to high activity,
+  to maintain high activity group size(s) against disproportionate HIV mortality.
+% ==============================================================================
+\subsection{Antiretroviral Therapy}
+% ------------------------------------------------------------------------------
+\subsubsection{Transmission Reduction}
+The reduction in HIV transmission due to ART
+was defined as the relative reduction in probability of transmission
+among individuals who are virally suppressed
+(0 is perfect prevention, 1 is no effect).
+
+% ------------------------------------------------------------------------------
+\subsubsection{States}
+\paragraph{Diagnosed}
+Individuals are aware of their HIV+ status, but have not yet started ART.
+\paragraph{Not Yet Virally Suppressed}
+Individuals have started ART, but are not yet virally suppressed.
+\paragraph{Treatment Failed Due to Resistance}
+Individuals have stopped experiencing the benefits of ART due to development of resistance;
+resuming ART is defined by or implies a 2+ line regimen.
+\paragraph{Off ART}
+Individuals are not taking ART due to reasons unrelated to resistance;
+it may be possible to resume ART, possibly with the same regimen.
+% ------------------------------------------------------------------------------
+\subsubsection{Behaviour Change}
+\paragraph{HIV Morbidity}
+Any reduced sexual activity in late-stage HIV states representing impact of symptoms, including:
+fewer sex acts per sex partnership; or fewer partnerships per year.
+\paragraph{HIV Counselling}
+Any sexual behaviour change associated with HIV testing and counselling (HTC),
+applied to individuals in the diagnosed and/or on-ART states, including:
+increased condom use;
+fewer sex acts per sex partnership;
+fewer partnerships per year;
+or a generic reduction in per-act/per-partnership transmission probability due to counselling.
+\paragraph{Morbidity Reduction}
+Must first include HIV morbidity.
+Morbidity reduction behaviour change is
+any return towards normal levels of sexual activity associated with ART due to reduced symptoms.
+% ------------------------------------------------------------------------------
+\subsubsection{Transmitted Resistance}
+Any consideration of 1+ strains of HIV which are transmitted and for which ART has reduced benefits.
+We did not document the number of resistant strains,
+or characteristics of resistance and transmissibility.
