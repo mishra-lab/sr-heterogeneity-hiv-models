@@ -14,10 +14,10 @@ to address the objectives.
 For the review, we conceptualized ``factors of risk heterogeneity'', meaning
 epidemiological stratifications and phenomena which may/not be included in transmission models.
 Such factors could include if/how populations, rates, and probabilities
-are stratified along health and social dimensions.
-We defined the following 4 domains through which
+are stratified along health and social dimensions.   %what is meant by 'social' dimensions?
+We defined the following 4 domains to help conceptualize
 % JK: need better wording for "domains through which"
-these factors of risk heterogeneity might influence ART prevention impact.
+mechanisms related to risk heterogeneity might influence the transmission impact of ART.
 \begin{itemize}
   \item \textbf{Biological Effects:}
   differential transmission risk within HIV disease course
@@ -37,7 +37,7 @@ these factors of risk heterogeneity might influence ART prevention impact.
   such as youth and key populations
   \cite{Mountain2014,Lancaster2016,Hakim2018,Green2020}
 \end{itemize}
-We compiled a list of key factors of risk heterogeneity,
+We compiled a list of key factors of risk heterogeneity,   %not sure I understand this paragraph?
 and their associated mechanisms of influence on ART prevention impact (Table~\ref{tab:factors}).
 We did not attempt to define the magnitude or direction of each factor's influence,
 since these can depend on the context, time horizon,
@@ -57,39 +57,40 @@ and which if any parameters were fitted during model calibration.\cite{Eaton2014
 \subsection{Search}
 \label{ss:meth:search}
 We searched MEDLINE and EMBASE via Ovid
-using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling
+using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling. %SM: can't remember but I think you got some advice re: this from the information specailist at the litbreary? make sure to acknowldge in acknowledgemetn section and note that recieved guidance on search terms by infomration specialist in the appendix...
 (Appendix~\ref{aa:search:terms}).
-Duplicate studies were removed automatically and also manually.
-Potentially relevant studies were identified by title and abstract screening.
-Further selection of studies and subsequent data extraction used
-the full text and any available supplementary material.
-One reviewer (JK) conducted the search and data extraction.
+%did you use Covidence? if yes, include that in methods... (suggest checking Christine's paper re: some methods which might help and also read over other papers/guidelines on level of detail to include to ensure reproduciblity, etc?)
+Duplicate studies were removed automatically %SM: how? (within Covidence?)
+and also manually. %SM: how? did you check for duplicates manually?
+Potentially relevant studies were identified by title and abstract screening, followed 
+by full-text screening using the inclusion/exclusion criteria listed below. 
+We then conducted data extraction from the full text and available supplementary material.
+One reviewer (JK) conducted the search, screening, and data extraction.  
 % ------------------------------------------------------------------------------
 \subsubsection{Inclusion/Exclusion Criteria}
 \label{sss:meth:criteria}
-We sought to identify studies applying dynamical models of sexual HIV transmission
-to project the prevention impacts of increases in ART coverage in SSA.
-Complete inclusion/exclusion criteria are given in
-Appendix~\ref{aa:search:criteria}.
-Peer-reviewed English journal articles published up to Dec 31, 2019
-were considered for inclusion.
-We excluded publications without primary modelling results,
-such as commentaries and reviews, as well as conference publications.
+We included peer-reviewed, primarily modelling studies that used dynamical models of sexual HIV transmission
+to project the prevention impacts of ART in any one or more settings within SSA.
+Complete inclusion/exclusion criteria are given in 
+Appendix~\ref{aa:search:criteria}
+We only included studies communicated in English and published between XXX and Dec 31, 2019.
+We excluded publications without primary modelling results and their description of the methods,
+such as commentaries and reviews. We excluded conference publications.
+If a model's details were provided in a separate peer-reviewed publication, we extracted data from both publications. %SM: correct?
 \par
-Articles were considered for inclusion if they used a dynamical compartmental model of
+The following criteria were used for inclusion of studies:
+1) used a dynamical compartmental model of
 sexual HIV transmission at the population level.
-We define a \emph{dynamical model} as one where
+We defined a \emph{dynamical model} as one where
 the number of infections projected at time $t$ is a function of
-the number of infections previously projected by the model before time $t$.
-We define a \emph{compartmental model} as one where
+the number of infections previously projected by the model before time $t$. %SM: cite
+We defined a \emph{compartmental model} as one where
 the system variables represent the numbers of individuals in each state,
-rather than unique individuals.
-Statistical models, non-dynamical models, and individual-based models were excluded.
-Articles were further considered for inclusion if model parameters
-were chosen to reflect at least one context within SSA
+rather than unique individuals. %SM: cite
+Thus, statistical models, non-dynamical models, and individual-based models without dynamic transmission were excluded.
+2) the model was calibrated or parameterized to reflect at least one setting within SSA.
 (see Table~\ref{tab:search-ssa} for full country list).
-Finally, articles were included if they
-simulated at least one scenario with increasing ART coverage,
+3) the study simulated at least one scenario with increasing ART coverage,
 possibly alongside scale-up of other interventions.
 The included articles formed Dataset~A,
 used to answer research questions \ref{rq:1}~and~\ref{rq:2}.
@@ -98,9 +99,9 @@ A subset of Dataset~A formed Dataset~B,
 which used to answer research question~\ref{rq:3}.
 Articles in Dataset~B specifically examined
 scale-up of ART coverage alone (vs combination intervention)
-for the whole population (vs ART targeted to subgroups),
-and reported HIV incidence reduction or cumulative HIV infections averted
-after a number of years, as compared to a base-case scenario reflecting the status quo.
+for the whole population (vs ART prioritized to subgroups),  %SM: i believe recommendation is to use the term "priotized" vs. targeted re: terminology now?
+and reported HIV incidence reduction or cumulative HIV infections averted over time 
+as compared to a base-case scenario reflecting the status quo.
 % ==============================================================================
 \subsection{Data Extraction}
 \label{ss:meth:data}
