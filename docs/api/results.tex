@@ -1,11 +1,11 @@
 \def\na{94\xspace}
 \def\ni{40\xspace}
-Database search identified 1384 publications,
-of which \na articles met the inclusion criteria
+The search yielded 1384 publications,
+of which \na articles were included
 (Figure~\ref{fig:prisma}).
-Among 360 articles using dynamical HIV transmission models applied to SSA,
-255 were compartmental models, of which
-\na were applied simulate ART scale-up (Database~A), of which
+360 studies used dynamical HIV transmission models applied to SSA, of which
+255 were compartmental models. 
+\na compartmental modeling studies simulated ART scale-up (Database~A), of which
 \ni reported infections averted or incidence reduction due to population-wide ART scale-up,
 as compared to a base case reflecting status quo (Database~B).
 Appendix~\ref{aa:search:database} lists the included papers, and
@@ -32,7 +32,7 @@ but was not disproportionately represented among SSA countries:
 the number of articles per million PLHIV as of 2019 in South Africa (\x{co/mph.South-Africa})
 was similar to the SSA median (\x{co/mph.med}).
 Figure~\ref{fig:map} illustrates the number of articles by country.
-% Southern Africa was the most represented SSA region being simulated in xx articles,
+% Southern Africa was the most represented SSA region being simulated in xx articles,  %SM: agree with including geographic distribution
 % followed by East (xx), West (xx), and Central Africa (xx).
 \begin{table}
   \centering
@@ -43,7 +43,7 @@ Figure~\ref{fig:map} illustrates the number of articles by country.
 \end{table}
 \par
 ART prevention impacts were most often modelled in
-high-prevalence epidemics (${>10\%}$ HIV prevalence, \x{t0/n.prev.High} articles) or
+high-prevalence epidemics (${>10\%}$ HIV prevalence, \x{t0/n.prev.High} articles) and
 medium-prevalence epidemics (${1-10\%}$, \x{t0/n.prev.Mid} articles).
 No articles reported overall HIV prevalence of ${<1\%}$ at time of ART scale-up,
 although for \x{t0/n.prev.NA} articles, HIV prevalence was either
@@ -55,15 +55,15 @@ Most contexts reporting incidence trends had decreasing or stable incidence
 (45 of 48 reporting). % MAN \x{t0/n.phase.*}
 \subsubsection{Key Populations}
 \label{sss:res:kp}
-FSW were defined based on a combination of
+FSW were defined based on a combination of  %SM: rephrase sentence for clarity 
 being described as FSW by the article and three epidemiological criteria.
 Among \x{kp/n.FSW.named} articles describing FSW activity groups:
-all three criteria were satisfied in \x{kp/n.FSW.n.crit.3} articles;
+all three criteria were satisfied in \x{kp/n.FSW.n.crit.3} articles;  %SM: don't follow...
 the criteria were either satisfied or indeterminate and assumed to be satisfied
 in another \x{kp/n.FSW.n.crit.NA};
 and were not satisfied in \x{kp/n.FSW.n.crit.fail}.
 Among articles that did not describe FSW activity groups,
-none satisfied all three criteria.
+none satisfied all three criteria.  %SM: i don't remeber reading about criteria in the methods about this - but maybe I missed it?
 \par
 Among \x{kp/n.Cli.named} articles describing clients of FSW:
 \x{kp/n.Cli.n.crit.1} met the epidemiological criteria;
@@ -108,32 +108,31 @@ Treatment failure due to drug resistance was simulated in \x{art/n.art.fail.any}
 \x{art/n.art.r.frop} in which a similar transition  was not clearly identified as treatment failure vs dropout.
 Transmissible drug resistance was simulated in \x{art/n.tdr} articles.
 % ------------------------------------------------------------------------------
-\subsubsection{Behavioural Effects}
+\subsubsection{Behavioural Effects} %SM: try to use more active voice
 \label{sss:res:beh}
-Reduced sexual activity due to late-stage HIV symptoms was simulated in \x{hiv/n.hiv.morb.any} articles,
+Reduced sexual activity during late-stage HIV symptoms was simulated in \x{hiv/n.hiv.morb.any} articles,
 including at least one state with:
-complete withdrawal from sexual activity (\x{hiv/n.hiv.morb.inact});
-reduced rate of partnership formation (\x{hiv/n.hiv.morb.np}); and/or
-reduced rate of coital frequency (\x{hiv/n.hiv.morb.vol}).
+complete cessastion sexual activity (\x{hiv/n.hiv.morb.inact});  %SM: try to simplify language and consider how it might sound to a reader ("cessasation of" instead of "withrawal from" sexual activity)
+reduced rate or number of partnerships (\x{hiv/n.hiv.morb.np}); and/or
+reduced rate or number of coital frequency (\x{hiv/n.hiv.morb.vol}). %SM: suggest using language like "sex acts" instead of "coital frequency". consider audience tyring to reach re: AIDS/JAIDS/JIAS 
 \par
-Separate states representing diagnosed HIV and on-treatment but not yet virally suppressed
+Separate health states representing diagnosed HIV and on-treatment but not yet virally suppressed
 were simulated in \x{art/n.art.x.dx} and \x{art/n.art.x.vlus} articles, respectively.
-Behaviour change by status-aware PLHIV associated with HIV testing and counselling
-was simulated in \x{art/n.bc.any} articles, including:
+\x{art/n.bc.any} studies included changes in behaviour following awareness of HIV status among PLHIV:
 increased condom use (\x{art/n.bc.cond.any});
 fewer partners per year (\x{art/n.dx.bc.np});
-less sex per partnership (\x{art/n.dx.bc.vol});
+less sex per partnership (\x{art/n.dx.bc.vol}); %SM: clarify. fewer sex acts? 
 serosorting\cite{} (\x{art/n.dx.bc.ss}); and/or
 a generic reduction in transmission probability (\x{art/n.dx.bc.gen}).
 \par
-Dropout from treatment, was simulated in \x{art/n.art.fail.any} articles, including:
-\x{art/n.art.x.drop} using a separate compartment;
-\x{art/n.art.r.drop} using a flow back into a generic ``off-treatment'' HIV state; and again
-\x{art/n.art.r.frop} in which a similar flow was not clearly identified as treatment failure vs dropout.
-% ------------------------------------------------------------------------------
+ART cessasation was simulated in \x{art/n.art.fail.any} articles, including:  %SM: rephrase for clarity re: what these mean in more lay/clinical terms...
+\x{art/n.art.x.drop} using a separate compartment; %SM: so kept track of those who were not longer on ART separately from those who were ART-niaive?
+\x{art/n.art.r.drop} using a flow back into a generic ``off-treatment'' HIV state; and again %sSM: so simulated ART re-initiation? 
+\x{art/n.art.r.frop} in which a similar flow was not clearly identified as treatment failure vs ART cessasation.  %SM: so indistinguishable with respect to mechanism by which ART was no longer efficacious (treatment failure vs. cessassation)?
+% ------------------------------------------------------------------------------ %SM: have not reviewed rest yet will come back to this!
 \subsubsection{Network Effects}
 \label{sss:res:network}
-Representations of risk heterogeneity that might contribute to core group dynamics varied widely.
+Representations of risk heterogeneity varied widely.
 Risk groups defined at least in part by activity
 (different rates and/or types of partnerships formed) were simulated in \x{act/n.act.def.np} articles,
 and at least in part by sex in \x{act/n.act.def.sex} articles.
