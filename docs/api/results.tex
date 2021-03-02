@@ -210,10 +210,10 @@ diagnosis, ART initiation, and retention were simulated in
 \x{cov/n.diff.dx.kp}, \x{cov/n.diff.art.i.kp}, and \x{cov/n.diff.art.o.kp}
 articles respectively, while \emph{higher} rates were simulated in
 \x{cov/n.diff.dx.kp.H}, \x{cov/n.diff.art.i.kp.H}, and \x{cov/n.diff.art.o.kp.H}.
-% ==============================================================================%SM: have not reviewed below yet
-\subsection{ART Prevention Impact}
+% ==============================================================================
+\subsection{ART Prevention Impact} %SM: I found I could not follow this section - had to re-read it several times and was still confused. even if have to use more sentences, try to simplify the writing and make one point per sentence as clearly as possible. Also, the way it is written - it sounds like you did the modeling, vs. comparing studies that used different levels of risk stratification. Rewrite this section to sound more like a review rather than primary work. Can we talk about this section? I don't understand why the focus of what was examined was largely focused on things that are not related to risk heterogeneity - i.e. feels out of place with the overall reason for doing the study re: the factors that are reported here.
 \label{ss:res:api}
-The \ni articles reporting prevention impacts of ART for all
+The \ni studies reporting prevention impacts of ART for all  %SM: break up the sentence for the reader
 simulated \x{n/n.s.api} total ART scale-up scenarios, including
 \x{n/n.s.api.inc} with reported HIV incidence reduction, and
 \x{n/n.s.api.chi} with reported cumulative HIV infections averted.
@@ -224,14 +224,16 @@ and impact on cumulative infections from
 78\% reduction over 10 years\cite{Abbas2006} to
 12\% \emph{increase} over 5 years.\cite{Barnighausen2016}
 \par % MAN
-Table~\ref{tab:api} summarizes the median [IQR] projected impacts of ART scale-up,
-stratified by factors of heterogeneity and with univariate test results.
-Projected impact increased with time horizon, CD4 initiation threshold, and ART coverage.
-Projected impact was also higher for medium-prevalence epidemics than high-prevalence.
-Curiously, impact was significantly higher when ART reduced transmission to 4-10\% vs 0-4\% or 10+\%,
-and when transmitted drug resistance was considered.
-Also unexpected, modelling HTC-related behaviour change and sex stratification
-were each associated with larger incidence reduction, but fewer cumulative infections averted.
+Table~\ref{tab:api} summarizes the median [IQR] projected impacts of ART scale-up,  %SM: instead of "impact", give the outcome (relative reduction in HIV incidence, etc.) 
+stratified by factors of heterogeneity and with univariate results.
+% organize these for flow: epidemic context, interventon, etc. [in any order that works and is ideally, parallel to how results are presented in Aims 1-2]
+With respect to epidemic context, ART impact tended to be higher in medium-prevalence epidemics than high-prevalence.  %SM: relative or absolute ? which "impact"? also, make sure you discuss "why" of this finding in Discussion.
+Overall, projected impacts were larger when outcomes were measured over longer time horizon. %SM: this is a different point than the others which are about parameters and intervntions. try to re-organize things to make specific points and key messages?
+With respect to intervention specifics, projected impacts across scenarios were also larger with earlier CD4 initiation threshold, and at higher ART coverage. %SM: add the adjectives here re: direction; which "impact"?
+Larger impacts were projected across scenarios where ART reduced transmission to 4-10\% vs 0-4\% or 10+\%, %SM: avoid words like 'curiiously' in results section [just be objective in the writing]; and what does "significantly' mean? (how is "significant" defined?)... also, the sentence is not clear - rephrase for clarity? SM: I don't understand this pattern...
+Projected impacts also tended to be larger when transmitted drug resistance was considered. %SM: why?
+Modelling behaviour change following a diagnosis of HIV and sex stratification %SM: please do not use acroynms when they are infrequent (try to get rid of this habit).
+were each associated with larger incidence reduction, but fewer cumulative infections averted. %SM: am confused by this sentence.
 \begin{table}
   \caption{Projected ART prevention benefits,
     stratified by factors of risk heterogeneity}
@@ -240,14 +242,19 @@ were each associated with larger incidence reduction, but fewer cumulative infec
   \label{tab:api}
 \end{table}
 \par
+
+%This to me is the main findings noh based on the goal of the scoping review? But lots of time spent reading above, so would remove several of those [esp the ones you can't explain anyway] and focus on the heterogeneity element. otehreise too many results to sift through and try to make sense of. I found this part of the results had too much information. we can always add back in if reviewers ask?
 Figure~\ref{fig:api} illustrates the projected ART projection impact vs time horizon,
 stratified by a composite metric of heterogeneity considering
-sex, activity, and key population risk groups, plus differential coverage in the key population cascade.
-Over a short time horizon (5-10 years), the models projecting highest impact
-do not consider any risk stratification.
-Models considering key populations but without higher (prioritized) KP cascade also project
-markedly lower cumulative infections averted, as compared to
-models without prioritized key populations cascade.
+sex, activity, and key population risk groups, plus differential coverage in the key population cascade. %SM: should be introduced in the methods section
+Over a 5-10 years time-horizon, higher impact of ART scale-up was projected with relatively homogenous models (those without risk stratification).
+Models that explicitly simulated key populations, and where key populations had a similar or worse ART cascade than the wider population, 
+projected fewer infections averted, as compared with....
+
+%SM: check consistency in use of acronym
+without higher (prioritized) KP cascade also project
+lower cumulative infections averted, as compared to
+models without prioritized key populations cascade.  %sentence does not make sense? comparing without priorized to without prioritized?
 \begin{figure}[h]
   \begin{subfigure}{0.5\linewidth}
     \centering
@@ -273,7 +280,7 @@ models without prioritized key populations cascade.
     \x{n/n.a.api.chi}~(\x{n/n.s.api.chi}), 
     \x{n/n.a.api.both}~(\x{n/n.s.api.both}), and
     \x{n/n.a.api}~(\x{n/n.s.api}), respectively (Dataset~B).
-    If any article included multiple scenarios of ART scale-up,
+    If any study included multiple scenarios of ART scale-up,
     then each scenario was included as a separate data point,
     but the size of each data point was reduced
     in proportion to the number of scenarios in the article.
