@@ -46,6 +46,11 @@
 \newcommand{\xd}[1]{\x{#1.q2}~[\x{#1.q1},~\x{#1.q3}]\xspace}
 \newcommand{\xdm}[1]{\x{#1.q2}~[\x{#1.q0},~(\x{#1.q1},~\x{#1.q3}),~\x{#1.q4}]\xspace}
 \newcommand{\xdmdef}{median [min,~(IQR),~max]\xspace}
+\newlength{\ntab}\setlength{\ntab}{1ex}
+\newcommand{\itab}[2]{%
+  \x{api/#1/#2.q2} & ( \x{api/#1/#2.q1}, \x{api/#1/#2.q3} ) & \x{api/#1/n.#2}}
+\newcommand{\xtab}[1]{\itab{inc}{#1} & & \itab{chi}{#1} & }
+\newcommand{\ptab}[2]{\itab{inc}{#1} & \x{api/inc/#2.pval} & \itab{chi}{#1} & \x{api/chi/#2.pval}}
 \usepackage{pdflscape,afterpage}
 % shorthands
 \renewcommand{\ss}[1]{\textsuperscript{#1}}
