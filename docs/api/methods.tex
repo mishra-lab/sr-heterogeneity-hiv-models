@@ -1,27 +1,24 @@
 We conducted a scoping review according to the PRISMA extension for scoping reviews
 (see Appendix~\ref{a:prisma} for checklist).
-% JK: might want a different word than "appraise" as appraise implies
-%     judging value, which, not sure if that's what we want to do here ...  %SM: yeah, I see your point here. how about these pot'l edits? (e.g. "synthesize", or "review")?
-First, we developed a framework to synthesize  %SM: or review or categorize?
+First, we developed a conceptual framework to organize
 the assumptions and representations of risk heterogeneity
 in compartmental HIV transmission models.
 Then, we designed and implemented the search strategy,
 and extracted the data relevant to the framework
 to address the objectives.
 % ==============================================================================
-\subsection{Appraisal Framework}  %SM: what do you think about using term "conceptual framework for risk heterogeneity" instead of "appraisal framework"? 
+\subsection{Conceptual Framework for Risk Heterogeneity}
 \label{ss:meth:framework}
 For the review, we conceptualized ``factors of risk heterogeneity'', meaning
 epidemiological stratifications and phenomena which may/not be included in transmission models.
-Such factors could include if/how populations, rates, and probabilities
-are stratified along health and social dimensions.   %what is meant by 'social' dimensions?
-We defined the following 4 domains to help conceptualize
-% JK: need better wording for "domains through which"
-mechanisms related to risk heterogeneity might influence the transmission impact of ART.
+Such factors include if/how populations, rates, and probabilities
+are stratified along health, structural, and behavioural dimensions.
+We defined the following 4 domains in which
+different factors of risk heterogeneity might influence the transmission impact of ART.
 \begin{itemize}
   \item \textbf{Biological Effects:}
   differential transmission risk within HIV disease course
-  that coincide with differential ART coverage
+  that coincides with differential ART coverage
   \cite{Pilcher2004}
   \item \textbf{Behaviour Change Effects:}
   differential transmission risk due to
@@ -37,11 +34,8 @@ mechanisms related to risk heterogeneity might influence the transmission impact
   such as youth and key populations
   \cite{Mountain2014,Lancaster2016,Hakim2018,Green2020}
 \end{itemize}
-We compiled a list of key factors of risk heterogeneity,   %not sure I understand this paragraph?
-and their associated mechanisms of influence on ART prevention impact (Table~\ref{tab:factors}).
-We did not attempt to define the magnitude or direction of each factor's influence,
-since these can depend on the context, time horizon,
-and which if any parameters were fitted during model calibration.\cite{Eaton2014}
+We then compiled a list of key factors of risk heterogeneity,
+and their possible mechanisms of influence on ART prevention impact (Table~\ref{tab:factors}).
 \afterpage{%
   \newgeometry{margin=2cm}
   \begin{landscape}
@@ -57,7 +51,7 @@ and which if any parameters were fitted during model calibration.\cite{Eaton2014
 \subsection{Search}
 \label{ss:meth:search}
 We searched MEDLINE and EMBASE via Ovid
-using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling. %SM: can't remember but I think you got some advice re: this from the information specailist at the litbreary? make sure to acknowldge in acknowledgemetn section and note that recieved guidance on search terms by infomration specialist in the appendix...
+using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling.
 (Appendix~\ref{aa:search:terms}).
 %did you use Covidence? if yes, include that in methods... (suggest checking Christine's paper re: some methods which might help and also read over other papers/guidelines on level of detail to include to ensure reproduciblity, etc?)
 Duplicate studies were removed automatically %SM: how? (within Covidence?)
@@ -92,97 +86,93 @@ Thus, statistical models, non-dynamical models, and individual-based models with
 (see Table~\ref{tab:search-ssa} for full country list).
 3) the study simulated at least one scenario with increasing ART coverage,
 possibly alongside scale-up of other interventions.
-The included articles formed Dataset~A,
+The included studies formed Dataset~A,
 used to answer research questions \ref{rq:1}~and~\ref{rq:2}.
 \par
 A subset of Dataset~A formed Dataset~B,
 which used to answer research question~\ref{rq:3}.
-Articles in Dataset~B specifically examined
+Studies in Dataset~B specifically examined
 scale-up of ART coverage alone (vs combination intervention)
-for the whole population (vs ART prioritized to subgroups),  %SM: i believe recommendation is to use the term "priotized" vs. targeted re: terminology now?
+for the whole population (vs ART prioritized to subgroups),
 and reported HIV incidence reduction or cumulative HIV infections averted over time 
 as compared to a base-case scenario reflecting the status quo.
 % ==============================================================================
 \subsection{Data Extraction}
 \label{ss:meth:data}
-% JK: I use the word "noted" about a bajillion times here
-%     since it is short and unpretentious,
-%     and I personally find the meaning clear in this context. @SM hoping you agree?  %SM: extracted is a more precise verb than noted. (in reading other reviews, have not seen the verb/term' noted'  used?...but I think what you mean here is that you categorized according to.... rather than critcized, etc.?
-For research questions \ref{rq:1}~and~\ref{rq:2}, data were extracted per-article.
-For research question~\ref{rq:3}, data were extracted per-scenario within the article.
-%We also noted whether multiple articles used the same model. % currently unused.
+For research questions \ref{rq:1}~and~\ref{rq:2}, data were extracted per-study.
+For research question~\ref{rq:3}, data were extracted per-scenario within the study.
 Additional variables definitions are given in Appendix~\ref{a:defs}.
 % ------------------------------------------------------------------------------
-\subsubsection{Epidemic Context} %SM: this is good, but felt like mixing up extraction from 'categorizing (using the data extracted)" in the description....tried to suggest some edits to help with organizing that so could follow the steps
+\subsubsection{Epidemic Context}
+% SM: this is good, but felt like mixing up extraction from 'categorizing (using the data extracted)"
+% in the description....tried to suggest some edits to help with organizing that so could follow the steps
 \label{sss:meth:context}
-To address objective 1, we extracted data on geography, epidemic phase, and subgroups explicitly considered in the model.
-Specifically, we categorized studies by the geographic location (country and SSA region), 
-scale of the simulated population (city, sub-national, national, regional), and 
+% JK: since we framed the "objectives" as "research questions",
+%     I think best to stay consistent with the terms?
+To answer Research Question~\ref{rq:1}, we extracted data on
+geography, epidemic phase, and subgroups explicitly considered in the model.
+Specifically, we categorized studies by the geographic location (country and SSA region),
+scale of the simulated population (city, sub-national, national, regional), and
 whether the study included multiple geographic settings.
-We classified epidemic size using  
-the overall HIV prevalence at the time of ART intervention (low: $<1\%$, medium: $1-10\%$, high: $>10\%$),  %SM: i think this is conflating epidemic phase and has been argued against as a definition for epidemic phase by most people (Blanchard, etc). suggest you call this epidemic size instead. its more precise...
-and classified epidemic phase at the time of ART intervention 
-using the trend in incidence at the time of ART intervention %SM: i found 'at time of scenarios diverged' confusing... maybe simplify it for the reader a bit more...see edits?
-(increasing, increasing but stabilizing, stable/equilibrium,
-decreasing but stabilizing, and decreasing).  %SM: this is more in line with epidemic phase. others have used for example, ratio of HIV prevalence/incidence (one of Mike's papers - though I dont' think he has submited that yet, and a paper by the UNAIDS group recently). I think what you did is good here.
+We classified epidemic size at time of ART intervention using
+the overall HIV prevalence at that time (low: $<1\%$, medium: $1-10\%$, high: $>10\%$),
+and classified epidemic phase at the time of ART intervention
+using the trend in incidence at that time
+(increasing, increasing but stabilizing, stable/equilibrium, decreasing but stabilizing, and decreasing).
 Subgroups of interest included the following key populations:
 female sex workers (FSW);
 male clients of FSW (Clients);
 men who have sex with men (MSM); and
 people who inject drugs (PWID).
-%adolescent girls and young women (AGYW); and
-%mobile populations;
-See key population definitions in Appendix~\ref{aaa:defs:kp}
+FSW were defined as any female activity group meeting 3 criteria:
+begin ${<5}$ \% of the female population;
+being ${<1/3}$ the size of the client population; and
+having ${>50\times}$ the partners per year of
+the lowest sexually active female activity group.
+Likewise, clients were defined as any male activity group meeting 2 criteria:
+being described as clients of FSW;
+being ${>3\times}$ the size of the FSW population.
+If it was not possible to evaluate any criteria due to lack of data,
+then we assumed the criteria was satisfied.
+No specific criteria were used to define MSM or PWID.
 % ------------------------------------------------------------------------------
 \subsubsection{Factors of Risk Heterogeneity}
 \label{sss:meth:factors}
-For our second research question, we examined if and how
+For Research Question~\ref{rq:2}, we examined if and how
 the factors of risk heterogeneity outlined in Table~\ref{tab:factors}
 were simulated in each study.
 \par
 Special focus was given to the factors related to Network and Coverage Effects,
 due to the large variability in how these factors were simulated.
-% JK: @SM: two questions
-%     1. If so, ^ is this sufficient justification?
-%     2. Since most other factors in Table 1 are extracted like "included: yes/no",
-%        I didn't want to waste space here to re-define them all.
-%        Plus, they are repeated again in the results as well. Is that ok? SM: yes agree
 We examined the number and defining characteristics of
 \emph{activity groups}, including
 sex, different rates of partnership formation, and different types of partnerships.
-We noted whether each of the \emph{key populations} noted above
-was included in the model.
-Any \emph{turnover} of individuals between
-activity groups and/or key populations was noted.
-Similarly, we noted whether ART coverage was assumed to be
-equal across modelled risk groups,
-possibly ignoring historical gaps/future challenges in reaching higher risk groups.
+We extracted whether each of the \emph{key populations} noted above was included in the model.
+Any \emph{turnover} of individuals between activity groups and/or key populations was noted.
 \par
-We noted whether multiple \emph{partnership types} were simulated,
-and how such partnerships were defined:
+We extracted whether multiple \emph{partnership types} were simulated,
+and classified how such partnerships were defined:
 generic (all partnerships equal);
-based on the activity groups involved;
-or reflecting phenomenological types
-(main/spousal; casual; commercial/sex work; and transactional).
-We noted whether partnerships considered different
-volumes of sex (total number of coital acts per partnership)
-and levels of condom use.
-We noted whether models simulated any degree of assortative vs proportionate
+based only on the activity groups involved;
+or reflecting identifiable types (main/spousal; casual; commercial/sex work; transactional),
+such that different partnership types could be formed between the same two activity groups.
+We extracted whether partnerships considered different
+volumes of sex (total number of coital acts per partnership) and levels of condom use.
+We extracted whether models simulated any degree of assortative vs proportionate
 \emph{mixing} between activity groups.
-The number of unique \emph{age groups} was noted, as well as
+The number of unique \emph{age groups} was extracted, as well as
 whether \emph{mixing} by age groups was
 proportionate, strictly assortative, or assortative with age differences.
-Finally, we noted whether age conferred any additional risk beyond mixing,
+We extracted whether age conferred any additional risk beyond mixing,
 such as higher rates of partnership formation.
 \par
-Finally, we noted whether differences in rates of progression along the \emph{ART cascade}
-were considered between age groups, sexes, activity groups, and/or key populations.
-Specifically, we noted differences in rates of
-diagnosis, ART initiation, and treatment discontinuation (due to either dropout or resistance).
+Finally, we extracted whether rates of HIV diagnosis, ART initiation, and/or ART discontinuation
+differed across modelled risk strata (sex, activity, key populations, and/or age),
+and if so, how they differed.
 % ------------------------------------------------------------------------------
 \subsubsection{ART Prevention Impact}
 \label{sss:meth:api}
-For objective 3, we examined the subset of studies (Dataset~B)
+For Research Question~\ref{rq:3}, we examined the subset of studies (Dataset~B)
 reporting incidence reduction or infections averted due to
 population-wide ART scale-up.
 We extracted the following data for each scenario of ART scale-up within Dataset~B:

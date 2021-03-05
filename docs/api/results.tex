@@ -6,7 +6,8 @@ of which \na studies were included
 360 studies used dynamical HIV transmission models applied to SSA, of which
 255 were compartmental models. 
 \na compartmental modeling studies simulated ART scale-up (Database~A), of which
-\ni reported infections averted or incidence reduction due to population-wide ART scale-up,
+\ni reported infections averted or incidence reduction
+due to population-wide ART scale-up without additional combination interventions,
 as compared to a base case reflecting status quo (Database~B).
 Appendix~\ref{aa:search:database} lists the included papers, and
 Appendix~\ref{a:results} provides additional results.
@@ -33,7 +34,7 @@ the number of studies per million PLHIV as of 2019 in South Africa (\x{co/mph.So
 was similar to the SSA median (\x{co/mph.med}).
 Figure~\ref{fig:map} illustrates the number of studies by country.
 East Africa was the most represented SSA region being simulated in \x{co/n.re.east} studies,
-followed by Southern (\x{co/n.re.south}), Central Africa (\x{co/n.re.central}), and West (\x{co/n.re.west}).
+followed by Southern (\x{co/n.re.south}), Central (\x{co/n.re.central}), and West Africa (\x{co/n.re.west}).
 \begin{table}
   \centering
   \caption{Summary of epidemic contexts within Sub-Saharan Africa where
@@ -55,6 +56,7 @@ Most contexts reporting incidence trends had decreasing or stable incidence
 (45 of 48 reporting). % MAN \x{t0/n.phase.*}
 \subsubsection{Key Populations}
 \label{sss:res:kp}
+% JK: TODO
 FSW were defined based on a combination of  %SM: rephrase sentence for clarity 
 being described as FSW by the study and three epidemiological criteria.
 Among \x{kp/n.FSW.named} studies describing FSW activity groups:
@@ -112,17 +114,18 @@ Transmissible drug resistance was simulated in \x{art/n.tdr} studies.
 \label{sss:res:beh}
 Reduced sexual activity during late-stage HIV symptoms was simulated in \x{hiv/n.hiv.morb.any} studies,
 including at least one state with:
-complete cessastion sexual activity (\x{hiv/n.hiv.morb.inact});  %SM: try to simplify language and consider how it might sound to a reader ("cessasation of" instead of "withrawal from" sexual activity)
+complete cessastion of sexual activity (\x{hiv/n.hiv.morb.inact});
 reduced rate or number of partnerships (\x{hiv/n.hiv.morb.np}); and/or
-reduced rate or number of coital frequency (\x{hiv/n.hiv.morb.vol}). %SM: suggest using language like "sex acts" instead of "coital frequency". consider audience tyring to reach re: AIDS/JAIDS/JIAS 
+reduced rate or number of sex acts per partnership (\x{hiv/n.hiv.morb.vol}).
 \par
-Separate health states representing diagnosed HIV and on-treatment but not yet virally suppressed
-were simulated in \x{art/n.art.x.dx} and \x{art/n.art.x.vlus} studies, respectively.
-\x{art/n.bc.any} studies included changes in behaviour following awareness of HIV status among PLHIV:
+Separate health states representing diagnosed HIV but not yet on treatment
+and on treatment but not yet virally suppressed were simulated in
+\x{art/n.art.x.dx} and \x{art/n.art.x.vlus} studies, respectively.
+\x{art/n.bc.any} studies modelled changes in behaviour following awareness of HIV status among PLHIV:
 increased condom use (\x{art/n.bc.cond.any});
 fewer partners per year (\x{art/n.dx.bc.np});
-less sex per partnership (\x{art/n.dx.bc.vol}); %SM: clarify. fewer sex acts? 
-serosorting\cite{} (\x{art/n.dx.bc.ss}); and/or
+fewer sex acts per partnership (\x{art/n.dx.bc.vol});
+serosorting (\x{art/n.dx.bc.ss}); and/or
 a generic reduction in transmission probability (\x{art/n.dx.bc.gen}).
 \par
 ART cessasation was simulated in \x{art/n.art.fail.any} studies, including:  %SM: rephrase for clarity re: what these mean in more lay/clinical terms...
@@ -134,7 +137,7 @@ ART cessasation was simulated in \x{art/n.art.fail.any} studies, including:  %SM
 \label{sss:res:network}
 Representations of risk heterogeneity varied widely.
 Risk groups defined at least in part by activity
-(different rates and/or types of partnerships formed) were simulated in \x{act/n.act.def.np} studies,  %SM: suggest 'studies' instead of studies
+(different rates and/or types of partnerships formed) were simulated in \x{act/n.act.def.np} studies,
 and at least in part by sex in \x{act/n.act.def.sex} studies.
 Considering both activity and sex, the number of risk groups simulated was \xdm{act/act.n};  %SM: rephase sentence for clarity 
 considering activity alone (maximum number of groups in either men or women), it was \xdm{act/act.n.z}.
