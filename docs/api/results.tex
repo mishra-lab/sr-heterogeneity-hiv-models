@@ -42,6 +42,14 @@ followed by Southern (\x{co/n.re.south}), Central (\x{co/n.re.central}), and Wes
   \label{tab:summary}
   \input{tab/context}
 \end{table}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{map-n-vs-plhiv}
+  \caption{Map showing number of studies (of \na total)
+    applying HIV transmission modelling in each country vs
+    the number of people living with HIV (PLHIV, millions)}
+  \label{fig:map}
+\end{figure}
 \par
 ART prevention impacts were most often modelled in
 high-prevalence epidemics (${>10\%}$ HIV prevalence, \x{t0/n.prev.High} studies) and
@@ -143,6 +151,7 @@ Considering both activity and sex, the number of risk groups simulated was \xdm{
 considering activity alone (maximum number of groups in either men or women), it was \xdm{act/act.n.z}.
 The highest activity groups (including FSW and clients, where applicable) for females and males comprised
 \xdm{act/hrw.p} and \xdm{act/hrm.p} \% of female and male populations, respectively.
+% TODO: fix "0"s here.
 \par
 Turnover between activity groups and/or key populations %SM: not sure what 'natural' means here (what would be unnatural turnover?)
 was considered in \x{act/n.turnover.any} studies,
@@ -157,11 +166,11 @@ assortative in \x{pt/n.mix.asso} and proportionate in \x{pt/n.mix.prop}.  %SM: d
 Regarding the three approaches to partnership types:
 First, partnerships were considered to have equal probability of transmission in
 \x{pt/n.pt.gen} studies, including all studies without activity groups.
-Second, partnerships were defined by the activity groups involved (\x{pt/n.pt.grp} studies),
-which approximately represented
-main/spousal (\x{pt/n.grp.Main.any});
-casual (\x{pt/n.grp.Casual.any}); and
-sex work (\x{pt/n.grp.SW.any}) partnerships.
+Second, partnerships were defined by the activity groups involved (\x{pt/n.pt.grp} studies).
+% which approximately represented
+% main/spousal (\x{pt/n.grp.Main.any});
+% casual (\x{pt/n.grp.Casual.any}); and
+% sex work (\x{pt/n.grp.SW.any}) partnerships.
 In such partnerships, transmission was usually
 lower in high-with-high activity partnerships than in low-with-low, due to a combination of
 fewer sex acts (\x{pt/n.grp.vol}) and
@@ -217,29 +226,19 @@ studies respectively, while \emph{higher} rates were simulated in
 % ==============================================================================
 \subsection{ART Prevention Impact}
 \label{ss:res:api}
-% SM: I found I could not follow this section - had to re-read it several times and was still confused.
-%     even if have to use more sentences, try to simplify the writing and make one point per sentence as clearly as possible.
-%     Also, the way it is written - it sounds like you did the modeling, vs. comparing studies that used different levels of risk stratification.
-%     Rewrite this section to sound more like a review rather than primary work. Can we talk about this section?
-%     I don't understand why the focus of what was examined was largely focused on things that are not related to risk heterogeneity
-%     - i.e. feels out of place with the overall reason for doing the study re: the factors that are reported here.
-% JK: Sorry about that ... re-written now!
-%     Hopefully clearer, as most of the other factors & big table moved to the appendix.
-%     I know we discussed paragraph 1 focusing immediately on Figure 2,
-%     but then I think we also discussed reporting the number of studies & scenarios involved,
-%     so that's here first, then paragraph 2 focuses heavily on Figure 2.
-%     Finally, paragraph 3 briefly points reader to the appendix for the other results.
 Dataset B comprised \x{n/n.a.api} studies,
 including \x{n/n.s.api} scenarios of ART scale-up.
 Relative incidence reduction with ART scale-up
 as compared to a scenario without ART scale-up
-was reported in \x{n/n.s.api.inc} scenarios.
-The proportion of cumulative infections averted due to ART scale-up
-was reported in \x{n/n.s.api.chi} scenarios.
-Some scenarios reported incidence reduction or infections averted
-on multiple time horizons. %SM: do we mean "and" here instead of "or"? ie. the number of scenarios that reported both outcomes? could that N be given as well?
-% JK: possibly remove this (below) if you think its unnecessary.
-%     persinally I think it adds context in the overall range of estimates.  %SM: agree with keeping it in to get the general 'scope/range of impact' I agree
+was reported in \x{n/n.a.api.inc} studies (\x{n/n.s.api.inc} scenarios);
+the proportion of cumulative infections averted due to ART scale-up
+was reported in \x{n/n.a.api.chi} (\x{n/n.s.api.chi});
+and \x{n/n.a.api.both} (\x{n/n.s.api.both}) reported both.
+Some scenarios reported these outcomes on multiple time horizons.
+% SM: do we mean "and" here instead of "or"? ie. the number of scenarios that reported both outcomes? could that N be given as well?
+% JK: added the "both" N above (for both studies and scenarios).
+%     But here ^ I wanted to introduce the idea that some scenarios added multiple "data points" due to multiple time horizons.
+%     Do you think it's needed?
 Reported impact on incidence ranged from % MAN
 93\% reduction over 10 years\cite{Granich2009} to
 14\% increase over 15 years,\cite{Salomon2005}
@@ -247,10 +246,9 @@ while impact on cumulative infections ranged from
 78\% reduction over 10 years\cite{Abbas2006} to
 12\% increase over 5 years.\cite{Barnighausen2016}
 \par
-Figure~\ref{fig:api} summarizes each outcome 
-versus time since ART scale-up,
-stratified by a composite index of modelled risk heterogeneity. %SM: since we already know looking at 2 outcomes
-Ecological level analyses across scenarios by degree of risk heterogeneity %SM: do not need to say Kruskal-Wallis test in results as already mentioned in methods
+Figure~\ref{fig:api} summarizes each outcome versus time since ART scale-up,
+stratified by a composite index of modelled risk heterogeneity.
+Ecological level analyses across scenarios by degree of risk heterogeneity
 did not identify a difference in the relative incidence reduction. %SM: careful re: scenarios vs. models; refer to figure here & to the table.give the estimates from the Table (which is now in appendix)? 
 However, there was an ecological-level difference in  %SM: try to avoid using the term 'significant' unless already defined in the methods as to what criteria you would use to determine if significant.
 the reported proportions of infections averted across
@@ -269,9 +267,13 @@ and in models with some risk heterogeneity but without key populations
 %     but not b/w heterogeneity & incidence reduction (a).
 %     Is it sufficient to describe as below that the papers were mostly distinct?
 %     And that the pattern among those reporting both was consistent?  
-%     SM: just go into that a bit more and cite the studies that reported both outcomes, so its easy to see which ones they are in the appendix of studies. In the discussion you can mention that studies with outcome 1 were different from studies with outcome 2, etc. but that where both outcomes were reported, there tended to be internal consistency 
-Only \x{n/n.a.api.both} scenarios provided both outcomes; 
-within which the pattern of incidence reduction vs modelled heterogeneity
+% SM: just go into that a bit more and cite the studies that reported both outcomes,
+%     so its easy to see which ones they are in the appendix of studies.
+%     In the discussion you can mention that studies with outcome 1 were different from studies with outcome 2, etc.
+%     but that where both outcomes were reported, there tended to be internal consistency
+Only \x{n/n.s.api.both} scenarios provided both outcomes;
+\cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018} % MAN
+within which the pattern of incidence reduction versus modelled heterogeneity
 was generally similar to the pattern of infections averted vs modelled heterogeneity
 (Figure~\ref{fig:api:both}).
 \begin{figure}[h]
@@ -306,8 +308,8 @@ was generally similar to the pattern of infections averted vs modelled heterogen
     Some scenarios have multiple data points if multiple time horizons were reported.
     A small random offset was added to all data points to reduce overlap.
     KP: key populations;
-    priority: modelled ART cascade was higher in KP vs overall due to prioritized programs;
-    same: cascade was assumed the same in KP as overall;
+    priority: cascade transitions were faster for at least one step among KP vs overall;
+    same: cascade transitions were assumed the same speed in KP as overall;
     no scenarios in Dataset~B considered lower cascade among KP.
   }
 \end{figure}
