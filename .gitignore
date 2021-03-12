@@ -27,6 +27,7 @@ out/tex/
 *.run.xml
 *.synctex
 *.synctex.gz
+*-converted-to.pdf
 
 # windows
 .DS_Store
