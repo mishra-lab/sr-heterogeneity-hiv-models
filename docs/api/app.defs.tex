@@ -1,6 +1,6 @@
 Data were obtained from (in order of precedence):
 article text; article tables; article figures; appendix text; appendix tables; appendix figures;
-and likewise for articles cited like ``the model is previously described in X''.
+and likewise for articles cited like ``the model is previously described elsewhere''.
 Data were assessed from figures with the help of a graphical measurement tool.%
 \footnote{WebPlotDigitizer: \hreftt{https://apps.automeris.io/wpd/}}
 \paragraph{Fitted Parameters}
@@ -11,35 +11,50 @@ including the midpoint of uniform sampling ranges.
 % ==============================================================================
 \subsection{Epidemic Context}
 \label{aa:defs:context}
-Let $t_0$ be the time of ART scale-up/scenario divergence in the model.
+Let \tx{0} be the time of ART scale-up/scenario divergence in the model.
 \paragraph{HIV Prevalence}
-As reported at $t_0$:
-\emph{Low}: ${<1\%}$; \emph{Medium}: ${1-10\%}$; \emph{High}: ${>10\%}$.
+As reported in the context overall at \tx{0}:
+\emph{Low}: {$<$1\%}; \emph{Medium}: {1-10\%}; \emph{High}: {$>$10\%}.
 \paragraph{Epidemic Phase}
-Based on HIV incidence trend projected in the base case scenario between $t_0$ and roughly $t_0 + 10$ years.
-Increasing (linear or exponential);
-Increasing but stabilizing;
-Stable;
-Decreasing but stabilizing;
-Decreasing (linear or exponential).
+As projected in the base case scenario in the context overall between \tx{0} and roughly \tx{0} + 10 years:
+\emph{Increasing} (linear or exponential);
+\emph{Increasing but stabilizing};
+\emph{Stable};
+\emph{Decreasing but stabilizing};
+\emph{Decreasing} (linear or exponential).
+\paragraph{Geographic Scale}
+For studies of one geographic context, scale was defined as one of:
+\emph{regional}: multiple countries;
+\emph{national}: one country;
+\emph{sub-national}: smaller than a country but greater than a city;
+\emph{city}: one city or less.
+For studies that consider multiple geographic contexts, scale was defined as \emph{multi-x},
+where \emph{x} is the smallest geographically homogeneous scale considered
+from the list above.
+\paragraph{Country}
+The countries counted were: \emph{\countrylist}.
+See Table~\ref{tab:search-ssa} for related search terms.
+If a study modelled multiple countries at a national scale or smaller,
+the counter for each country was incremented.
 % ==============================================================================
 \subsection{Risk Heterogeneity}
+\label{aa:defs:risk}
 % ------------------------------------------------------------------------------
 \subsubsection{Key Populations}
 \label{aaa:defs:kp}
 \paragraph{Female Sex Workers}
 Any female activity group meeting 3 criteria:
-representing ${< 5\%}$ of the female population; and
-being ${< 1/3 \times}$ the size of client population or highest heterosexual male activity group; and
-having ${> 50 \times}$ the partners of the lowest sexually active female activity group.
-\cite{}
+representing {$<$5\%} of the female population; and
+being {$<$1/3 $\times$} the size of client population or highest heterosexual male activity group; and
+having {$>$50 $\times$} the partners of the lowest sexually active female activity group
+\cite{Vandepitte2006,Carael2006,Scorgie2012}.
 We also noted whether the authors described any activity groups as FSW.
 If it was not possible to evaluate any criteria due to lack of data,
 then we assumed the criteria was satisfied.
 \paragraph{Clients of FSW}
 Any male activity group meeting 2 criteria:
 described as representing clients of FSW;
-being ${> 3 \times}$ the size of the FSW population.
+being {$>$3 $\times$} the size of the FSW population \cite{Carael2006}.
 If group sizes were not reported,
 then we assumed an activity group described as clients met the size criterion.
 We also noted whether clients were described as
@@ -48,81 +63,186 @@ comprising a proportion of another male activity group.
 Any male activity group(s) described by the authors as MSM.
 \paragraph{People who Inject Drugs}
 Any activity group(s) described by the authors as PWID.
-\paragraph{Adolescent Girls and Young Women}
-TODO
-\paragraph{Mobile Populations}
-TODO
 % ------------------------------------------------------------------------------
 \subsubsection{Activity Groups}
-Activity groups were 
-
-Activity groups were counted separately for
-heterosexual women, heterosexual men, and MSM.
-
-Age groups were counted separately, even when age influenced sexual activity.
-% ------------------------------------------------------------------------------
-\subsubsection{Partnership Types}
-\label{aaa:defs:pt}
-\paragraph{Generic}
-If only one type of partnership is simulated in the model.
-\paragraph{Main}
-\paragraph{Casual}
-\paragraph{Sex Work}
-\paragraph{Transactional}
-\paragraph{Defined by the Partners}
-% sex workers have main partnerships: Peltzer2004, Luseno2009?
-% ------------------------------------------------------------------------------
-\subsubsection{Group Turnover}
-\label{aaa:defs:turnover}
+\label{aaa:defs:act}
+Activity groups were defined as any stratification based on
+sex and the number and/or types of partnerships formed, including key populations,
+but excluding stratifications by age.
+\paragraph{Count}
+We counted the number of modelled activity groups in total,
+and separately for heterosexual women, heterosexual men, and MSM.
+\paragraph{Highest Risk Group Size}
+The proportion of men and women in the highest risk group.
+\paragraph{Turnover}
 Turnover refers to movement of individuals between
 activity groups and/or key populations reflecting sexual life course.
-We defined the following five classifications of turnover:
-\emph{N/A}: not applicable if no activity groups were modelled;
+We defined four classifications of turnover if activity groups were modelled:
 \emph{None}: no movement between activity groups;
 \emph{High-Activity}: only movement between one high activity group or key population
-  and one other activity group;
+and other activity group(s);
 \emph{Multiple}: movement between multiple pairs of risk groups;
-\emph{Replacement}: only movement from low to high activity,
-  to maintain high activity group size(s) against disproportionate HIV mortality.
+\emph{Replacement}: only movement from low to high activity
+to maintain high activity group size(s) against disproportionate HIV mortality.
+% ------------------------------------------------------------------------------
+\subsubsection{Partnerships}
+\label{aaa:defs:pt}
+\paragraph{Approaches}
+How studies defined partnerships, classified into one of three approaches:
+\emph{Generic}: all partnerships are equal;
+\emph{By-Group:} partnership types are defined only by the activity groups involved;
+\emph{Overlapping:} multiple partnership types can be formed by the same pair of activity groups.
+% Cite? sex workers have main partnerships: Peltzer2004, Luseno2009
+Within \emph{By-Group}, we classified how the parameters of the partnership were defined, as based on either:
+the \emph{susceptible} partner;
+the \emph{lower activity} partner;
+the \emph{higher activity} partner; or
+some consideration of \emph{both partners}.
+\paragraph{Characteristics}
+Whether any of the following varied between different partnership types:
+\emph{Condom Use}: proportion of sex acts protected;
+\emph{Total Sex}: total number of sex acts, possibly defined by differences in
+partnership duration and/or frequency of sex.
+\paragraph{Mixing}
+Mixing by activity group was classified as either:
+\emph{Proportionate}: proportionate to the total number of partnerships offered by each risk group;
+\emph{Assortative}: any degree of preferential partnership formation between
+individuals of the same or similar risk groups.
+% ------------------------------------------------------------------------------
+\subsubsection{Age Groups}
+\label{aaa:defs:age}
+\paragraph{Count}
+The number of age groups considered in the model.
+\paragraph{Risk}
+Whether age groups differed in any characteristic that conferred transmission risk (binary).
+\paragraph{Mixing}
+We classified whether partnership formation between age groups was assumed to be:
+\emph{Proportionate}: proportionate to the number of partnerships offered by each age group;
+\emph{Strictly Assortative}: any degree of preferential partnership formation between
+individuals of the same or similar age groups that is equal for both sexes.
+\emph{Off-Diagonal}: any degree of preferential partnership formation between younger women and older men.
+% ==============================================================================
+\subsection{HIV Natural History}
+\label{aa:defs:hiv}
+\paragraph{Count}
+The number of states of HIV infection considered in the model,
+excluding stratifications related to treatment.
+If states were defined by both CD4 and viral load,
+then the count considers all unique combinations.
+\paragraph{Acute Infection}
+Whether any state represented increased infectiousness associated with acute infection (binary).
+\paragraph{Late-Stage Infection}
+Whether any state(s) considered increased infectiousness associated with late-stage infection (binary).
+\paragraph{HIV Morbidity}
+Whether any state(s) considered decreased sexual activity associated with late-stage disease (binary),
+and how that decreased was modelled:
+\emph{Inactive}: complete cessation of sexual activity;
+\emph{Partners}: decreased rate of partnership formation;
+\emph{Sex Acts per Partnership}: decreased frequency of sex per partnership; and/or
+\emph{Generic}: representative decreased probability of transmission.
 % ==============================================================================
 \subsection{Antiretroviral Therapy}
+\label{aa:defs:art}
 % ------------------------------------------------------------------------------
-\subsubsection{Transmission Reduction}
-The reduction in HIV transmission due to ART
-was defined as the relative reduction in probability of transmission
-among individuals who are virally suppressed
-(0 is perfect prevention, 1 is no effect).
-
-% ------------------------------------------------------------------------------
-\subsubsection{States}
-\paragraph{Diagnosed}
-Individuals are aware of their HIV+ status, but have not yet started ART.
-\paragraph{Not Yet Virally Suppressed}
-Individuals have started ART, but are not yet virally suppressed.
-\paragraph{Treatment Failed Due to Resistance}
-Individuals have stopped experiencing the benefits of ART due to development of resistance;
-resuming ART is defined by or implies a 2+ line regimen.
-\paragraph{Off ART}
-Individuals are not taking ART due to reasons unrelated to resistance;
-it may be possible to resume ART, possibly with the same regimen.
-% ------------------------------------------------------------------------------
-\subsubsection{Behaviour Change}
-\paragraph{HIV Morbidity}
-Any reduced sexual activity in late-stage HIV states representing impact of symptoms, including:
-fewer sex acts per sex partnership; or fewer partnerships per year.
-\paragraph{HIV Counselling}
-Any sexual behaviour change associated with HIV testing and counselling (HTC),
-applied to individuals in the diagnosed and/or on-ART states, including:
-increased condom use;
-fewer sex acts per sex partnership;
-fewer partnerships per year;
-or a generic reduction in per-act/per-partnership transmission probability due to counselling.
-\paragraph{Morbidity Reduction}
-Must first include HIV morbidity.
-Morbidity reduction behaviour change is
-any return towards normal levels of sexual activity associated with ART due to reduced symptoms.
-% ------------------------------------------------------------------------------
-\subsubsection{Transmitted Resistance}
-Any consideration of 1+ strains of HIV which are transmitted and for which ART has reduced benefits.
+\subsubsection{Transmission}
+\label{aaa:defs:trans}
+\paragraph{Transmission Reduction due to ART}
+The relative reduction in probability of transmission
+(0 is perfect prevention, 1 is no effect)
+among individuals who are virally suppressed;
+if viral suppression was not explicitly modelled,
+then the relative reduction among individuals who are on treatment was used.
+\paragraph{Transmitted Resistance}
+Any consideration of 1+ strains of HIV which are transmitted and for which ART had reduced benefits.
 We did not document the number of resistant strains,
 or characteristics of resistance and transmissibility.
+% ------------------------------------------------------------------------------
+\subsubsection{Treatment Cascade States}
+\label{aaa:defs:cascade}
+\paragraph{Forward Cascade}
+We extracted whether each of the following states were included (binary):
+\emph{Diagnosed}: aware of their HIV+ status, but have not yet started ART;
+\emph{Not Yet Virally Suppressed}: started ART, but are not yet virally suppressed;
+\emph{Virally Suppressed}: on ART and achieved viral suppression; and
+\emph{Generic On ART}: simplifications of any/all of the above.
+\paragraph{Stopping ART}
+We extracted whether individuals stopped ART, either due to:
+\emph{Treatment Failure}: ART is no longer efficacious due to resistance; or
+\emph{ART Cessation}: ART is discontinued for other reasons,
+such as barriers to access or side effects.
+We also extracted whether individuals stopping ART for either reason
+were tracked separately, or whether they re-entered a generic ART-naive state,
+such as ``Diagnosed''.
+\paragraph{Differential Cascade Transitions}
+We extracted whether rates of transitioning along the ART cascade, including:
+rate of \emph{HIV diagnosis}; rate of \emph{ART initiation}; and rate of \emph{ART cessation},
+differed by any of the following stratifications:
+\emph{sex}; \emph{age}; \emph{activity}; and \emph{key populations}.
+If the study did not mention possible differences in such rates,
+then we assumed that no differences were modelled.
+% ------------------------------------------------------------------------------
+\subsubsection{Behaviour Change}
+\label{aaa:defs:bc}
+\paragraph{HIV Counselling}
+Whether any sexual behaviour change associated with HIV testing and counselling
+was applied to individuals in the diagnosed and/or on-ART states (binary),
+and what changed:
+\emph{Condom Use}: increased;
+\emph{Serosorting}: any;
+\emph{Partners}: decreased rate of partnership formation;
+\emph{Sex Acts per Partnership}: decreased frequency of sex per partnership; and/or
+\emph{Generic}: representative decreased probability of transmission due to counselling.
+% ==============================================================================
+\subsection{ART Prevention Impact}
+\label{aa:defs:api}
+The following data were extracted per scenario, rather than per-study.
+% ------------------------------------------------------------------------------
+\subsubsection{Intervention}
+\label{aa:defs:interv}
+\paragraph{ART Initiation Criteria}
+What criteria were used for ART eligibility as part of the intervention:
+\emph{Symptomatic (AIDS)};
+\emph{CD4 $<$ 200};
+\emph{CD4 $<$ 350};
+\emph{CD4 $<$ 500};
+\emph{All individuals};
+\emph{Other}.
+\paragraph{Intervention Population}
+Among which population sub-group(s) was the scale-up of ART coverage/initiation applied.
+Only scenarios with ART intervention for all individuals were included in Dataset~B.
+\paragraph{Impact Population}
+Among which population sub-group(s) was the ART prevention impact measured.
+Only scenarios measuring ART prevention impacts in all individuals were included in Dataset~B.
+\paragraph{ART Coverage Target}
+The proportion of people living with HIV in the intervention population who are on ART
+by the end of ART scale-up.
+\paragraph{ART Initiation Rate Target}
+The rate at which people living with HIV in the intervention population initiate ART
+by the end of ART scale-up.
+\paragraph{Intervention \tx{0} and \tx{f}\thinspace}
+The years at which ART scale-up as part of the intervention started and stopped, respectively.
+If interventions were modelled as instantaneous, such as increasing ART initiation rate,
+then we considered \tx{0}~=~\tx{f}.
+Impact time horizons were measured relative to \tx{0}.
+% ------------------------------------------------------------------------------
+\subsubsection{Impact}
+\label{aa:defs:impact}
+For both measures of ART prevention impact,
+we extracted reported values from the text for any available time horizon,
+as well as figure data for any of the following time horizons, if available:
+5, 10, 15, 20, 30, and 40 years, with the help of a graphical measurement tool.
+If only absolute values were reported, we calculated the relative reductions manually.
+\paragraph{Relative Incidence Reduction}
+The relative reduction in overall annual HIV incidence (per 1000 person-years)
+in the intervention scenario as compared to the baseline scenario,
+both after an equal number of years since \tx{0} (time horizon).
+For example, if the baseline and intervention scenarios predicted
+overall HIV incidence of 1 and 0.7 per 1000 person-years 5 years after \tx{0},
+then the relative incidence reduction for the 5-year time horizon would be 30\%.
+\paragraph{Proportion of Infections Averted}
+The relative reduction in cumulative new HIV infections
+in the intervention scenario as compared to the baseline scenario,
+both after an equal number of years since \tx{0} (time horizon).
+For example, if the baseline and intervention scenarios predicted
+1000 and 700 new infections 5 years after \tx{0},
+then the proportion of infections averted for the 5-year time horizon would be 30\%.
