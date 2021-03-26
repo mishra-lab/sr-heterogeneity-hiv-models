@@ -1,9 +1,5 @@
-\scriptsize\centering
-\renewcommand{\emph}[1]{\textbf{#1}}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{llp{.38\linewidth}p{.4\linewidth}}
-% {lcp{.3\linewidth}p{.4\linewidth}}
-% TODO: refs
+\footnotesize\centering
+\begin{tabular}{llp{.35\linewidth}p{.4\linewidth}}
   \toprule
   \textbf{Factor}
 & \textbf{MP\tn{a}}
@@ -13,78 +9,70 @@
 \midrule
   Acute Infection
 & $\beta_i$
-& Increased infectiousness immediately following infection\cite{Pilcher2004}
-& \emph{Biological}: transmissions during acute infection are unlikely to be prevented by ART
+& Increased infectiousness immediately following infection \cite{Hollingsworth2008,Boily2009}
+& \textbf{Biological}: transmissions during acute infection are unlikely to be prevented by ART
 \\
   Late Stage Infection
 & $\beta_i$
-& Increased infectiousness during late stage infection
-& \emph{Biological}: transmissions during late-stage are more likely to be prevented by ART
+& Increased infectiousness during late stage infection \cite{Hollingsworth2008,Boily2009}
+& \textbf{Biological}: transmissions during late-stage are more likely to be prevented by ART
 \\
   Drug Resistance
 & $\beta_i$
-& Transmitted factor that requires regimen switch to achieve viral suppression
-& \emph{Biological}: transmissions during longer delay to achieving viral suppression will not be prevented by ART
+& Transmitted factor that requires regimen switch to achieve viral suppression \cite{DeWaal2018}
+& \textbf{Biological}: transmissions during longer delay to achieving viral suppression will not be prevented by ART
 \\
 \midrule
   HIV Morbidity
 & $c$; $\eta$
-& Reduced sexual activity during late stage disease\cite{}
-& \emph{Behaviour Change}: reduced morbidity via ART could increase HIV prevalence among the sexually active population
+& Reduced sexual activity during late stage disease \cite{Myer2010,McGrath2013}
+& \textbf{Behaviour Change}: reduced morbidity via ART could increase HIV prevalence among the sexually active population
 \\
   HIV Counselling
 & $c$; $\eta$; $\kappa$
-& Reduced sexual activity and/or increased condom use after HIV diagnosis
-& \emph{Behaviour Change}: increased HIV testing with ART scale up can contribute to prevention even before viral suppression is achieved
-\\
-  Morbidity Reduction
-& $c$; $\eta$
-& Increased sexual activity use after ART initiation
-& \emph{Behaviour Change}: increased risk behaviour if viral suppression is not sustained could increase transmission risk
+& Reduced sexual activity and/or increased condom use after HIV diagnosis \cite{Tiwari2020}
+& \textbf{Behaviour Change}: increased HIV testing with ART scale up can contribute to prevention even before viral suppression is achieved
 \\
 \midrule
   Activity Groups
 & $c$; $\kappa$
-& Any stratification by rate of partnership formation
-& \emph{Network}: higher transmission risk among higher activity
+& Any stratification by rate of partnership formation \cite{Anderson1991}
+& \textbf{Network}: higher transmission risk among higher activity
 \\
   Age Groups
 & $c$; $\kappa$
 & Any stratification by age
-& \emph{Network \& Coverage}: higher transmission risk and barriers to viral suppression among youth\cite{}
+& \textbf{Network \& Coverage}: higher transmission risk and barriers to viral suppression among youth \cite{Birdthistle2019,Green2020}
 \\
-  Key~Populations
+  Key Populations
 & $c$; $\kappa$
-& Any epidemiologically defined higher risk groups
-& \emph{Network \& Coverage} higher transmission risk and barriers to viral suppression among key populations\cite{}
+& Any epidemiologically defined higher risk groups \cite{WHO2016KP}
+& \textbf{Network \& Coverage} higher transmission risk and barriers to viral suppression among key populations \cite{Hakim2018}
 \\
   Group Turnover
 & $\phi$
-& Individuals move between activity groups and/or key populations reflecting sexual lifecourse
-& \emph{Network \& Coverage}: counteract effect of stratification due to shorter periods in higher risk;\cite{}
+& Individuals move between activity groups and/or key populations reflecting sexual lifecourse \cite{Watts2010}
+& \textbf{Network \& Coverage}: counteract effect of stratification due to shorter periods in higher risk \cite{Knight2020};
   viral suppression may be achieved only after periods of higher risk
 \\
   Assortative Mixing
 & $m$
-& Any degree of assortative mixing by age, activity, and/or key populations
-& \emph{Network}: assortative sexual networks compound effect of stratification\cite{}
+& Any degree of assortative mixing (like-with-like) by age, activity, and/or key populations
+& \textbf{Network}: assortative sexual networks compound effect of stratification \cite{Anderson1991}
 \\
   Partnership Types
 & $\eta$; $\kappa$
-& Different partnership types are simulated, with different volumes of sex and/or condom usage
-& \emph{Network}: longer duration and lower condom use among main versus casual/sex work partnerships
+& Different partnership types are simulated, with different numbers of sex acts and/or condom usage \cite{Scorgie2012}
+& \textbf{Network}: longer duration and lower condom use among main versus casual/sex work partnerships
   counteracts effect of stratification
 \\
   ART Cascade Gaps
 & $\tau$; $\alpha$
-& Lower ART cascade coverage among higher activity groups or key populations\cite{}
-& \emph{Coverage}: ART prevention benefits may be allocated differentially among risk groups\cite{}
+& Slower ART cascade transitions among higher activity groups or key populations \cite{Hakim2018,Green2020}
+& \textbf{Coverage}: ART prevention benefits may be allocated differentially among risk groups
 \\
 \bottomrule
 \end{tabular}
 \floatfoot{\tnt[a]{MP: Model Parameters ---
   \input{params}}
 }
-% JK: factors we might be missing:
-%     - anything related to susceptibility? @RK
-%     - more specific mention of drop-out / adherence (e.g. Andrews2012)
