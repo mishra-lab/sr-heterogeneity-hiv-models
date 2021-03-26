@@ -1,4 +1,4 @@
-\footnotesize\singlespacing
+\footnotesize
 \setlength{\tabcolsep}{.8ex}
 \begin{tabular}{llccrrccrr}
   \toprule
@@ -10,10 +10,10 @@
 	Time Horizon         & 0-10          & \ptab{t.cat.0}{t.cat}                 \\
 	(years)              & 11-20         & \xtab{t.cat.10}                       \\
 	                     & 21-30         & \xtab{t.cat.20}                       \\
-	                     & 31+           & \xtab{t.cat.30}                       \\[\ntab]
+	                     & 31+           & \xtab{t.cat.30}                       \\[\tsep]
 	HIV Prevalence       & 0-1           & \ptab{api.prev.cat.Low}{api.prev.cat} \\
 	(\%)                 & 1-10          & \xtab{api.prev.cat.Mid}               \\
-	                     & 10+           & \xtab{api.prev.cat.High}              \\[\ntab]
+	                     & 10+           & \xtab{api.prev.cat.High}              \\[\tsep]
   HIV Incidence        & Increasing    & \ptab{api.phase.incr}{api.phase}      \\
                        & Inc-to-stable & \xtab{api.phase.its}                  \\
                        & Stable        & \xtab{api.phase.stab}                 \\
@@ -22,36 +22,36 @@
 	\midrule
 	RR Transmission      & 0.0-0.039     & \ptab{art.rbeta.cat.0}{art.rbeta.cat} \\
 	on ART               & 0.4-0.099     & \xtab{art.rbeta.cat.0.04}             \\
-	                     & 0.1+          & \xtab{art.rbeta.cat.0.1}              \\[\ntab]
+	                     & 0.1+          & \xtab{art.rbeta.cat.0.1}              \\[\tsep]
 	CD4 Threshold for    & 200           & \ptab{art.cd4.200}{art.cd4}           \\
 	ART Initiation       & 350           & \xtab{art.cd4.350}                    \\
 	                     & 500           & \xtab{art.cd4.500}                    \\
-	                     & Any           & \xtab{art.cd4.All}                    \\[\ntab]
+	                     & Any           & \xtab{art.cd4.All}                    \\[\tsep]
 	ART Coverage         & 0-59          & \ptab{art.cov.cat.0}{art.cov.cat}     \\
 	(\%)                 & 60-84         & \xtab{art.cov.cat.0.6}                \\
 	                     & 85+           & \xtab{art.cov.cat.0.85}               \\
 	\midrule
 	Acute Infection      & No            & \ptab{hiv.x.acute.N}{hiv.x.acute}     \\
-	                     & Yes           & \xtab{hiv.x.acute.Y}                  \\[\ntab]
+	                     & Yes           & \xtab{hiv.x.acute.Y}                  \\[\tsep]
 	Late-Stage Infection & No            & \ptab{hiv.x.late.N}{hiv.x.late}       \\
-	                     & Yes           & \xtab{hiv.x.late.Y}                   \\[\ntab]
+	                     & Yes           & \xtab{hiv.x.late.Y}                   \\[\tsep]
 	Trans. Drug Resist.  & No            & \ptab{art.tdr.N}{art.tdr}             \\
 	                     & Yes           & \xtab{art.tdr.Y}                      \\
 	\midrule
 	HIV Morbidity        & No            & \ptab{hiv.morb.any.N}{hiv.morb.any}   \\
-	                     & Any           & \xtab{hiv.morb.any.Y}                 \\[\ntab]
+	                     & Any           & \xtab{hiv.morb.any.Y}                 \\[\tsep]
 	HTC Behav. Change    & No            & \ptab{bc.any.N}{bc.any}               \\
 	                     & Any           & \xtab{bc.any.Y}                       \\
 	\midrule
 	Risk Definition      & None          & \ptab{Risk.None}{Risk}                \\
 	                     & Activity (No KP) & \xtab{Risk.Activity-(no-KP)}       \\
-	                     & KP (priority) & \xtab{Risk.KP-(priority)}             \\
-	                     & KP (same)     & \xtab{Risk.KP-(same)}                 \\[\ntab]
+	                     & KP (Priority) & \xtab{Risk.KP-(priority)}             \\
+	                     & KP (Same)     & \xtab{Risk.KP-(same)}                 \\[\tsep]
 	Activity Turnover    & No            & \ptab{act.turn.any.N}{act.turn.any}   \\
-	                     & Yes           & \xtab{act.turn.any.Y}                 \\[\ntab]
+	                     & Yes           & \xtab{act.turn.any.Y}                 \\[\tsep]
 	Partnership Types    & Generic       & \ptab{pt.def.gen}{pt.def}             \\
-	                     & by Groups     & \xtab{pt.def.grp}                     \\
-	                     & Phenom.       & \xtab{pt.def.phen}                    \\[\ntab]
+	                     & By Groups     & \xtab{pt.def.grp}                     \\
+	                     & Overlapping   & \xtab{pt.def.phen}                    \\[\tsep]
 	Sex Stratification   & No            & \ptab{act.def.sex.N}{act.def.sex}     \\
 	                     & Yes           & \xtab{act.def.sex.Y}                  \\
 	\bottomrule
@@ -64,7 +64,7 @@
   RR: relative risk;
   HTC: HIV testing and counselling;
   KP: key populations.
-  priority: modelled ART cascade was higher in KP vs overall due to prioritized programs;
-  same: cascade was assumed the same in KP as overall.
+  priority: modelled ART cascade transitions were faster in KP vs overall due to prioritized programs;
+  same: cascade transitions were assumed the same in KP as overall.
   Factor definitions are given in Appendix~\ref{a:defs}.
 }

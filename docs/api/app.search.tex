@@ -8,7 +8,6 @@ Our search strategy and step-wise results are as follows, where
 \st{term/} denotes a MeSH term, and
 \st{.mp} searches the main text fields, including
 title, abstract, and heading words.
-\def\searchsize{\scriptsize}
 \begin{table}[H]
   \caption{Exclusion}
   \centering
@@ -46,114 +45,11 @@ title, abstract, and heading words.
 % ==============================================================================
 \subsection{Included Papers}
 \label{aa:search:database}
-\newcommand{\pseudocite}[1]{%
-  \parbox{0.33\linewidth}{\scriptsize%
-    \parbox{5ex}{\hfill\parencite{#1}}
-    \parbox{5ex}{\citeyear{#1}}
-    \citeauthor{#1}%
-}}
 \footnotesize
 % ------------------------------------------------------------------------------
 \subsubsection{Dataset~B}
-\foreach \bibid in {
-  Salomon2005,
-  Abbas2006,
-  Granich2009,
-  Hallett2009b,
-  Bacaer2010,
-  Pretorius2010,
-  Metzger2011,
-  Yusuf2012,
-  Andrews2012,
-  Granich2012,
-  Wagner2012,
-  Abbas2013,
-  Long2013,
-  Cremin2013,
-  Alsallaq2013,
-  Nichols2014,
-  Nichols2014a,
-  Alistar2014,
-  Eaton2014a,
-  Ying2015,
-  Low2015,
-  Khademi2015,
-  Gilbert2015,
-  Heaton2015,
-  Rahman2016,
-  Gilbert2016,
-  Blaizot2016,
-  Ying2016,
-  Barnighausen2016,
-  Heffernan2016,
-  Maheu-Giroux2017a,
-  Maheu-Giroux2017,
-  Volz2017,
-  Blaizot2017,
-  Mukandavire2018,
-  Guillon2018,
-  Akudibillah2018,
-  Stuart2018,
-  deMontigny2018,
-  Hauser2019}{%
-  \pseudocite{\bibid}
-}
+\foreach \bibid in \bibidB{\pseudocite{\bibid} }
 % ------------------------------------------------------------------------------
 \subsubsection{Dataset~A less B}
-\foreach \bibid in {
-  Johnson2006,
-  Baggaley2006,
-  Wilson2006,
-  Bacaer2008,
-  Chigidi2009,
-  Williams2010,
-  Nyabadza2011,
-  Barnighausen2012,
-  Wagner2013,
-  Decker2013,
-  Wirtz2013,
-  Shafer2014,
-  Hove-Musekwa2014,
-  Braithwaite2014,
-  Nichols2014b,
-  Abu-Raddad2014,
-  Anderson2014,
-  Alistar2014a,
-  Cori2014,
-  Stover2014,
-  Wirtz2014,
-  Korenromp2015,
-  Knight2015,
-  Kerr2015,
-  Fraser2015,
-  Kassa2015,
-  Bekker2015,
-  Shannon2015,
-  Blaizot2015,
-  Smith2016,
-  Atun2016,
-  Shattock2016,
-  McGillen2016,
-  Johnson2016,
-  Sharma2016,
-  Akudibillah2017,
-  Alsallaq2017,
-  Anderson2017,
-  Chiu2017,
-  Johnson2017b,
-  Stuart2017,
-  McGillen2017,
-  Cremin2017,
-  Ross2018,
-  Anderson2018,
-  Anderson2018a,
-  Omondi2018,
-  Woods2018,
-  Stevens2018,
-  Stopard2019,
-  Beacroft2019a,
-  Reidy2019,
-  Omondi2019,
-  Maheu-Giroux2019}{%
-  \pseudocite{\bibid}
-}
+\foreach \bibid in \bibidAxB{\pseudocite{\bibid} }
+\par\normalsize

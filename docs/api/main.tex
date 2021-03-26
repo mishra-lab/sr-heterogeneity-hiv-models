@@ -1,25 +1,24 @@
 % !TeX TS-program = pdflatex
 % !BIB TS-program = bibtex
-\documentclass{article}
+\documentclass{aids}
 \input{config}
 \input{meta}
+\usepackage{newpxmath}
+\usepackage[osf]{ETbb}
+\renewcommand*{\ttdefault}{cmtt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \maketitle
-\clearpage
-\section*{Abstract}\input{abstract}
-\clearpage
+\begin{abstract}\input{abstract}\end{abstract}
 % ==============================================================================
 \section{Introduction} \label{s:intro} \input{intro}
 \section{Methods}      \label{s:meth}  \input{methods}
 \section{Results}      \label{s:res}   \input{results}
 \section{Discussion}   \label{s:disc}  \input{discussion}
 % ==============================================================================
-\clearpage
+\backmatter
 \printbibliography
-\clearpage
-\input{back}
 \appendix
 \clearpage
 % ==============================================================================
@@ -29,6 +28,7 @@
 \includepdfcmd
 {../prisma/checklist.pdf}
 {\section{PRISMA-ScR Checklist}\label{a:prisma}}
+\printbibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

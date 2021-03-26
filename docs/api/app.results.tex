@@ -2,22 +2,22 @@
 \subsection{Risk Heterogeneity}\label{aa:res:risk}
 % ------------------------------------------------------------------------------
 \subsubsection{Distributions}
-\twocolumn
-\filedef{\projectroot/out/tex/config/plot.list.dist}
-\foreach \var/\title in \filedata{\hspace{0pt}%
-  \begin{minipage}[t][.33\textheight][t]{\linewidth}
-    \includegraphics[width=\linewidth]{{d.\var}.pdf}
+The following figures illustrate the distributions (number of studies)
+of various parameter values and modelling assumptions related to
+factors of heterogeneity and intervention contexts.
+\par
+\foreach \var/\title in \plotlistdist{
+  \begin{minipage}[t][.33\textheight][t]{0.5\linewidth}
+    \includegraphics[width=.9\textwidth]{{d.\var}.pdf}
     \captionof{figure}{\title}
-%    \label{fig:d:\var}
   \end{minipage}}
-\onecolumn
 \clearpage
 % ==============================================================================
 \subsection{ART Prevention Impact}\label{aa:res:api}
 % ------------------------------------------------------------------------------
 \subsubsection{Figures}
 The following figures illustrate the projected ART prevention impact (Dataset~B),
-stratified by various factors of heterogeneity and intervention conditions (colours).
+stratified by various factors of heterogeneity and intervention contexts (colours).
 The left panels show the relative reduction in HIV incidence rate;
 the right panels show the relative reduction in cumulative new HIV infections;
 both as compared to a base-case scenario reflecting status quo.
@@ -36,8 +36,7 @@ Some scenarios have multiple data points if multiple time horizons were reported
 If any factor could not be quantified due to missing data or varying values,
 the data point is grey.
 A small random offset has been added to the data points to reduce overlap.
-\filedef{\projectroot/out/tex/config/plot.list.api}
-\foreach \var/\title in \filedata{
+\foreach \var/\title in \plotlistapi{
   \begin{figure}[H]
     \begin{subfigure}{0.5\linewidth}
       \includegraphics[width=\linewidth]{{inc.s.\var}.pdf}
@@ -72,9 +71,9 @@ stratified by various factors of heterogeneity and intervention conditions.
 Reported p-values for each factor are from non-parametric Kruskal-Wallis tests
 for differences in ART prevention impact under at least one of the factor levels.
 \begin{table}[H]
-  \caption{Projected ART prevention benefits,
-    stratified by factors of risk heterogeneity and conditions of ART scale-up}
   \centering
+  \caption{Projected ART prevention benefits,
+    stratified by factors of risk heterogeneity and contexts}
   \input{tab/api}
   \label{tab:api}
 \end{table}

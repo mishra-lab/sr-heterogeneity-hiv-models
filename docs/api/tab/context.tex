@@ -1,50 +1,44 @@
-\footnotesize\singlespacing
 \begin{tabular}{llr}
 	\toprule
-	\multicolumn{2}{l}{Study Characteristic} & Studies               \\
+	\multicolumn{2}{l}{Study Characteristic} &               Studies \\
 	\midrule
 	Geographic scale & Regional              & \x{geo/n.any.sub.ssa} \\
-	                 & National              & \x{geo/n.any.nat}     \\
+	                 & National              &     \x{geo/n.any.nat} \\
 	                 & Sub-national          & \x{geo/n.any.sub.nat} \\
-	                 & City                  & \x{geo/n.any.city}    \\
+	                 & City                  &    \x{geo/n.any.city} \\
 	\midrule
 	Modelled         & South Africa          & \x{co/n.South-Africa} \\
-	countries\tn{a}  & Kenya                 & \x{co/n.Kenya}        \\
-	                 & Zambia                & \x{co/n.Zambia}       \\
-	                 & Other                 & \x{co/n.Other}        \\
+	countries\tn{a}  & Kenya                 &        \x{co/n.Kenya} \\
+	                 & Zambia                &       \x{co/n.Zambia} \\
+	                 & Other                 &        \x{co/n.Other} \\
 	\midrule
-	HIV prevalence   & Low ($<$1\%)          & \x{t0/n.prev.Low}     \\
-	                 & Mid (1-10\%)          & \x{t0/n.prev.Mid}     \\
-	                 & High ($>$10\%)        & \x{t0/n.prev.High}    \\
-	                 & Unclear/Varies        & \x{t0/n.prev.NA}      \\
+	HIV prevalence   & Low ($<$1\%)          &     \x{t0/n.prev.Low} \\
+	                 & Mid (1-10\%)          &     \x{t0/n.prev.Mid} \\
+	                 & High ($>$10\%)        &    \x{t0/n.prev.High} \\
+	                 & Unclear/Varies        &      \x{t0/n.prev.NA} \\
 	\midrule
-	Incidence trend  & Decreasing            & \x{t0/n.phase.decr}   \\
-	at scenario      & Dec-to-stable         & \x{t0/n.phase.dts}    \\
-	divergence       & Stable                & \x{t0/n.phase.stab}   \\
-	                 & Inc-to-stable         & \x{t0/n.phase.its}    \\
-	                 & Increasing            & \x{t0/n.phase.incr}   \\
-	                 & Unclear/Varies        & \x{t0/n.phase.NA}     \\
+	Incidence trend  & Decreasing            &   \x{t0/n.phase.decr} \\
+	at scenario      & Dec-to-stable         &    \x{t0/n.phase.dts} \\
+	divergence       & Stable                &   \x{t0/n.phase.stab} \\
+	                 & Inc-to-stable         &    \x{t0/n.phase.its} \\
+	                 & Increasing            &   \x{t0/n.phase.incr} \\
+	                 & Unclear/Varies        &     \x{t0/n.phase.NA} \\
 	\midrule
-	Key populations  & FSW\tn{b}             & \x{kp/n.FSW}          \\
-	included         & Clients\tn{c}         & \x{kp/n.Cli}          \\
-	                 & MSM                   & \x{kp/n.MSM}          \\
-	                 & PWID                  & \x{kp/n.PWID}         \\
-%	                 & AGYW                  & TODO                  \\
+	Key populations  & FSW\tn{b}             &    \x{kp/n.FSW.named} \\
+	included         & Clients\tn{c}         &    \x{kp/n.Cli.named} \\
+	                 & MSM                   &          \x{kp/n.MSM} \\
+	                 & PWID                  &         \x{kp/n.PWID} \\
 	\bottomrule
 \end{tabular}
 \floatfoot{
-  Total studies: \na.
+  Total studies: 94.
   FSW: female sex workers;
   Clients: clients of sex workers;
   MSM: men who have sex with men;
-  PWID: people who inject drugs;
-%  AGYW: adolescent girls and young women;
-%  MP: mobile populations.
-  \tnt[a]{Does not sum to \na as some studies modelled multiple countries}.
-  \tnt[b]{FSW as defined by three epidemiological criteria in Appendix~\ref{aaa:defs:kp};
-    \x{kp/n.FSW.n.crit.3} met all three FSW criteria while
-    \x{kp/n.FSW.n.crit.NA} were described as FSW but the criteria could not be evaluated;
-    another \x{kp/n.FSW.n.crit.fail} were described as FSW but did not meet the criteria.}
-  \tnt[c]{Likewise for clients, the counts were:
-    \x{kp/n.Cli.n.crit.1},~\x{kp/n.Cli.n.crit.NA},~and~\x{kp/n.Cli.n.crit.fail}, respectively.}
+  PWID: people who inject drugs.
+  \tnt[a]{Does not sum to 94 as some studies modelled multiple countries}.
+  \tnt[b]{Groups described as FSW,
+    not considering the epidemiological definitions given in Appendix~\ref{aaa:defs:kp}.}
+  \tnt[c]{Likewise for clients, and excluding studies where clients were modelled
+    as a proportion of another risk group.}
 }
