@@ -1,19 +1,17 @@
-\def\na{94\xspace}
-\def\ni{40\xspace}
 The search yielded 1384 publications,
-of which \na studies were included
+of which 94 studies were included
 (Figure~\ref{fig:prisma}).
-360 studies used dynamical HIV transmission models applied to SSA, of which
+360 studies used non-linear HIV transmission models applied to SSA, of which
 255 were compartmental models. 
-\na compartmental modeling studies simulated ART scale-up (Database~A), of which
-\ni reported infections averted or incidence reduction
+94 compartmental modeling studies simulated ART scale-up (Database~A), of which
+40 reported infections averted or incidence reduction
 due to population-wide ART scale-up without additional combination interventions,
 as compared to a base case reflecting status quo (Database~B).
 Appendix~\ref{aa:search:database} lists the included papers, and
 Appendix~\ref{a:results} provides additional results.
-\begin{figure}[h]
+\begin{figure}
   \centering
-  \input{../prisma/prisma}\vskip 1ex
+  \includegraphics[width=0.8\textwidth]{prisma}
   \caption{PRISMA flowchart of study identification}
   \label{fig:prisma}
 \end{figure}
@@ -22,7 +20,7 @@ Appendix~\ref{a:results} provides additional results.
 \label{ss:res:context}
 Table~\ref{tab:summary} summarizes the key features of contexts within SSA
 where the prevention impacts of ART have been modelled.
-Most (\x{geo/n.any.nat}) of the \na studies modelled HIV transmission at the national level,
+Most (\x{geo/n.any.nat}) of the 94 studies modelled HIV transmission at the national level,
 including \x{geo/n.nat} single-country and \x{geo/n.nat.multi} multi-country analyses.
 Studies also explored
 regional (\x{geo/n.any.sub.ssa}),
@@ -42,19 +40,19 @@ followed by Southern (\x{co/n.re.south}), Central (\x{co/n.re.central}), and Wes
   \label{tab:summary}
   \input{tab/context}
 \end{table}
-\begin{figure}[h]
+\begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{map-n-vs-plhiv}
-  \caption{Map showing number of studies (of \na total)
+  \includegraphics[width=0.8\textwidth]{map}
+  \caption{Map showing number of studies (of 94 total)
     applying HIV transmission modelling in each country vs
     the number of people living with HIV (PLHIV, millions)}
   \label{fig:map}
 \end{figure}
 \par
 ART prevention impacts were most often modelled in
-high-prevalence epidemics (${>10\%}$ HIV prevalence, \x{t0/n.prev.High} studies) and
-medium-prevalence epidemics (${1-10\%}$, \x{t0/n.prev.Mid} studies).
-No studies reported overall HIV prevalence of ${<1\%}$ at time of ART scale-up,
+high-prevalence epidemics ({$>$10\%} HIV prevalence, \x{t0/n.prev.High} studies) and
+medium-prevalence epidemics ({1-10\%}, \x{t0/n.prev.Mid} studies).
+No studies reported overall HIV prevalence of {$<$1\%} at time of ART scale-up,
 although for \x{t0/n.prev.NA} studies, HIV prevalence was either
 not reported or varied across independently simulated contexts/scenarios.
 The \xdmdef year of scenario ART scale-up was \xdm{t0/t0}; at which time
@@ -64,30 +62,23 @@ Most contexts reporting incidence trends had decreasing or stable incidence
 (45 of 48 reporting). % MAN \x{t0/n.phase.*}
 \subsubsection{Key Populations}
 \label{sss:res:kp}
-% JK: TODO
-FSW were defined based on a combination of  %SM: rephrase sentence for clarity 
-being described as FSW by the study and three epidemiological criteria.
-Among \x{kp/n.FSW.named} studies describing FSW activity groups:
-all three criteria were satisfied in \x{kp/n.FSW.n.crit.3} studies;  %SM: don't follow...
-the criteria were either satisfied or indeterminate and assumed to be satisfied
-in another \x{kp/n.FSW.n.crit.NA};
-and were not satisfied in \x{kp/n.FSW.n.crit.fail}.
-Among studies that did not describe FSW activity groups,
-none satisfied all three criteria.  %SM: i don't remeber reading about criteria in the methods about this - but maybe I missed it?
-\par
-Among \x{kp/n.Cli.named} studies describing clients of FSW:
-\x{kp/n.Cli.n.crit.1} met the epidemiological criteria;
-\x{kp/n.Cli.n.crit.NA} were indeterminate and assumed to meet the criteria; and
-\x{kp/n.Cli.n.crit.fail} did not meet the criteria.
-Another \x{kp/n.Cli.p} described clients as a proportion of another male risk group.
-\par
+Groups representing FSW were described in \x{kp/n.FSW.named} studies.
+Among these (of studies where it was possible to evaluate):
+\x{kp/n.FSW.n.crit.p} (of \x{kp/n.FSW.n.crit.p.v}) were {$<$5\%} of the female population;
+\x{kp/n.FSW.n.crit.pr} (of \x{kp/n.FSW.n.crit.pr.v}) were {$<$1/3} the size of the client population; and
+\x{kp/n.FSW.n.crit.cr} (of \x{kp/n.FSW.n.crit.cr.v}) had {$>$50$\times$} the partners per year of
+the lowest sexually active female activity group.
+In \x{kp/n.FSW.n.crit.fail} studies at least one criteria was not met, and
+in \x{kp/n.FSW.n.crit.3} all three were met.
+Clients of FSW were modelled as a unique group in \x{kp/n.Cli.named} studies,
+among which \x{kp/n.Cli.n.crit} (of \x{kp/n.Cli.n.crit.v} reporting)
+were {$>$3$\times$} the size of the FSW population.
+In another \x{kp/n.Cli.named.p}, studies clients were defined as a proportion of another group,
+among which \x{kp/n.Cli.n.p.crit} (of \x{kp/n.Cli.n.p.crit.v})
+were {$>$3$\times$} the size of the FSW population.
 Activity groups described as representing
-men who have sex with men (MSM) were noted in \x{kp/n.MSM} studies;
+men who have sex with men (MSM) were noted in \x{kp/n.MSM} studies; and
 people who inject drugs (PWID) in \x{kp/n.PWID}.
-% No epidemiological criteria were employed to formalize these definitions.
-% \par
-% adolescent girls and young women (AGYW) in [TODO].
-% mobile populations [TODO].
 % ==============================================================================
 \subsection{Heterogeneity Factors}
 \label{ss:res:factors}
@@ -98,27 +89,25 @@ The \xdmdef number of states used to represent HIV disease
 (ignoring treatment-related stratifications) was \xdm{hiv/hiv.n},
 and \x{hiv/n.hiv.cts} studies represented HIV along a continuous dimension
 using a partial differential equations model.
-Most HIV states were defined by CD4 count % JK: TODO count?
+Most HIV states were defined by CD4 count
 to reflect clinical progression and/or historical ART eligibility,
 often with additional states to represent acute infection and/or development of AIDS.
-% \x{hiv/n.hiv.def.VL} minority of models considered both CD4 count and viral load as separate dimensions.
 States of increased infectiousness associated with acute infection and late stage disease
 were simulated in \x{hiv/n.hiv.acute} and \x{hiv/n.hiv.late} studies, respectively.
-% All \na studies included increased mortality associated with HIV infection.
 \par
 The relative risk of HIV transmission on ART was \xdm{art/rbeta},
 representing an average ``on-treatment'' state in \x{art/n.rbeta.x.T} studies,
-vs a ``virally suppressed'' state specifically in \x{art/n.rbeta.x.V} studies.
-% \x{distr/n.rbeta.x.NA} unclear = 1
-% Male circumcision was simulated in \x{act/n.mc} studies.
-% Coinfection with other STI and TB was simulated \x{hiv/coinf.sti} and \x{hiv/coinf.tb}, respectively.
+versus a ``virally suppressed'' state specifically in \x{art/n.rbeta.x.V} studies.
 Treatment failure due to drug resistance was simulated in \x{art/n.art.fail.any} studies, including:
-\x{art/n.art.x.fail} using a separate ``treatment failure'' compartment;
-\x{art/n.art.x.fail} using a transition back into a generic ``off-treatment'' HIV state; and another
-\x{art/n.art.r.frop} in which a similar transition  was not clearly identified as treatment failure vs dropout.
+\x{art/n.art.x.fail} in which individuals experiencing treatment failure
+were tracked separately from ART-naive; and
+\x{art/n.art.r.fail} in which such individuals
+transitioned back to a generic ``off-treatment'' state.
+Another \x{art/n.art.r.frop} studies included a similar transition
+that was not clearly identified as treatment failure versus ART cessation.
 Transmissible drug resistance was simulated in \x{art/n.tdr} studies.
 % ------------------------------------------------------------------------------
-\subsubsection{Behavioural Effects} %SM: try to use more active voice
+\subsubsection{Behavioural Effects}
 \label{sss:res:beh}
 Reduced sexual activity during late-stage HIV symptoms was simulated in \x{hiv/n.hiv.morb.any} studies,
 including at least one state with:
@@ -136,10 +125,13 @@ fewer sex acts per partnership (\x{art/n.dx.bc.vol});
 serosorting (\x{art/n.dx.bc.ss}); and/or
 a generic reduction in transmission probability (\x{art/n.dx.bc.gen}).
 \par
-ART cessasation was simulated in \x{art/n.art.fail.any} studies, including:  %SM: rephrase for clarity re: what these mean in more lay/clinical terms...
-\x{art/n.art.x.drop} using a separate compartment; %SM: so kept track of those who were not longer on ART separately from those who were ART-niaive?
-\x{art/n.art.r.drop} using a flow back into a generic ``off-treatment'' HIV state; and again %sSM: so simulated ART re-initiation? 
-\x{art/n.art.r.frop} in which a similar flow was not clearly identified as treatment failure vs ART cessasation.  %SM: so indistinguishable with respect to mechanism by which ART was no longer efficacious (treatment failure vs. cessassation)?
+ART cessation was simulated in \x{art/n.art.drop.any} studies, including:
+\x{art/n.art.x.drop} in which individuals no longer on ART
+were tracked separately from ART-naive; and
+\x{art/n.art.r.drop} in which such individuals
+transitioned back to a generic ``off-treatment'' state.
+Another \x{art/n.art.r.frop} studies included a similar transition
+that was not clearly identified as treatment failure versus ART cessation.
 % ------------------------------------------------------------------------------ 
 \subsubsection{Network Effects}
 \label{sss:res:network}
@@ -147,13 +139,13 @@ Representations of risk heterogeneity varied widely.
 Risk groups defined at least in part by activity
 (different rates and/or types of partnerships formed) were simulated in \x{act/n.act.def.np} studies,
 and at least in part by sex in \x{act/n.act.def.sex} studies.
-Considering both activity and sex, the number of risk groups simulated was \xdm{act/act.n};  %SM: rephase sentence for clarity 
-considering activity alone (maximum number of groups in either men or women), it was \xdm{act/act.n.z}.
+The number of simulated groups defined by sex and/or activity was \xdm{act/act.n};
+the number defined by activity alone (maximum number of groups among either
+heterosexual women, heterosexual men, MSM, or overall if sex was not considered) was \xdm{act/act.n.z}.
 The highest activity groups (including FSW and clients, where applicable) for females and males comprised
-\xdm{act/hrw.p} and \xdm{act/hrm.p} \% of female and male populations, respectively.
-% TODO: fix "0"s here.
+\xdm{act/hrw.p} and \xdm{act/hrm.p}~\% of female and male populations, respectively.
 \par
-Turnover between activity groups and/or key populations %SM: not sure what 'natural' means here (what would be unnatural turnover?)
+Turnover between activity groups and/or key populations
 was considered in \x{act/n.turnover.any} studies,
 of which \x{act/n.turnover.high} considered turnover of only
 one specific high-activity group or key population.
@@ -162,15 +154,11 @@ movement only from lower activity groups into higher activity groups
 to re-balance group sizes against disproportionate HIV mortality in higher activity groups.
 \par
 Among \x{act/n.act.def.np} studies with activity groups, sexual mixing was assumed to be
-assortative in \x{pt/n.mix.asso} and proportionate in \x{pt/n.mix.prop}.  %SM: define assortaive and propotionate somehwere (methods or rsults) 
+assortative in \x{pt/n.mix.asso} and proportionate in \x{pt/n.mix.prop}.
 Regarding the three approaches to partnership types:
 First, partnerships were considered to have equal probability of transmission in
 \x{pt/n.pt.gen} studies, including all studies without activity groups.
 Second, partnerships were defined by the activity groups involved (\x{pt/n.pt.grp} studies).
-% which approximately represented
-% main/spousal (\x{pt/n.grp.Main.any});
-% casual (\x{pt/n.grp.Casual.any}); and
-% sex work (\x{pt/n.grp.SW.any}) partnerships.
 In such partnerships, transmission was usually
 lower in high-with-high activity partnerships than in low-with-low, due to a combination of
 fewer sex acts (\x{pt/n.grp.vol}) and
@@ -179,13 +167,14 @@ The transmission risk in mixed high-with-low activity partnerships was defined b
 the susceptible partner (\x{pt/n.act.drive.sus});
 the lower activity partner (\x{pt/n.act.drive.low});
 the higher activity partner (\x{pt/n.act.drive.high}); or
-the unique combination of both partners' activity groups (\x{pt/n.act.drive.mix}).
-% yielding indeterminate, higher, lower, or intermediate overall partnership transmission risk, respectively.
-Third, partnerships could be defined based on phenomenological types 
+the unique combination of both partners' activity groups (\x{pt/n.act.drive.mix});
+such definitions yielded indeterminate, higher, lower, or intermediate
+per-partnership transmission risk, respectively.
+Third, partnerships could be defined based on overlapping types
 (main/spousal, casual, and sex work), such that
 different partnership types could be formed between the same two activity groups (\x{pt/n.pt.phen} studies).
-% For example, FSW and their clients could form commercial, casual, or spousal/main partnerships.
-All models with phenomenological partnerships defined differential total sex volume and condom use between types.  %SM: what does phenomenological refer to? new term intorduced? 
+For example, FSW could form commercial, casual, or spousal/main partnerships with clients.
+All models with overlapping partnership types defined differential total sex acts and condom use between types.
 \par
 Age groups were simulated in \x{age/n.age.any} studies.
 Among studies with age groups, the number of age groups was \xdm{age/age.n},
@@ -198,26 +187,25 @@ Differential risk behaviour by age occurred in \x{age/n.risk} of these \x{age/n.
 % ------------------------------------------------------------------------------
 \subsubsection{Coverage Effects}
 \label{sss:res:cov}
-Differential progression along the ART cascade was considered in  %SM: is there a specific reason we us the term' progression' here? instead of coverage? progression usually refers to disease progression so found it a bit confusing to read at times. it is only semantics but I think coverage or uptake is likely better
+Differential transition rates along the ART cascade was considered in
 \x{cov/n.diff.any.any} studies, including differences between
 sexes in \x{cov/n.diff.any.sex};
 age groups in \x{cov/n.diff.any.age}; and
 key populations in \x{cov/n.diff.any.kp}.
-No studies considered differences among activity groups beyond key populations. % MAN
-%SM: differences in what? ART coverage?
-Another \x{cov/n.diff.any.any.j} studies did not simulate differential progression  %SM: what does differential progression refer to here? was confused
+No studies considered differences in cascade transition rates
+among activity groups beyond key populations. % MAN
+Another \x{cov/n.diff.any.any.j} studies did not simulate differential cascade transitions,
 but specifically justified the simplification using data relevant to the simulated context.
-\par
-Differences between sexes included
-rates of diagnosis (\x{cov/n.diff.dx.sex});
+Differences between sexes included rates of
+HIV diagnosis (\x{cov/n.diff.dx.sex});
 ART initiation (\x{cov/n.diff.art.i.sex}); and
-retention (\x{cov/n.diff.art.o.sex}),
+ART cessation (\x{cov/n.diff.art.o.sex}),
 with cascade engagement higher among women,
 in most cases attributed to antenatal services.
 Differences between age groups also affected
 rates of diagnosis (\x{cov/n.diff.dx.age});
 ART initiation (\x{cov/n.diff.art.i.age});
-but not retention (\x{cov/n.diff.art.o.age}).
+but not ART cessation (\x{cov/n.diff.art.o.age}). % MAN
 Among key populations, \emph{lower} rates of
 diagnosis, ART initiation, and retention were simulated in
 \x{cov/n.diff.dx.kp}, \x{cov/n.diff.art.i.kp}, and \x{cov/n.diff.art.o.kp}
@@ -235,57 +223,41 @@ the proportion of cumulative infections averted due to ART scale-up
 was reported in \x{n/n.a.api.chi} (\x{n/n.s.api.chi});
 and \x{n/n.a.api.both} (\x{n/n.s.api.both}) reported both.
 Some scenarios reported these outcomes on multiple time horizons.
-% SM: do we mean "and" here instead of "or"? ie. the number of scenarios that reported both outcomes? could that N be given as well?
-% JK: added the "both" N above (for both studies and scenarios).
-%     But here ^ I wanted to introduce the idea that some scenarios added multiple "data points" due to multiple time horizons.
-%     Do you think it's needed?
 Reported impact on incidence ranged from % MAN
-93\% reduction over 10 years\cite{Granich2009} to
-14\% increase over 15 years,\cite{Salomon2005}
+93\% reduction over 10 years \cite{Granich2009} to
+14\% increase over 15 years \cite{Salomon2005},
 while impact on cumulative infections ranged from
-78\% reduction over 10 years\cite{Abbas2006} to
-12\% increase over 5 years.\cite{Barnighausen2016}
+78\% reduction over 10 years \cite{Abbas2006} to
+12\% increase over 5 years \cite{Barnighausen2016}.
 \par
 Figure~\ref{fig:api} summarizes each outcome versus time since ART scale-up,
 stratified by a composite index of modelled risk heterogeneity.
-Ecological level analyses across scenarios by degree of risk heterogeneity
-did not identify a difference in the relative incidence reduction. %SM: careful re: scenarios vs. models; refer to figure here & to the table.give the estimates from the Table (which is now in appendix)? 
-However, there was an ecological-level difference in  %SM: try to avoid using the term 'significant' unless already defined in the methods as to what criteria you would use to determine if significant.
-the reported proportions of infections averted across
-scenarios by the degree of risk heterogeneity. %SM: refer to figure here & table
+Ecological-level analysis across scenarios by degree of risk heterogeneity
+identified differences in proportions of infections averted,
+but not in relative incidence reduction (Table~\ref{tab:api}).
 The largest proportions of infections averted were reported from 
 scenarios without risk heterogeneity 
-(median [IQR] \% = \xd{api/chi/Risk.None}), followed by scenarios 
-with key populations prioritized for ART access (\xd{api/chi/Risk.KP-(priority)}).
-The smallest impact (proportion of infections averted) was observed in 
-scenarios with key populations who were not prioritized for ART(\xd{api/chi/Risk.KP-(same)})
+(median [IQR]\% = \xd{api/chi/Risk.None}), followed by scenarios
+with key populations prioritized for ART (\xd{api/chi/Risk.KP-(priority)}).
+The smallest impact was observed in scenarios with
+key populations who were not prioritized for ART (\xd{api/chi/Risk.KP-(same)})
 and in models with some risk heterogeneity but without key populations
 (\xd{api/chi/Risk.Activity-(No-KP)}).
-% JK: Not sure if this (below) belongs here or in the discussion?
-%     Examining the studies, I really struggled to uncover why we found
-%     significant association b/w heterogeneity & infections averted (b)
-%     but not b/w heterogeneity & incidence reduction (a).
-%     Is it sufficient to describe as below that the papers were mostly distinct?
-%     And that the pattern among those reporting both was consistent?  
-% SM: just go into that a bit more and cite the studies that reported both outcomes,
-%     so its easy to see which ones they are in the appendix of studies.
-%     In the discussion you can mention that studies with outcome 1 were different from studies with outcome 2, etc.
-%     but that where both outcomes were reported, there tended to be internal consistency
-Only \x{n/n.s.api.both} scenarios provided both outcomes;
-\cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018} % MAN
+Only \x{n/n.s.api.both} scenarios from \x{n/n.a.api.both} studies provided both outcomes
+\cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018}; % MAN
 within which the pattern of incidence reduction versus modelled heterogeneity
-was generally similar to the pattern of infections averted vs modelled heterogeneity
+was generally similar to the pattern of infections averted versus modelled heterogeneity
 (Figure~\ref{fig:api:both}).
-\begin{figure}[h]
-  \begin{subfigure}{0.5\linewidth}
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{{inc.s.Risk}.pdf}
+    \includegraphics[width=\textwidth]{{inc.s.Risk}.pdf}
     \caption{Reduction in HIV incidence}
     \label{fig:api:inc}
   \end{subfigure}%
-  \begin{subfigure}{0.5\linewidth}
+  \begin{subfigure}{0.5\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{{chi.s.Risk}.pdf}
+    \includegraphics[width=\textwidth]{{chi.s.Risk}.pdf}
     \caption{Cumulative HIV infections averted}
     \label{fig:api:chi}
   \end{subfigure}
@@ -310,8 +282,7 @@ was generally similar to the pattern of infections averted vs modelled heterogen
     KP: key populations;
     priority: cascade transitions were faster for at least one step among KP vs overall;
     same: cascade transitions were assumed the same speed in KP as overall;
-    no scenarios in Dataset~B considered lower cascade among KP.
-  }
+    no scenarios in Dataset~B considered lower cascade among KP.}
 \end{figure}
 \par
 Appendix~\ref{aa:res:api} and Table~\ref{tab:api} summarizes
