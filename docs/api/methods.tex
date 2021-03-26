@@ -9,7 +9,7 @@ to address the objectives.
 % ==============================================================================
 \subsection{Conceptual Framework for Risk Heterogeneity}
 \label{ss:meth:framework}
-For the review, we conceptualized ``factors of risk heterogeneity'', meaning
+We conceptualized ``factors of risk heterogeneity'', meaning
 epidemiological stratifications and phenomena which may/not be included in transmission models.
 Such factors could include if/how populations, rates, and probabilities
 are stratified along health, structural, and behavioural dimensions.
@@ -23,7 +23,7 @@ different factors of risk heterogeneity might influence the transmission impact 
   \item \textbf{Behaviour Change Effects:}
   differential transmission risk due to
   behavioural changes related to engagement in the ART cascade
-  \cite{Ramachandran2016,Tiwari2020} % JK: TODO
+  \cite{Ramachandran2016,Tiwari2020}
   \item \textbf{Network Effects:}
   differential transmission risk within sub-populations
   that increase the challenge of epidemic control through core group dynamics
@@ -36,135 +36,117 @@ different factors of risk heterogeneity might influence the transmission impact 
 \end{itemize}
 We then compiled a list of key factors of risk heterogeneity,
 and their possible mechanisms of influence on ART prevention impact (Table~\ref{tab:factors}).
-\afterpage{%
-  \newgeometry{margin=2cm}
-  \begin{landscape}
-    \captionof{table}{%
-      Factors of heterogeneity in HIV transmission
-      and their possible mechanisms of influence on the prevention impact of ART interventions}
-    \input{tab/factors}
-    \label{tab:factors}
-  \end{landscape}
-  \restoregeometry
-\clearpage}
+\begin{sidewaystable}
+  \caption{%
+    Factors of heterogeneity in HIV transmission
+    and their possible mechanisms of influence on the prevention impact of ART interventions}
+  \input{tab/factors}
+  \label{tab:factors}
+\end{sidewaystable}
 % ==============================================================================
 \subsection{Search}
 \label{ss:meth:search}
 We searched MEDLINE and EMBASE via Ovid
 using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling
 (Appendix~\ref{aa:search:terms}).
-Search results were imported into Covidence\cite{Covidence} for screening.
-% SM: did you use Covidence? if yes, include that in methods...
-%     (suggest checking Christine's paper re: some methods which might help
-%     and also read over other papers/guidelines on level of detail to include to ensure reproduciblity, etc?)
+Search results were imported into Covidence \cite{Covidence} for screening.
 Duplicate studies were removed automatically by Ovid and by Covidence;
 four additional duplicates that were not identified automatically,
-possibly due to subtle changes to the title, were later identified and removed manually.
+possibly due to subtly different titles, were later identified and removed manually.
 Potentially relevant studies were identified by title and abstract screening, followed 
 by full-text screening using the inclusion/exclusion criteria listed below. 
 One reviewer (JK) conducted the search, screening, and data extraction.
 % ------------------------------------------------------------------------------
 \subsubsection{Inclusion/Exclusion Criteria}
 \label{sss:meth:criteria}
-We included peer-reviewed, primarily modelling studies that used dynamical models of sexual HIV transmission
+We included peer-reviewed, primarily modelling studies that used non-linear models of sexual HIV transmission
 to project the prevention impacts of ART in any one or more settings within SSA.
-Complete inclusion/exclusion criteria are given in 
-Appendix~\ref{aa:search:criteria}
-We only included studies communicated in English and published between XXX and Dec 31, 2019.
-We excluded publications without primary modelling results and their description of the methods,
-such as commentaries and reviews. We excluded conference publications.
+Complete inclusion/exclusion criteria are given in Appendix~\ref{aa:search:criteria}.
+We only included studies communicated in English and published anytime before Jan 1, 2020.
+We excluded publications without primary modelling results and description of the methods,
+such as commentaries and reviews.
+We excluded conference publications.
 If a model's details were provided in a separate peer-reviewed publication,
-we extracted data from both publications. % SM: correct? % JK: Yes
+we extracted data from both publications as required.
 \par
 The following criteria were used for inclusion of studies:
-1) used a dynamical compartmental model of
+1) Used a non-linear compartmental model of
 sexual HIV transmission at the population level.
-We defined a \emph{dynamical model} as one where
+We defined a \emph{non-linear model} as one where
 the number of infections projected at time $t$ is a function of
-the number of infections previously projected by the model before time $t$. %SM: cite
+the number of infections previously projected by the model before time $t$ \cite{Garnett2011}.
 We defined a \emph{compartmental model} as one where
 the system variables represent the numbers of individuals in each state,
-rather than unique individuals. %SM: cite
-Thus, statistical models, non-dynamical models, and individual-based models without dynamic transmission were excluded.
-2) the model was calibrated or parameterized to reflect at least one setting within SSA.
-(see Table~\ref{tab:search-ssa} for full country list).
-3) the study simulated at least one scenario with increasing ART coverage,
+rather than unique individuals \cite{Garnett2011}.
+Thus, statistical models, linear models, and individual-based models without dynamic transmission were excluded.
+2) The model was calibrated or parameterized to reflect at least one setting within SSA
+(see Appendix~\ref{aa:defs:context} for full country list).
+3) The study simulated at least one scenario with increasing ART coverage,
 possibly alongside scale-up of other interventions.
 The included studies formed Dataset~A,
-used to answer research questions \ref{rq:1}~and~\ref{rq:2}.
+used to complete objectives \ref{rq:1}~and~\ref{rq:2}.
 \par
 A subset of Dataset~A formed Dataset~B,
-which used to answer research question~\ref{rq:3}.
+which used to complete objective~\ref{rq:3}.
 Studies in Dataset~B specifically examined
-scale-up of ART coverage alone (vs combination intervention)
-for the whole population (vs ART prioritized to subgroups),
+scale-up of ART coverage alone (versus combination intervention)
+for the whole population (versus ART prioritized to subgroups),
 and reported HIV incidence reduction or cumulative HIV infections averted over time 
 as compared to a base-case scenario reflecting the status quo.
 % ==============================================================================
 \subsection{Data Extraction}
 \label{ss:meth:data}
 Data extraction used the full text and all available supplementary material.
-For research questions \ref{rq:1}~and~\ref{rq:2}, data were extracted per-article.
-For research question~\ref{rq:3}, data were extracted per-scenario within the article.
-Additional variables definitions are given in Appendix~\ref{a:defs}.
+For objectives \ref{rq:1}~and~\ref{rq:2}, data were extracted per-study.
+For objective~\ref{rq:3}, data were extracted per-scenario within the study.
+Variables definitions are given in Appendix~\ref{a:defs}.
 % ------------------------------------------------------------------------------
 \subsubsection{Epidemic Context}
-% SM: this is good, but felt like mixing up extraction from 'categorizing (using the data extracted)"
-% in the description....tried to suggest some edits to help with organizing that so could follow the steps
 \label{sss:meth:context}
-% JK: since we framed the "objectives" as "research questions",
-%     I think best to stay consistent with the terms?
-To answer Research Question~\ref{rq:1}, we extracted data on
-geography, epidemic phase, and subgroups explicitly considered in the model.
-Specifically, we categorized studies by the geographic location (country and SSA region),
+For objective~\ref{rq:1}, we extracted data on
+geography, epidemic phase, and key populations explicitly considered in the model.
+We categorized studies by the geographic location (country and SSA region),
 scale of the simulated population (city, sub-national, national, regional), and
 whether the study included multiple geographic settings.
 We classified epidemic size at time of ART intervention using
-the overall HIV prevalence at that time (low: $<1\%$, medium: $1-10\%$, high: $>10\%$),
+the overall HIV prevalence at that time (low: $<$1\%, medium: 1-10\%, high: $>$10\%),
 and classified epidemic phase at the time of ART intervention
 using the trend in incidence at that time
 (increasing, increasing but stabilizing, stable/equilibrium, decreasing but stabilizing, and decreasing).
-Subgroups of interest included the following key populations:
+\par
+We extracted whether any of the following key populations were included in the model:
 female sex workers (FSW);
 male clients of FSW (Clients);
 men who have sex with men (MSM); and
 people who inject drugs (PWID).
 FSW were defined as any female activity group meeting 3 criteria:
-begin ${<5}$ \% of the female population;
-being ${<1/3}$ the size of the client population; and
-having ${>50\times}$ the partners per year of
-the lowest sexually active female activity group.
-Likewise, clients were defined as any male activity group meeting 2 criteria:
-being described as clients of FSW;
-being ${>3\times}$ the size of the FSW population.
-If it was not possible to evaluate any criteria due to lack of data,
-then we assumed the criteria was satisfied.
-No specific criteria were used to define MSM or PWID.
+{$<$5\%} of the female population;
+{$<$1/3} the size of the client population; and
+having {$>$50$\times$} the partners per year of
+the lowest sexually active female activity group \cite{Vandepitte2006,Scorgie2012}.
+Likewise, clients were defined as any male activity group
+described as clients of FSW and being {$>$3$\times$} the size of the FSW population.
+We also extracted whether any groups in the model were described as MSM or PWID.
 % ------------------------------------------------------------------------------
 \subsubsection{Factors of Risk Heterogeneity}
 \label{sss:meth:factors}
-For Research Question~\ref{rq:2}, we examined if and how
+For objective~\ref{rq:2}, we examined if and how
 the factors of risk heterogeneity outlined in Table~\ref{tab:factors}
 were simulated in each study.
-\par
 Special focus was given to the factors related to Network and Coverage Effects,
 due to the large variability in how these factors were simulated.
-We examined the number and defining characteristics of
-\emph{activity groups}, including
-sex, different rates of partnership formation, and different types of partnerships.
-We extracted whether each of the \emph{key populations} noted above was included in the model.
-Any \emph{turnover} of individuals between activity groups and/or key populations was noted.
+We examined the number of \emph{risk groups} defined by sex and/or sexual activity, and
+any \emph{turnover} of individuals between activity groups and/or key populations.
 \par
 We extracted whether multiple \emph{partnership types} were simulated,
 and classified how such partnerships were defined:
 generic (all partnerships equal);
 based only on the activity groups involved;
-or reflecting identifiable types (main/spousal; casual; commercial/sex work; transactional),
-such that different partnership types could be formed between the same two activity groups.
+or overlapping, such that different partnership types could be formed between the same two activity groups.
 We extracted whether partnerships considered different
-volumes of sex (total number of coital acts per partnership) and levels of condom use.
-We extracted whether models simulated any degree of assortative vs proportionate
-\emph{mixing} between activity groups.
+numbers of sex acts (sex frequency and partnership duration) and levels of condom use.
+We extracted whether models simulated any degree of assortative \emph{mixing} by activity groups
+(preference for like-with-like) versus proportionate (random mixing). 
 The number of unique \emph{age groups} was extracted, as well as
 whether \emph{mixing} by age groups was
 proportionate, strictly assortative, or assortative with age differences.
@@ -176,28 +158,25 @@ differed across modelled risk strata (sex, activity, key populations, and/or age
 and if so, how they differed.
 % ------------------------------------------------------------------------------
 \subsubsection{ART Prevention Impact}
-\label{sss:meth:api} % JK: TODO revise
-For Research Question~\ref{rq:3}, we examined the subset of studies (Dataset~B)
-reporting incidence reduction or infections averted due to
-population-wide ART scale-up.
-We extracted the following data for each scenario of ART scale-up within Dataset~B:
-the years that ART scale-up started and stopped, corresponding to
-the time each scenario diverged from the base-case scenario ($t_0$) and
-the time ART coverage or initiation rates stabilized following scale-up ($t_f$);
+\label{sss:meth:api}
+For objective~\ref{rq:3}, we examined the subset of studies (Dataset~B)
+reporting incidence reduction and/or infections averted due to
+a population-wide ART scale-up intervention.
+We extracted the following data for each intervention scenario within Dataset~B:
+the years that ART scale-up started (\tx{0}) and stopped (\tx{f});
 the final overall ART coverage achieved and/or
 the final ART initiation rate (per person-year among PLHIV not yet in care);
-the criteria for ART initiation (e.g. CD4 count);
+the criteria for ART initiation (e.g.\ CD4 count);
 and the relative reduction in transmission probability on ART.
-Then, we extracted relative reduction in incidence or proportion of infections averted
-reported for different time horizons relative to $t_0$.
-Figure data were extracted for any of the following time horizons, if available:
-5, 10, 15, 20, 30, and 40 years,
-with the help of a graphical measurement tool.%
-\footnote{WebPlotDigitizer: \hreftt{https://apps.automeris.io/wpd/}}
+Then, we extracted the
+reduction in incidence relative to the base-case scenario, and/or
+proportion of infections averted relative to the base-case scenario
+for available time horizons relative to \tx{0}.
 \par
 Finally, for each factor of heterogeneity,
-we compared the projected ART prevention impacts across
-the different factor levels (whether or not, and how the factor was modelled).
-We plotted impact magnitude vs time since $t_0$, stratified by factor levels,
-and explored whether the distribution in magnitude of impact
-was the same under all factor levels (non-parametric Kruskal-Wallis test).
+we compared the projected ART impacts (incidence reduction and infections averted)
+across the different factor levels (whether or not, and how the factor was modelled).
+We plotted the impacts versus time since \tx{0}, stratified by factor levels,
+and explored whether the distribution of impacts
+was the same under all factor levels.
+We tested for significant differences using a Kruskal-Wallis test.
