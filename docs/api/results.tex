@@ -1,13 +1,10 @@
 The search yielded 1384 publications,
-of which 94 studies were included
-(Figure~\ref{fig:prisma}).
-360 studies used non-linear HIV transmission models applied to SSA, of which
-255 were compartmental models. 
-94 compartmental modeling studies simulated ART scale-up (Database~A), of which
-40 reported infections averted or incidence reduction
-due to population-wide ART scale-up without additional combination interventions,
-as compared to a base case reflecting status quo (Database~B).
-Appendix~\ref{aa:search:database} lists the included papers, and
+of which 94 studies were included (Figure~\ref{fig:prisma}).
+These studies (Dataset~A) applied non-linear compartmental modelling to simulate ART scale-up in SSA,
+of which 40 reported infections averted/incidence reduction
+due to population-wide ART scale-up without combination intervention,
+relative to a base case reflecting status quo (Dataset~B).
+Appendix~\ref{aa:search:dataset} lists the included papers, and
 Appendix~\ref{a:results} provides additional results.
 \begin{figure}
   \centering
@@ -18,21 +15,17 @@ Appendix~\ref{a:results} provides additional results.
 % ==============================================================================
 \subsection{Epidemic Context}
 \label{ss:res:context}
-Table~\ref{tab:summary} summarizes the key features of contexts within SSA
+Table~\ref{tab:summary} summarizes key features of contexts within SSA
 where the prevention impacts of ART have been modelled.
-Most (\x{geo/n.any.nat}) of the 94 studies modelled HIV transmission at the national level,
-including \x{geo/n.nat} single-country and \x{geo/n.nat.multi} multi-country analyses.
-Studies also explored
+Most (\x{geo/n.any.nat}) of the 94 studies modelled HIV transmission at the national level;
+studies also explored
 regional (\x{geo/n.any.sub.ssa}),
 sub-national (\x{geo/n.any.sub.nat}), and
 city-level (\x{geo/n.any.city}) epidemic scales.
-South Africa was the most common country simulated (\x{co/n.South-Africa} studies),
-but was not disproportionately represented among SSA countries:
-the number of studies per million PLHIV as of 2019 in South Africa (\x{co/mph.South-Africa})
-was similar to the SSA median (\x{co/mph.med}).
+South Africa was the most common country simulated (\x{co/n.South-Africa} studies), and
 Figure~\ref{fig:map} illustrates the number of studies by country.
 East Africa was the most represented SSA region being simulated in \x{co/n.re.east} studies,
-followed by Southern (\x{co/n.re.south}), Central (\x{co/n.re.central}), and West Africa (\x{co/n.re.west}).
+followed by Southern (\x{co/n.re.south}), West (\x{co/n.re.west}), and Central Africa (\x{co/n.re.central}).
 \begin{table}
   \centering
   \caption{Summary of epidemic contexts within Sub-Saharan Africa where
@@ -50,32 +43,30 @@ followed by Southern (\x{co/n.re.south}), Central (\x{co/n.re.central}), and Wes
 \end{figure}
 \par
 ART prevention impacts were most often modelled in
-high-prevalence epidemics ({$>$10\%} HIV prevalence, \x{t0/n.prev.High} studies) and
-medium-prevalence epidemics ({1-10\%}, \x{t0/n.prev.Mid} studies).
-No studies reported overall HIV prevalence of {$<$1\%} at time of ART scale-up,
+high-prevalence ({$>$10\%}) epidemics (\x{t0/n.prev.High} studies) and
+medium-prevalence ({1-10\%}) epidemics, \x{t0/n.prev.Mid}).
+No studies reported overall HIV prevalence of {$<$1\%} at time of intervention,
 although for \x{t0/n.prev.NA} studies, HIV prevalence was either
-not reported or varied across independently simulated contexts/scenarios.
-The \xdmdef year of scenario ART scale-up was \xdm{t0/t0}; at which time
+not reported or varied across simulated contexts/scenarios.
+The \xdmdef year of intervention was \xdm{t0/t0}; at which time
 HIV prevalence (\%) was \xdm{t0/prev}; and
-incidence (per 1000 PY) was \xdm{t0/inc}.
-Most contexts reporting incidence trends had decreasing or stable incidence
-(45 of 48 reporting). % MAN \x{t0/n.phase.*}
+incidence (per 1000 person-years) was \xdm{t0/inc}.
+Most reported incidence trends were decreasing or stable (45 of 48 reporting). % MAN \x{t0/n.phase.*}
+% ------------------------------------------------------------------------------
 \subsubsection{Key Populations}
 \label{sss:res:kp}
 Groups representing FSW were described in \x{kp/n.FSW.named} studies.
 Among these (of studies where it was possible to evaluate):
 \x{kp/n.FSW.n.crit.p} (of \x{kp/n.FSW.n.crit.p.v}) were {$<$5\%} of the female population;
 \x{kp/n.FSW.n.crit.pr} (of \x{kp/n.FSW.n.crit.pr.v}) were {$<$1/3} the size of the client population; and
-\x{kp/n.FSW.n.crit.cr} (of \x{kp/n.FSW.n.crit.cr.v}) had {$>$50$\times$} the partners per year of
+\x{kp/n.FSW.n.crit.cr} (of \x{kp/n.FSW.n.crit.cr.v}) had {$>$50$\times$} more partners per year than
 the lowest sexually active female activity group.
-In \x{kp/n.FSW.n.crit.fail} studies at least one criteria was not met, and
-in \x{kp/n.FSW.n.crit.3} all three were met.
 Clients of FSW were modelled as a unique group in \x{kp/n.Cli.named} studies,
 among which \x{kp/n.Cli.n.crit} (of \x{kp/n.Cli.n.crit.v} reporting)
 were {$>$3$\times$} the size of the FSW population.
-In another \x{kp/n.Cli.named.p}, studies clients were defined as a proportion of another group,
+In another \x{kp/n.Cli.named.p} studies, clients were defined as a proportion of another group,
 among which \x{kp/n.Cli.n.p.crit} (of \x{kp/n.Cli.n.p.crit.v})
-were {$>$3$\times$} the size of the FSW population.
+were {$>$3$\times$} the FSW population size.
 Activity groups described as representing
 men who have sex with men (MSM) were noted in \x{kp/n.MSM} studies; and
 people who inject drugs (PWID) in \x{kp/n.PWID}.
@@ -89,36 +80,33 @@ The \xdmdef number of states used to represent HIV disease
 (ignoring treatment-related stratifications) was \xdm{hiv/hiv.n},
 and \x{hiv/n.hiv.cts} studies represented HIV along a continuous dimension
 using a partial differential equations model.
-Most HIV states were defined by CD4 count
-to reflect clinical progression and/or historical ART eligibility,
-often with additional states to represent acute infection and/or development of AIDS.
-States of increased infectiousness associated with acute infection and late stage disease
+States of increased infectiousness associated with acute infection and late-stage disease
 were simulated in \x{hiv/n.hiv.acute} and \x{hiv/n.hiv.late} studies, respectively.
 \par
 The relative risk of HIV transmission on ART was \xdm{art/rbeta},
 representing an average ``on-treatment'' state in \x{art/n.rbeta.x.T} studies,
-versus a ``virally suppressed'' state specifically in \x{art/n.rbeta.x.V} studies.
+versus a ``virally suppressed'' state in \x{art/n.rbeta.x.V}.
 Treatment failure due to drug resistance was simulated in \x{art/n.art.fail.any} studies, including:
-\x{art/n.art.x.fail} in which individuals experiencing treatment failure
+\x{art/n.art.x.fail} where individuals experiencing treatment failure
 were tracked separately from ART-naive; and
-\x{art/n.art.r.fail} in which such individuals
+\x{art/n.art.r.fail} where such individuals
 transitioned back to a generic ``off-treatment'' state.
 Another \x{art/n.art.r.frop} studies included a similar transition
-that was not clearly identified as treatment failure versus ART cessation.
+that was not identified as treatment failure versus ART cessation.
 Transmissible drug resistance was simulated in \x{art/n.tdr} studies.
 % ------------------------------------------------------------------------------
 \subsubsection{Behavioural Effects}
 \label{sss:res:beh}
-Reduced sexual activity during late-stage HIV symptoms was simulated in \x{hiv/n.hiv.morb.any} studies,
+Reduced sexual activity during late-stage HIV was simulated in \x{hiv/n.hiv.morb.any} studies,
 including at least one state with:
 complete cessastion of sexual activity (\x{hiv/n.hiv.morb.inact});
 reduced rate or number of partnerships (\x{hiv/n.hiv.morb.np}); and/or
 reduced rate or number of sex acts per partnership (\x{hiv/n.hiv.morb.vol}).
 \par
-Separate health states representing diagnosed HIV but not yet on treatment
-and on treatment but not yet virally suppressed were simulated in
+Separate health states representing diagnosed HIV before treatment,
+and on treatment before viral suppression were simulated in
 \x{art/n.art.x.dx} and \x{art/n.art.x.vlus} studies, respectively.
-\x{art/n.bc.any} studies modelled changes in behaviour following awareness of HIV status among PLHIV:
+\x{art/n.bc.any} studies modelled behaviour changes following awareness of HIV+ status, including:
 increased condom use (\x{art/n.bc.cond.any});
 fewer partners per year (\x{art/n.dx.bc.np});
 fewer sex acts per partnership (\x{art/n.dx.bc.vol});
@@ -126,23 +114,21 @@ serosorting (\x{art/n.dx.bc.ss}); and/or
 a generic reduction in transmission probability (\x{art/n.dx.bc.gen}).
 \par
 ART cessation was simulated in \x{art/n.art.drop.any} studies, including:
-\x{art/n.art.x.drop} in which individuals no longer on ART
+\x{art/n.art.x.drop} where individuals no longer on ART
 were tracked separately from ART-naive; and
-\x{art/n.art.r.drop} in which such individuals
+\x{art/n.art.r.drop} where such individuals
 transitioned back to a generic ``off-treatment'' state.
 Another \x{art/n.art.r.frop} studies included a similar transition
-that was not clearly identified as treatment failure versus ART cessation.
+that was not identified as treatment failure versus ART cessation.
 % ------------------------------------------------------------------------------ 
 \subsubsection{Network Effects}
 \label{sss:res:network}
-Representations of risk heterogeneity varied widely.
-Risk groups defined at least in part by activity
-(different rates and/or types of partnerships formed) were simulated in \x{act/n.act.def.np} studies,
-and at least in part by sex in \x{act/n.act.def.sex} studies.
-The number of simulated groups defined by sex and/or activity was \xdm{act/act.n};
-the number defined by activity alone (maximum number of groups among either
+Populations were stratified by activity (different rates and/or types of partnerships formed)
+in \x{act/n.act.def.np} studies, and by sex in \x{act/n.act.def.sex}.
+The number of groups defined by sex and/or activity was \xdm{act/act.n};
+and by activity alone (maximum number of groups among:
 heterosexual women, heterosexual men, MSM, or overall if sex was not considered) was \xdm{act/act.n.z}.
-The highest activity groups (including FSW and clients, where applicable) for females and males comprised
+The highest activity groups for females and males (possibly including FSW/clients) comprised
 \xdm{act/hrw.p} and \xdm{act/hrm.p}~\% of female and male populations, respectively.
 \par
 Turnover between activity groups and/or key populations
@@ -150,52 +136,46 @@ was considered in \x{act/n.turnover.any} studies,
 of which \x{act/n.turnover.high} considered turnover of only
 one specific high-activity group or key population.
 Another \x{act/n.turnover.repl} studies simulated
-movement only from lower activity groups into higher activity groups
-to re-balance group sizes against disproportionate HIV mortality in higher activity groups.
+movement only from lower to higher activity groups
+to re-balance group sizes against disproportionate HIV mortality.
 \par
 Among \x{act/n.act.def.np} studies with activity groups, sexual mixing was assumed to be
 assortative in \x{pt/n.mix.asso} and proportionate in \x{pt/n.mix.prop}.
-Regarding the three approaches to partnership types:
-First, partnerships were considered to have equal probability of transmission in
-\x{pt/n.pt.gen} studies, including all studies without activity groups.
-Second, partnerships were defined by the activity groups involved (\x{pt/n.pt.grp} studies).
-In such partnerships, transmission was usually
-lower in high-with-high activity partnerships than in low-with-low, due to a combination of
-fewer sex acts (\x{pt/n.grp.vol}) and
-increased condom use (\x{pt/n.grp.condom}).
-The transmission risk in mixed high-with-low activity partnerships was defined by:
+Partnerships had equal probability of transmission in \x{pt/n.pt.gen} studies,
+including all studies without activity groups.
+Partnerships were defined by the activity groups involved in \x{pt/n.pt.grp} studies,
+among which transmission was usually
+lower in high-with-high activity partnerships than in low-with-low, due to
+fewer sex acts (\x{pt/n.grp.vol}) and/or increased condom use (\x{pt/n.grp.condom}).
+Transmission risk in high-with-low activity partnerships was defined by:
 the susceptible partner (\x{pt/n.act.drive.sus});
 the lower activity partner (\x{pt/n.act.drive.low});
 the higher activity partner (\x{pt/n.act.drive.high}); or
-the unique combination of both partners' activity groups (\x{pt/n.act.drive.mix});
-such definitions yielded indeterminate, higher, lower, or intermediate
+both partners' activity groups (\x{pt/n.act.drive.mix});
+yielding indeterminate, higher, lower, or intermediate
 per-partnership transmission risk, respectively.
-Third, partnerships could be defined based on overlapping types
-(main/spousal, casual, and sex work), such that
-different partnership types could be formed between the same two activity groups (\x{pt/n.pt.phen} studies).
-For example, FSW could form commercial, casual, or spousal/main partnerships with clients.
+Partnerships were defined based on overlapping types, such that
+different partnership types could be formed between the same two activity groups in \x{pt/n.pt.phen} studies.
 All models with overlapping partnership types defined differential total sex acts and condom use between types.
 \par
-Age groups were simulated in \x{age/n.age.any} studies.
-Among studies with age groups, the number of age groups was \xdm{age/age.n},
+Age groups were simulated in \x{age/n.age.any} studies, among which,
+the number of age groups was \xdm{age/age.n},
 and \x{age/n.age.cts} studies simulated age along a continuous dimension.
 Sexual mixing between age groups was assumed to be assortative
 either with (\x{age/n.mix.offd}) or without (\x{age/n.mix.asso})
 average age differences between men and women;
 or proportionate (\x{age/n.mix.prop}).
-Differential risk behaviour by age occurred in \x{age/n.risk} of these \x{age/n.age.any} studies.
+Differential risk behaviour by age was modelled in \x{age/n.risk} studies.
 % ------------------------------------------------------------------------------
 \subsubsection{Coverage Effects}
 \label{sss:res:cov}
-Differential transition rates along the ART cascade was considered in
+Differential transition rates along the ART cascade were considered in
 \x{cov/n.diff.any.any} studies, including differences between
 sexes in \x{cov/n.diff.any.sex};
 age groups in \x{cov/n.diff.any.age}; and
 key populations in \x{cov/n.diff.any.kp}.
-No studies considered differences in cascade transition rates
-among activity groups beyond key populations. % MAN
 Another \x{cov/n.diff.any.any.j} studies did not simulate differential cascade transitions,
-but specifically justified the simplification using data relevant to the simulated context.
+but specifically justified the decision using context-specific data.
 Differences between sexes included rates of
 HIV diagnosis (\x{cov/n.diff.dx.sex});
 ART initiation (\x{cov/n.diff.art.i.sex}); and
@@ -223,12 +203,6 @@ the proportion of cumulative infections averted due to ART scale-up
 was reported in \x{n/n.a.api.chi} (\x{n/n.s.api.chi});
 and \x{n/n.a.api.both} (\x{n/n.s.api.both}) reported both.
 Some scenarios reported these outcomes on multiple time horizons.
-Reported impact on incidence ranged from % MAN
-93\% reduction over 10 years \cite{Granich2009} to
-14\% increase over 15 years \cite{Salomon2005},
-while impact on cumulative infections ranged from
-78\% reduction over 10 years \cite{Abbas2006} to
-12\% increase over 5 years \cite{Barnighausen2016}.
 \par
 Figure~\ref{fig:api} summarizes each outcome versus time since ART scale-up,
 stratified by a composite index of modelled risk heterogeneity.
@@ -236,17 +210,16 @@ Ecological-level analysis across scenarios by degree of risk heterogeneity
 identified differences in proportions of infections averted,
 but not in relative incidence reduction (Table~\ref{tab:api}).
 The largest proportions of infections averted were reported from 
-scenarios without risk heterogeneity 
-(median [IQR]\% = \xd{api/chi/Risk.None}), followed by scenarios
-with key populations prioritized for ART (\xd{api/chi/Risk.KP-(priority)}).
+scenarios without risk heterogeneity (median [IQR]\% = \xd{api/chi/Risk.None}), followed by
+scenarios with key populations prioritized for ART (\xd{api/chi/Risk.KP-(priority)}).
 The smallest impact was observed in scenarios with
 key populations who were not prioritized for ART (\xd{api/chi/Risk.KP-(same)})
-and in models with some risk heterogeneity but without key populations
+and in models with risk heterogeneity but without key populations
 (\xd{api/chi/Risk.Activity-(No-KP)}).
 Only \x{n/n.s.api.both} scenarios from \x{n/n.a.api.both} studies provided both outcomes
 \cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018}; % MAN
-within which the pattern of incidence reduction versus modelled heterogeneity
-was generally similar to the pattern of infections averted versus modelled heterogeneity
+among which the pattern of incidence reduction versus modelled heterogeneity
+was similar to the pattern of infections averted versus modelled heterogeneity
 (Figure~\ref{fig:api:both}).
 \begin{figure}
   \begin{subfigure}{0.5\textwidth}
@@ -286,7 +259,6 @@ was generally similar to the pattern of infections averted versus modelled heter
 \end{figure}
 \par
 Appendix~\ref{aa:res:api} and Table~\ref{tab:api} summarizes
-the reported ART prevention impacts (relative incidence reduction and proportion of infections averted),
-stratified by: other factors of risk heterogeneity; epidemic contexts; and intervention conditions.
-For example, reported incidence reduction and proportion of infections averted
-were both larger with longer time horizon, greater ART eligibility, and higher ART coverage.
+ART prevention impacts (relative incidence reduction/proportion of infections averted),
+stratified by other factors of risk heterogeneity, epidemic contexts, and intervention conditions.
+ART prevention impacts were larger with longer time horizon, greater ART eligibility, and higher ART coverage.
