@@ -13,6 +13,8 @@
 \setlength{\parindent}{0ex}
 \setlength{\abovecaptionskip}{1\baselineskip}
 \setlength{\belowcaptionskip}{1\baselineskip}
+\widowpenalty10000
+\clubpenalty10000
 % meta-data
 \def\dummy{NYLL}
 \newcommand{\shorttitle}[1]{\gdef\@shorttitle{#1}}
