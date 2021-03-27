@@ -8,8 +8,9 @@ igs = [
   '\\\\input\{.*?\}',
   '\\\\label\{.*?\}',
   '\\\\(begin|end)\{(enumerate|itemize)\}',
-  re.compile('\\\\begin\{.*?table\}(.*?)\\\\end\{.*?table\}',re.DOTALL),
+  re.compile('\\\\begin\{table\}(.*?)\\\\end\{table\}',re.DOTALL),
   re.compile('\\\\begin\{figure\}(.*?)\\\\end\{figure\}',re.DOTALL),
+  re.compile('\\\\begin\{sidewaystable\}(.*?)\\\\end\{sidewaystable\}',re.DOTALL),
 ]
 reps = [
   ('~', ' '),
@@ -42,5 +43,5 @@ for n in range(3):
 with open('body.tex','w') as f:
   f.write(body)
 
-os.system('wc body.tex')
+os.system('wc -w body.tex | cut -d " " -f1 > words && cat words')
 
