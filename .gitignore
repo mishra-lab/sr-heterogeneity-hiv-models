@@ -28,7 +28,6 @@ out/tex/
 *.synctex
 *.synctex.gz
 *-converted-to.pdf
-sub/aids/
 
 # windows
 .DS_Store
