@@ -27,14 +27,21 @@ numeric.co = function(X){
   dir = tex.dir('co')
   co.data = load.co.data()
   mph = double(0)
+  n.region = list(north=1,east=2,west=3,south=4,central=5)
   n.co.other = 0
   for (co in get.cols.co(X)){
     name = sub('co\\.','',co)
     plhiv = co.data[name,'plhiv']/1e6
     mph.co = sum(X[[co]])/plhiv
     mph = c(mph,ifelse(is.na(mph.co),0,mph.co))
+    re = as.character(co.data[name,'region'])
+    n.region[[re]] = n.region[[re]] + sum(X[[co]])
     save.count(X[[co]], namefun(name), dir)
     save.tex(round(mph.co,d=2), namefun('mph',name), dir)
+  }
+  print(n.region)
+  for (re in names(n.region)){
+    save.tex(n.region[[re]], namefun('n','re',re), dir)
   }
   save.tex(round(median(mph),d=2), namefun('mph','med'), dir)
   co.popular = c('co.South Africa','co.Kenya','co.Zambia')
@@ -58,19 +65,24 @@ numeric.kp = function(X){
   save.count(X$kp.FSW.named, 'FSW.named', dir)
   Xn = X[ X$kp.FSW.named,]
   Xu = X[!X$kp.FSW.named,]
+  for (crit in M$kp$fsw.crit){
+    save.count(Xn[[namefun('kp.FSW.crit',crit)]], namefun('FSW.n.crit',crit), dir)
+    save.count(!is.na(Xn[[namefun('kp.FSW.crit',crit)]]), namefun('FSW.n.crit',crit,'v'), dir)
+    save.count(is.na(Xn[[namefun('kp.FSW.crit',crit)]]), namefun('FSW.n.crit',crit,'na'), dir)
+  }
   save.count.fct(X$kp.FSW.crit,  'FSW.crit',   dir)
   save.count.fct(Xn$kp.FSW.crit, 'FSW.n.crit', dir)
-  save.count.fct(Xu$kp.FSW.crit, 'FSW.u.crit', dir)
+  # save.count.fct(Xu$kp.FSW.crit, 'FSW.u.crit', dir)
   save.count(as.numeric(Xn$kp.FSW.crit) < 3+1, 'FSW.n.crit.fail', dir)
   # clients
   save.count(X$kp.Cli.named, 'Cli.named', dir)
-  Xn = X[ X$kp.Cli.named,]
-  Xu = X[!X$kp.Cli.named,]
-  save.count.fct(X$kp.Cli.crit,  'Cli.crit',   dir)
-  save.count.fct(Xn$kp.Cli.crit, 'Cli.n.crit', dir)
-  save.count.fct(Xu$kp.Cli.crit, 'Cli.u.crit', dir)
-  save.count(as.numeric(Xn$kp.Cli.crit) < 1+1, 'Cli.n.crit.fail', dir)
-  save.count(X$kp.Cli.p, 'Cli.p', dir)
+  save.count(X$kp.Cli.named.p, 'Cli.named.p', dir)
+  Xn = X[X$kp.Cli.named,]
+  Xp = X[X$kp.Cli.named.p,]
+  save.count(Xn$kp.FSW.crit.pr, namefun('Cli.n.crit'), dir)
+  save.count(Xp$kp.FSW.crit.pr, namefun('Cli.n.p.crit'), dir)
+  save.count(!is.na(Xn$kp.FSW.crit.pr), namefun('Cli.n.crit.v'), dir)
+  save.count(!is.na(Xp$kp.FSW.crit.pr), namefun('Cli.n.p.crit.v'), dir)
 }
 numeric.act = function(X){
   dir = tex.dir('act')
@@ -79,8 +91,8 @@ numeric.act = function(X){
   for (col in C$act.def){
     save.count(X[[col]], col,  dir)
   }
-  save.distr(100 * X$act.HRW.p, 'hrw.p', dir, d=0)
-  save.distr(100 * X$act.HRM.p, 'hrm.p', dir, d=0)
+  save.distr(100 * X$act.HRW.p, 'hrw.p', dir, d=0, lt=1)
+  save.distr(100 * X$act.HRM.p, 'hrm.p', dir, d=0, lt=1)
   save.count(X$act.turn.any, 'turnover.any', dir)
   save.count.fct(X$act.turnover, 'turnover', dir)
   save.count(X$mc, 'mc', dir)
@@ -203,7 +215,7 @@ numeric.api = function(XA,agg=FALSE){
     }
   }
 }
-save.distr = function(x,name,dir='',d=2,funs=NULL){
+save.distr = function(x,name,dir='',d=2,funs=NULL,lt=NULL){
   fun.list = list(
     mu = function(x){ mean(x) },
     sd = function(x){ sd(x) },
@@ -214,10 +226,13 @@ save.distr = function(x,name,dir='',d=2,funs=NULL){
     q4 = function(x){ quantile(x,  1) }
   )
   if (is.null(funs)) { funs = names(fun.list) }
+  ltfun = ifelse(is.null(lt),identity,function(x){
+    return( ifelse(x < lt, paste('$<$',lt), x) )
+  })
   x = x[!is.na(x)]
   for (f in funs){
     fun = fun.list[[f]]
-    save.tex(round(fun(x),d=d),namefun(name,f), dir)
+    save.tex(ltfun(round(fun(x),d=d)),namefun(name,f), dir)
   }
 }
 tex.dir = function(dir){

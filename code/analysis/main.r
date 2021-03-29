@@ -14,7 +14,7 @@ source('analysis/plot.r')
 
 X = load.main.data(api.include=c('Y','x'))
 numeric.main(X)
-plot.map.co(X,size='count',fill='PLHIV') %>% save.plot('map-n-vs-plhiv',width=7,height=6)
+plot.map.co(X,size='Studies',fill='PLHIV') %>% save.plot('map-n-vs-plhiv',width=7,height=6)
 
 XA = load.api.data(X)
 numeric.api(XA)

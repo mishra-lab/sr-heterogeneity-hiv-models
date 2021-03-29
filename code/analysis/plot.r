@@ -23,21 +23,23 @@ plot.api = function(XAi,which='chi',drop=FALSE,...){
   clr = XAi[[ifelse(is.null(args$color),NA,args$color)]]
   s   = XAi[[ifelse(is.null(args$size), NA,args$size )]]
   size.lims = 4*c(ifelse(length(s),min(s),1),ifelse(length(s),max(s),1))
-  clr.args = list(option='inferno',end=.85)
+  clr.args = list(option='inferno',begin=.1,end=.75)
   if (!is.numeric(clr)){ clr.args = c(clr.args,list(discrete=TRUE,drop=drop)) }
-  g = ggplot(XAi,aes_string(x='t',y='value',...,size=3)) +
+  g = XAi %>% rename(args) %>%
+      ggplot(aes_string(x='t',y='value',...,size=3)) +
       geom_hline(yintercept=0,color='gray') +
       geom_point(alpha=.6,position='jitter') +
       ylim(-.15,  1) + ylab(ylabs[[which]]) +
-      xlim(   0, 40) + xlab('Time since Roll-Out (years)') +
+      xlim(  -1, 41) + xlab('Time since Roll-Out (years)') +
       scale_size(range=size.lims) +
       guides(size=FALSE) +
       do.call(scale_color_viridis,clr.args) +
-      theme_light()
+      theme_light() +
+      theme(legend.title=element_blank(),legend.margin=margin(0,0,0,0))
   return(g)
 }
 
-plot.map.co = function(X,fill='PLHIV',size='Count'){
+plot.map.co = function(X,fill='PLHIV',size='Studies'){
   colnames(X) <- gsub('co.','',colnames(X))
   Xc = load.co.polygons()
   Xc[[size]] = sapply(Xc$name,
@@ -48,7 +50,7 @@ plot.map.co = function(X,fill='PLHIV',size='Count'){
       geom_segment(aes(x=X,y=Y,xend=X0,yend=Y0),alpha=.5,size=.2) +
       geom_point(aes_string(x='X',y='Y',size=size),
         alpha = 0.6, color = 'red') +
-      scale_fill_viridis(option='inferno',end=.85) +
+      scale_fill_viridis(option='inferno',begin=.1,end=.75) +
       scale_size(range=c(-.5,15)) +
       xlab(NULL) + ylab(NULL) +
       theme_light()
@@ -63,20 +65,20 @@ plot.distr.list = function(X){
 }
 
 plot.distr = function(X,var){
-  x = X[[var]]
-  if (is.numeric(x)){
+  if (is.numeric(X[[var]])){
     geom = geom_histogram
     args = list(bins=16,alpha=.4,color='red',fill='red')
   } else {
     geom = geom_bar
     args = list(alpha=.4)
   }
-  clr.args = list(option='inferno',discrete=TRUE,end=.85,na.value='gray')
-  g = ggplot(X,aes_string(x=var,color=var,fill=var)) +
+  clr.args = list(option='inferno',discrete=TRUE,begin=.1,end=.85,na.value='gray')
+  g = X %>% rename(var) %>%
+    ggplot(aes_string(x=var,color=var,fill=var)) +
     do.call(geom,args) +
     do.call(scale_color_viridis,clr.args) +
     do.call(scale_fill_viridis,clr.args) +
-    ylab('Count') + xlab(detex(D[[decat(var)]])) +
+    ylab('Studies') + xlab(detex(D[[decat(var)]])) +
     guides(color=FALSE,fill=FALSE) +
     theme_light()
   return(g)
@@ -92,6 +94,17 @@ detex = function(name){
 
 decat = function(name){
   return(gsub('\\.cat','',name))
+}
+
+rename = function(X,...){
+  names = c(...)
+  for (name in names){
+    if (!is.null(R[[name]])){
+      X[[name]] = as.factor(X[[name]])
+      levels(X[[name]]) <- R[[name]]
+    }
+  }
+  return(X)
 }
 
 save.plot.lists = function(){

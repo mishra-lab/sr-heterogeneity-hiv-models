@@ -42,6 +42,7 @@ load.main.data = function(...){
   }
   X$art.bc.cond = boolfun(X$dx.bc.cond,true='A')
   X$bc.cond.any = boolfun(X$dx.bc.cond,true=c('Y','A'))
+  X$kp.Cli.named.p = boolfun(X$kp.Cli.named,true='p')
   X$kp.Cli.p = boolfun(X$kp.Cli,true='p')
   X$art.r.frop = boolfun(X$art.r.fail,true='x') & boolfun(X$art.r.drop,true='x')
   for (na.case in names(bool.cols)){
@@ -57,8 +58,8 @@ load.main.data = function(...){
   # collect some stuff
   X$art.r.fail   = X$art.r.fail & !X$art.x.fail
   X$art.r.drop   = X$art.r.drop & !X$art.x.drop
-  X$art.fail.any = anyfun(X[,c('art.x.fail','art.r.fail','art.r.frop')])
-  X$art.drop.any = anyfun(X[,c('art.x.drop','art.r.drop','art.r.frop')])
+  X$art.fail.any = anyfun(X[,c('art.x.fail','art.r.fail')])
+  X$art.drop.any = anyfun(X[,c('art.x.drop','art.r.drop')])
   X$kp.any       = anyfun(X[,C$kp])
   X$dx.bc.any    = anyfun(X[,C$dx.bc])
   X$bc.any       = anyfun(X[,c('art.bc.cond',C$dx.bc)])
@@ -70,7 +71,6 @@ load.main.data = function(...){
   X = make.act.n.sex.max(X)
   X = make.turnover(X)
   X = make.fsw.crit(X)
-  X = make.cli.crit(X)
   X = make.pt.def(X)
   return(X)
 }
@@ -128,16 +128,15 @@ make.act.kp = function(X){
 }
 
 make.risk = function(X){
-  X$Risk = factor(mapply(function(n, sex, act, kp, kp.diff){
-      if (!sex & !act) { return(1) }
-      if (sex & !act)  { return(2) }
-      if (act & !kp)   { return(3) }
-      if (kp & kp.diff == 'priority') { return(4) }
-      if (kp & kp.diff == 'same')     { return(5) }
-      if (kp & kp.diff == 'gaps')     { return(6) }
-    }, X$act.n, X$act.def.sex, X$act.def.np, X$kp.any, X$diff.any.kp.cat),
-    levels = c(1,2,3,4,5,6),
-    labels = c('None','Sex only','Activity (no KP)','KP (priority)','KP (same)','KP (gaps)')
+  X$Risk = factor(mapply(function(n, act, kp, kp.diff){
+      if (!act)      { return(1) }
+      if (act & !kp) { return(2) }
+      if (kp & kp.diff == 'priority') { return(3) }
+      if (kp & kp.diff == 'same')     { return(4) }
+      if (kp & kp.diff == 'gaps')     { return(5) }
+    }, X$act.n, X$act.def.np, X$kp.any, X$diff.any.kp.cat),
+    levels = c(1,2,3,4,5),
+    labels = c('None','Activity (no KP)','KP (priority)','KP (same)','KP (gaps)')
   )
   return(X)
 }
@@ -147,13 +146,9 @@ make.fsw.crit = function(X){
   return(X)
 }
 
-make.cli.crit = function(X){
-  X$kp.Cli.crit = factor(clean.numeric(X$kp.FSW.crit.pr))
-  return(X)
-}
-
 make.act.n.sex.max = function(X){
-  X$act.n.z = pmax(X$act.n.hw,X$act.n.hm,X$act.n.msm,na.rm=TRUE)
+  X$act.n.z1 = pmax(X$act.n.hw,X$act.n.hm,X$act.n.msm,na.rm=TRUE)
+  X$act.n.z  = pmin(X$act.n,X$act.n.z1,na.rm=TRUE)
   return(X)
 }
 
