@@ -70,9 +70,12 @@
 \renewcommand{\appendix}{
   \xappendix
   \clearpage
+  \setcounter{page}{1}
+  \renewcommand*{\thepage}{A.\arabic{page}}
   \counterwithin{table}{section}
   \counterwithin{figure}{section}
-  {\large\textsc{appendix}}
+  \thispagestyle{plain}
+  \hspace{0.15\linewidth}{\large\textsc{appendix}}
   \vskip1em
   \tpart{Title}{\@title}
   \tpart{Authors}{\@author}

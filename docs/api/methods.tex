@@ -1,5 +1,5 @@
 We conducted a scoping review according to the PRISMA extension for scoping reviews
-(see Appendix~\ref{a:prisma}).
+(Appendix~\ref{a:prisma}).
 First, we developed a conceptual framework to organize
 assumptions and representations of risk heterogeneity
 in compartmental HIV transmission models.
@@ -52,32 +52,30 @@ Search results were imported into Covidence \cite{Covidence} for screening.
 Duplicate studies were removed automatically by Ovid and by Covidence;
 four additional duplicates with subtly different titles were later identified and removed manually.
 Potentially relevant studies were identified by title and abstract screening, followed 
-by full-text screening using the inclusion/exclusion criteria listed below. 
+by full-text screening using the inclusion/exclusion criteria below. 
 One reviewer (JK) conducted the search, screening, and data extraction.
 % ------------------------------------------------------------------------------
 \subsubsection{Inclusion/Exclusion Criteria}
 \label{sss:meth:criteria}
 We included peer-reviewed, primarily modelling studies that used non-linear models of sexual HIV transmission
 to project the prevention impacts of ART in any setting within SSA.
-Complete inclusion/exclusion criteria are given in Appendix~\ref{aa:search:criteria}.
-We only included studies in English and published anytime before Jan~1, 2020.
-We excluded publications without primary modelling results and description of the methods,
+See Appendix~\ref{aa:search:criteria} for complete inclusion/exclusion criteria.
+We only included studies published in English anytime before Jan~1, 2020.
+We excluded conference publications and those without primary modelling results and description of the methods,
 such as commentaries and reviews.
-We excluded conference publications.
-If a model's details were provided in a separate peer-reviewed publication,
+If a model's details were provided in another peer-reviewed publication,
 we extracted data from both publications as required.
 \par
 The following criteria were used for inclusion of studies:
-1) Used a non-linear compartmental model of
-sexual HIV transmission at the population level.
+1) Used a non-linear compartmental model of sexual HIV transmission at the population level.
 We defined a \emph{non-linear model} as one where
-future projected infections are a function of previously projected infections \cite{Garnett2011}.
-We defined a \emph{compartmental model} as one where
+future projected infections are a function of previously projected infections \cite{Garnett2011},
+and a \emph{compartmental model} as one where
 system variables represent the numbers of individuals in each state,
 rather than unique individuals \cite{Garnett2011}.
-Thus, statistical models, linear models, and individual-based models without dynamic transmission were excluded.
+Thus, statistical models, models without dynamic transmission, and individual-based models were excluded.
 2) The model was parameterized/calibrated to reflect at least one setting within SSA
-(see Appendix~\ref{aa:defs:context} for full country list).
+(see Appendix~\ref{aa:defs:context} for countries).
 3) The study simulated at least one scenario with increasing ART coverage,
 possibly alongside other interventions.
 The included studies formed Dataset~A,
@@ -94,8 +92,8 @@ relative to a base-case scenario reflecting status quo.
 \subsection{Data Extraction}
 \label{ss:meth:data}
 Data extraction used the full text and all available supplementary material.
-For objectives \ref{rq:1}~and~\ref{rq:2}, data were extracted per-study;
-for objective~\ref{rq:3}, data were extracted per-scenario.
+Data were extracted per-study for objectives \ref{rq:1}~and~\ref{rq:2}, and
+per-scenario for objective~\ref{rq:3}.
 Detailed variables definitions are given in Appendix~\ref{a:defs}.
 % ------------------------------------------------------------------------------
 \subsubsection{Epidemic Context}
@@ -107,7 +105,7 @@ scale of the simulated population (city, sub-national, national, regional).
 We classified epidemic size at time of ART intervention using
 overall HIV prevalence (low: $<$1\%, medium: 1-10\%, high: $>$10\%),
 and epidemic phase using overall HIV incidence trend
-(increasing, increasing but stabilizing, stable/equilibrium, decreasing but stabilizing, and decreasing).
+(increasing, increasing-but-stabilizing, stable/equilibrium, decreasing-but-stabilizing, and decreasing).
 \par
 We extracted whether any of the following key populations were modelled:
 female sex workers (FSW);
@@ -142,10 +140,10 @@ and whether models simulated any degree of assortative \emph{mixing} by activity
 The number of \emph{age groups} was extracted, and whether \emph{mixing} by age groups was
 proportionate, strictly assortative, or assortative with age differences.
 We extracted whether age conferred any transmission risk beyond mixing,
-such as higher rates of partnership formation.
+such as different partnership formation rates.
 \par
 Finally, we extracted whether rates of HIV diagnosis, ART initiation, and/or ART discontinuation
-differed across modelled risk strata (sex, activity, key populations, and/or age),
+differed across risk strata (sex, activity, key populations, and/or age),
 and if so, how they differed.
 % ------------------------------------------------------------------------------
 \subsubsection{ART Prevention Impact}
@@ -162,8 +160,8 @@ relative reduction in incidence and/or proportion of infections averted
 relative to the base-case scenario for available time horizons relative to \tx{0}.
 \par
 Finally, for each factor of heterogeneity,
-we compared the projected ART impacts (incidence reduction/infections averted)
+we compared projected ART impacts (incidence reduction/infections averted)
 across different factor levels (whether or not, and how the factor was modelled).
 We plotted the impacts versus time since \tx{0}, stratified by factor levels,
-and explored whether projected impacts were the same under all factor levels.
-We tested for significant differences using a Kruskal-Wallis test.
+and explored whether projected impacts were the same under all factor levels,
+testing for significant differences using a Kruskal-Wallis test.

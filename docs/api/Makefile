@@ -6,3 +6,6 @@ cover:
 
 words:
 	cd wc && python3 wc.py
+
+submit:
+	cd sub && ./submit.sh
