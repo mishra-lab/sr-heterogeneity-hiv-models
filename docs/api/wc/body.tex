@@ -92,7 +92,7 @@ Search
 
 We searched MEDLINE and EMBASE via Ovid
 using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling
-(Appendix REF).
+(Table REF).
 Search results were imported into Covidence for screening.
 Duplicate studies were removed automatically by Ovid and by Covidence;
 four additional duplicates with subtly different titles were later identified and removed manually.
@@ -104,7 +104,7 @@ Inclusion/Exclusion Criteria
 
 We included peer-reviewed, primarily modelling studies that used non-linear models of sexual HIV transmission
 to project the prevention impacts of ART in any setting within SSA.
-See Appendix REF for complete inclusion/exclusion criteria.
+See Table REF for complete inclusion/exclusion criteria.
 We only included studies published in English anytime before Jan 1, 2020.
 We excluded conference publications and those without primary modelling results and description of the methods,
 such as commentaries and reviews.
@@ -215,12 +215,11 @@ RESULTS
 
 The search yielded 1384 publications,
 of which 94 studies were included (Figure REF).
-These studies (Dataset A) applied non-linear compartmental modelling to simulate ART scale-up in SSA,
+These studies (Dataset A, Appendix REF)
+applied non-linear compartmental modelling to simulate ART scale-up in SSA,
 of which 40 reported infections averted/incidence reduction
 due to population-wide ART scale-up without combination intervention,
 relative to a base-case reflecting status quo (Dataset B).
-Appendix REF lists the included papers, and
-Appendix REF provides additional results.
 
 Epidemic Context
 
@@ -238,14 +237,15 @@ followed by Southern (X), West (X), and Central Africa (X).
 
 ART prevention impacts were most often modelled in
 high-prevalence ({>10\%}) epidemics (X studies) and
-medium-prevalence ({1-10\%}) epidemics, X).
+medium-prevalence ({1-10\%}) epidemics (X) (Figure REF).
 No studies reported overall HIV prevalence of {<1\%} at time of intervention,
 although for X studies, HIV prevalence was either
 not reported or varied across simulated contexts/scenarios.
 The \xdmdef year of intervention was \xdm{t0/t0}; at which time
-HIV prevalence (\%) was \xdm{t0/prev}; and
-incidence (per 1000 person-years) was \xdm{t0/inc}.
-Most reported incidence trends were decreasing or stable (45 of 48 reporting). 
+HIV prevalence (\%) was \xdm{t0/prev} (Figure REF); and
+incidence (per 1000 person-years) was \xdm{t0/inc} (Figure REF).
+Most reported incidence trends were decreasing or stable
+(45 of 48 reporting, Figure REF). 
 
 Key Populations
 
@@ -270,13 +270,14 @@ Heterogeneity Factors
 Biological Effects
 
 The \xdmdef number of states used to represent HIV disease
-(ignoring treatment-related stratifications) was \xdm{hiv/hiv.n},
+(ignoring treatment-related stratifications) was \xdm{hiv/hiv.n} (Figure REF),
 and X studies represented HIV along a continuous dimension
 using partial differential equations.
 States of increased infectiousness associated with acute infection and late-stage disease
 were simulated in X and X studies, respectively.
 
-The relative risk of HIV transmission on ART was \xdm{art/rbeta},
+The relative risk of HIV transmission on ART was \xdm{art/rbeta}
+(Figure REF),
 representing an average "on-treatment" state in X studies,
 versus a "virally suppressed" state in X.
 Treatment failure due to drug resistance was simulated in X studies, including:
@@ -318,11 +319,12 @@ Network Effects
 
 Populations were stratified by activity (different rates and/or types of partnerships formed)
 in X studies, and by sex in X.
-The number of groups defined by sex and/or activity was \xdm{act/act.n};
+The number of groups defined by sex and/or activity was \xdm{act/act.n}  (Figure REF);
 and by activity alone (maximum number of groups among:
 heterosexual women, heterosexual men, MSM, or overall if sex was not considered) was \xdm{act/act.n.z}.
 The highest activity groups for females and males (possibly including FSW/clients) comprised
-\xdm{act/hrw.p} and \xdm{act/hrm.p}\% of female and male populations, respectively.
+\xdm{act/hrw.p} and \xdm{act/hrm.p}\% of female and male populations, respectively
+(Figures REF and REF).
 
 Turnover between activity groups and/or key populations
 was considered in X studies,
@@ -352,7 +354,7 @@ different partnership types could be formed between the same two activity groups
 All models with overlapping partnership types defined differential total sex acts and condom use between types.
 
 Age groups were simulated in X studies, among which,
-the number of age groups was \xdm{age/age.n},
+the number of age groups was \xdm{age/age.n} (Figure REF),
 and X studies simulated age along a continuous dimension.
 Sexual mixing between age groups was assumed to be assortative
 either with (X) or without (X)
@@ -414,10 +416,14 @@ among which the pattern of incidence reduction versus modelled heterogeneity
 was similar to the pattern of infections averted versus modelled heterogeneity
 (Figure REF).
 
-Appendix REF and Table REF summarizes
-ART prevention impacts (relative incidence reduction/proportion of infections averted),
-stratified by other factors of risk heterogeneity, epidemic contexts, and intervention conditions.
-ART prevention impacts were larger with longer time horizon, greater ART eligibility, and higher ART coverage.
+ART prevention impacts were larger with
+longer time horizon,
+lower HIV prevalence (Figure REF), and
+greater ART eligibility (REF);
+however patterns were not consistent across
+HIV incidence trajectory (REF),
+ART coverage targets (REF), or
+relative infectiousness on ART (REF).
 
 DISCUSSION
 
