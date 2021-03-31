@@ -112,7 +112,7 @@ P = list(# stuff to plot
     'act.def.sex','Risk','act.n','act.mix','act.turn.any','pt.def','age.n','age.mix',
     'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr'
   ),
-  dist = c('api.prev','api.inc','art.rbeta','act.n','age.n',
+  dist = c('api.prev','api.inc','art.rbeta','act.n','age.n','hiv.n',
            'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr',
            'api.prev.cat','api.phase','Risk','pt.def')
   # TODO: api.inc, api.chi from XA
@@ -127,6 +127,7 @@ D = list(# definitions
   art.cov      = 'ART coverage target',
   art.init     = 'ART initiation rate (per PY)',
   
+  hiv.n        = 'Number of HIV states',
   hiv.x.acute  = 'Increased infectiousness during acute infection',
   hiv.x.late   = 'Increased infectiousness during late-stage infection',
   hiv.morb.any = 'Decreased sexual activity during late-stage infection',
