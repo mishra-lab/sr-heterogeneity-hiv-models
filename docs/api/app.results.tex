@@ -1,4 +1,4 @@
-Additional information on data sources and analysis methods are available
+Additional information on data sources, analysis, and results are available
 in the public repository:\\
 \hreftt{https://github.com/mishra-lab/sr-heterogeneity-hiv-models}
 % ==============================================================================
@@ -10,10 +10,11 @@ of various parameter values and modelling assumptions related to
 factors of heterogeneity and intervention contexts.
 \par
 \foreach \var/\title in \plotlistdist{
-  \begin{minipage}[t][.33\textheight][t]{0.5\linewidth}
-    \includegraphics[width=.9\textwidth]{{d.\var}.pdf}
+  \begin{minipage}[t][.33\textheight][t]{0.48\linewidth}
+    \includegraphics[width=0.95\textwidth]{{d.\var}.pdf}
     \captionof{figure}{\title}
-  \end{minipage}}
+    \label{fig:\var}
+  \end{minipage}\hspace{0.04\linewidth}}
 \clearpage
 % ==============================================================================
 \subsection{ART Prevention Impact}\label{aa:res:api}
@@ -39,18 +40,6 @@ Some scenarios have multiple data points if multiple time horizons were reported
 If any factor could not be quantified due to missing data or varying values,
 the data point is grey.
 A small random offset has been added to the data points to reduce overlap.
-\foreach \var/\title in \plotlistapi{
-  \begin{figure}[H]
-    \begin{subfigure}{0.5\linewidth}
-      \includegraphics[width=\linewidth]{{inc.s.\var}.pdf}
-    \end{subfigure}%
-    \begin{subfigure}{0.5\linewidth}
-      \includegraphics[width=\linewidth]{{chi.s.\var}.pdf}
-    \end{subfigure}
-    \caption{\title}
-    \label{fig:api:\var}
-  \end{figure}
-}
 \begin{figure}[H]
   \begin{subfigure}{0.5\linewidth}
     \includegraphics[width=\linewidth]{{inc.s.Risk.both}.pdf}
@@ -67,6 +56,18 @@ A small random offset has been added to the data points to reduce overlap.
     Subset of studies reporting both outcomes.}
   \label{fig:api:both}
 \end{figure}
+\foreach \var/\title in \plotlistapi{
+  \begin{figure}[H]
+    \begin{subfigure}{0.5\linewidth}
+      \includegraphics[width=\linewidth]{{inc.s.\var}.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\linewidth}
+      \includegraphics[width=\linewidth]{{chi.s.\var}.pdf}
+    \end{subfigure}
+    \caption{\title}
+    \label{fig:api:\var}
+  \end{figure}
+}
 % ------------------------------------------------------------------------------
 \subsubsection{Table}
 Table~\ref{tab:api} summarizes the median [IQR] projected ART prevention impact (Dataset~B),
