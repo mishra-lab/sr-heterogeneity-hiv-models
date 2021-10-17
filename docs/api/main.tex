@@ -1,33 +1,28 @@
 % !TeX TS-program = pdflatex
 % !BIB TS-program = bibtex
-\documentclass{aids}
+\documentclass{manuscript}
 \input{config}
 \input{meta}
-\usepackage{newpxmath}
-\usepackage[osf]{ETbb}
-\renewcommand*{\ttdefault}{cmtt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \maketitle
 \begin{abstract}\input{abstract}\end{abstract}
 % ==============================================================================
-\section{Introduction} \label{s:intro} \input{intro}
-\section{Methods}      \label{s:meth}  \input{methods}
-\section{Results}      \label{s:res}   \input{results}
-\section{Discussion}   \label{s:disc}  \input{discussion}
+\input{intro}
+\input{methods}
+\input{results}
+\input{discussion}
 % ==============================================================================
 \backmatter
 \printbibliography
 \appendix
 \clearpage
 % ==============================================================================
-\section{Search Strategy}           \label{a:search}  \input{app.search}  \clearpage
-\section{Definitions \& Extraction} \label{a:defs}    \input{app.defs}    \clearpage
-\section{Supplemental Results}      \label{a:results} \input{app.results} \clearpage
-\includepdfcmd
-{../prisma/checklist.pdf}
-{\section{PRISMA-ScR Checklist}\label{a:prisma}}
+\input{app.search}\clearpage
+\input{app.defs}\clearpage
+\input{app.results}\clearpage
+\input{app.checklist}\clearpage
 \printbibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

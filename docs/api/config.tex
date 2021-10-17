@@ -1,3 +1,7 @@
+% fonts
+\usepackage{newpxmath}
+\usepackage[osf]{ETbb}
+\renewcommand*{\ttdefault}{cmtt}
 % links
 \usepackage[
   colorlinks,
@@ -5,17 +9,8 @@
 ]{hyperref}
 \newcommand{\hreftt}[1]{\href{#1}{\texttt{#1}}}
 % references
-\usepackage[
-  style=numeric,
-  doi=false,
-  url=false,
-  isbn=false,
-  natbib=true,
-  backend=bibtex,
-  sorting=none,
-]{biblatex}
-\addbibresource{A.bib}
-\addbibresource{main.bib}
+\addbibresource{A}
+\addbibresource{main}
 % floats
 \usepackage{booktabs,multicol,subcaption,rotating,graphicx}
 \newcommand{\tn}[1]{{\textsuperscript{~#1}}}

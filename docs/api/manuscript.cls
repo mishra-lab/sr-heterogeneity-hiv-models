@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{aids}[2021]
+\ProvidesClass{manuscript}[2021]
 % article inheritance
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
@@ -7,6 +7,19 @@
 % packages
 \RequirePackage[margin=3cm]{geometry}
 \RequirePackage{authblk}
+% references
+\usepackage[
+  style=numeric,
+  doi=false,
+  url=false,
+  isbn=false,
+  natbib=true,
+  backend=bibtex,
+  sorting=none,
+  maxbibnames=3,
+  minbibnames=3,
+  giveninits=true,
+]{biblatex}
 % spacing
 \def\baselinestretch{1.7}
 \setlength{\parskip}{1ex}
@@ -17,7 +30,7 @@
 \clubpenalty10000
 % meta-data
 \def\dummy{NYLL}
-\newcommand{\shorttitle}[1]{\gdef\@shorttitle{#1}}
+\newcommand{\runhead}[1]{\gdef\@runhead{#1}}
 \newcommand{\funding}[1]{\gdef\@funding{#1}}
 \newcommand{\coi}[1]{\gdef\@coi{#1}}
 \newcommand{\acknowl}[1]{\gdef\@acknowl{#1}}
@@ -34,12 +47,12 @@
 \renewcommand{\maketitle}{%
   \thispagestyle{plain}
   \tpart{Title}{\@title}
-  \tpart{Short Title}{\@shorttitle}
+  \tpart{Running Head}{\@runhead}
   \tpart{Authors}{\@author}
   \tpart{Date}{\@date}
   \tpart{Funding}{\@funding}
   \tpart{Conflicts of Interest}{\@coi}
-  \tpart{Words}{\@words~/~3500}
+  \tpart{Words}{\@words}
   \clearpage}
 % abstract
 \let\xabstract\abstract
@@ -50,11 +63,11 @@
   \xabstract\par\noindent}
 \let\xendabstract\endabstract
 \def\endabstract{%
-  \vskip1em\noindent\textbf{Words:}~\@abswords~/~250
+  \vskip1em\noindent\textbf{Words:}~\@abswords
   \vskip1em\noindent\textbf{Keywords:}~\@keywords
   \xendabstract\par\clearpage}
 % running head
-\renewcommand\rightmark{\headstyle{\@shorttitle}}
+\renewcommand\rightmark{\headstyle{\@runhead}}
 \pagestyle{headings}
 % back matter
 \def\backmatter{%

@@ -1,3 +1,5 @@
+\section{Results}
+\label{s:res}
 The search yielded 1384 publications,
 of which 94 studies were included (Figure~\ref{fig:prisma}).
 These studies (Dataset~A, Appendix~\ref{aa:search:dataset})
@@ -16,7 +18,7 @@ relative to a base-case reflecting status quo (Dataset~B).
 \label{ss:res:context}
 Table~\ref{tab:summary} summarizes key features of contexts within SSA
 where the prevention impacts of ART have been modelled.
-Most (\x{geo/n.any.nat}) of the 94 studies modelled HIV transmission at the national level;
+\x{geo/n.any.nat} studies modelled HIV transmission at the national level;
 studies also explored
 regional (\x{geo/n.any.sub.ssa}),
 sub-national (\x{geo/n.any.sub.nat}), and
@@ -121,7 +123,7 @@ were tracked separately from ART-naive; and
 transitioned back to a generic ``off-treatment'' state.
 Another \x{art/n.art.r.frop} studies included a similar transition
 that was not identified as treatment failure versus ART cessation.
-% ------------------------------------------------------------------------------ 
+% ------------------------------------------------------------------------------
 \subsubsection{Network Effects}
 \label{sss:res:network}
 Populations were stratified by activity (different rates and/or types of partnerships formed)
@@ -141,7 +143,7 @@ Another \x{act/n.turnover.repl} studies simulated
 movement only from lower to higher activity groups
 to re-balance group sizes against disproportionate HIV mortality.
 \par
-Among \x{act/n.act.def.np} studies with activity groups, sexual mixing was assumed to be
+Among \x{act/n.act.def.np} studies with activity groups, sexual mixing was modelled as
 assortative in \x{pt/n.mix.asso} and proportionate in \x{pt/n.mix.prop}.
 Partnerships had equal probability of transmission in \x{pt/n.pt.gen} studies,
 including all studies without activity groups.
@@ -149,16 +151,16 @@ Partnerships were defined by the activity groups involved in \x{pt/n.pt.grp} stu
 among which transmission was usually
 lower in high-with-high activity partnerships than in low-with-low, due to
 fewer sex acts (\x{pt/n.grp.vol}) and/or increased condom use (\x{pt/n.grp.condom}).
-Transmission risk in high-with-low activity partnerships was defined by:
-the susceptible partner (\x{pt/n.act.drive.sus});
-the lower activity partner (\x{pt/n.act.drive.low});
-the higher activity partner (\x{pt/n.act.drive.high}); or
+Transmission risk in high-with-low activity partnerships was defined by the:
+susceptible partner (\x{pt/n.act.drive.sus});
+lower activity partner (\x{pt/n.act.drive.low});
+higher activity partner (\x{pt/n.act.drive.high}); or
 both partners' activity groups (\x{pt/n.act.drive.mix});
 yielding indeterminate, higher, lower, or intermediate
 per-partnership transmission risk, respectively.
 Partnerships were defined based on overlapping types, such that
 different partnership types could be formed between the same two activity groups in \x{pt/n.pt.phen} studies.
-Overlapping partnership types had differential total sex acts and condom use across types.
+All overlapping partnership types had differential total sex acts and condom use.
 \par
 Age groups were simulated in \x{age/n.age.any} studies, among which,
 the number of age groups was \xdm{age/age.n} (Figure~\ref{fig:age.n}),
@@ -199,7 +201,7 @@ studies respectively, while \emph{higher} rates were simulated in
 Dataset~B comprised \x{n/n.a.api} studies,
 including \x{n/n.s.api} scenarios of ART scale-up.
 Relative incidence reduction with ART scale-up
-as compared to a scenario without ART scale-up
+as compared to status quo
 was reported in \x{n/n.a.api.inc} studies (\x{n/n.s.api.inc} scenarios);
 the proportion of cumulative infections averted due to ART scale-up
 was reported in \x{n/n.a.api.chi} (\x{n/n.s.api.chi});
@@ -211,16 +213,16 @@ stratified by a composite index of modelled risk heterogeneity.
 Ecological-level analysis across scenarios by degree of risk heterogeneity
 identified differences in proportions of infections averted,
 but not in relative incidence reduction (Table~\ref{tab:api}).
-The largest proportions of infections averted were reported from 
+The largest proportions of infections averted were reported from
 scenarios without risk heterogeneity (median [IQR]\% = \xd{api/chi/Risk.None}), followed by
 scenarios with key populations prioritized for ART (\xd{api/chi/Risk.KP-(priority)}).
-The smallest impact was observed in scenarios with
+The smallest impacts were observed in scenarios with
 key populations who were not prioritized for ART (\xd{api/chi/Risk.KP-(same)})
 and in models with risk heterogeneity but without key populations
 (\xd{api/chi/Risk.Activity-(No-KP)}).
-Only \x{n/n.s.api.both} scenarios from \x{n/n.a.api.both} studies provided both outcomes
-\cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018}; % MAN
-among which the pattern of incidence reduction versus modelled heterogeneity
+Among \x{n/n.s.api.both} scenarios from \x{n/n.a.api.both} studies that provided both outcomes
+\cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018}, % MAN
+the pattern of incidence reduction versus modelled heterogeneity
 was similar to the pattern of infections averted versus modelled heterogeneity
 (Figure~\ref{fig:api:both}).
 \begin{figure}
@@ -245,7 +247,7 @@ was similar to the pattern of infections averted versus modelled heterogeneity
     The number of studies (scenarios) reporting
     incidence reduction, cumulative infections averted, both, or either was:
     \x{n/n.a.api.inc}~(\x{n/n.s.api.inc}),
-    \x{n/n.a.api.chi}~(\x{n/n.s.api.chi}), 
+    \x{n/n.a.api.chi}~(\x{n/n.s.api.chi}),
     \x{n/n.a.api.both}~(\x{n/n.s.api.both}), and
     \x{n/n.a.api}~(\x{n/n.s.api}), respectively (Dataset~B).
     If any study included multiple scenarios of ART scale-up,
@@ -263,8 +265,8 @@ was similar to the pattern of infections averted versus modelled heterogeneity
 ART prevention impacts were larger with
 longer time horizon,
 lower HIV prevalence (Figure~\ref{fig:api:api.prev}), and
-greater ART eligibility (\ref{fig:api:art.cd4});
+greater ART eligibility (Figure~\ref{fig:api:art.cd4});
 however patterns were not consistent across
-HIV incidence trajectory (\ref{fig:api:api.phase}),
-ART coverage targets (\ref{fig:api:art.cov}), or
-relative infectiousness on ART (\ref{fig:api:art.rbeta}).
+epidemic phase (Figure~\ref{fig:api:api.phase}),
+ART coverage targets (Figure~\ref{fig:api:art.cov}), or
+relative infectiousness on ART (Figure~\ref{fig:api:art.rbeta}).
