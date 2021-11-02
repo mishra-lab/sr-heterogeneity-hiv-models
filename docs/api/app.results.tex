@@ -4,6 +4,17 @@ Additional information on data sources, analysis, and results are available
 in the public repository:\\
 \hreftt{https://github.com/mishra-lab/sr-heterogeneity-hiv-models}
 % ==============================================================================
+\subsection{Map}\label{aa:res:map}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{map}
+  \caption{Map showing number of studies (of 94 total)
+    applying HIV transmission modelling in each country vs
+    the number of people living with HIV (PLHIV, millions)}
+  \label{fig:map}
+\end{figure}
+\clearpage % TEMP
+% ==============================================================================
 \subsection{Risk Heterogeneity}\label{aa:res:risk}
 % ------------------------------------------------------------------------------
 \subsubsection{Distributions}
@@ -20,8 +31,6 @@ factors of heterogeneity and intervention contexts.
 \clearpage
 % ==============================================================================
 \subsection{ART Prevention Impact}\label{aa:res:api}
-% ------------------------------------------------------------------------------
-\subsubsection{Figures}
 The following figures illustrate the projected ART prevention impact (Dataset~B),
 stratified by various factors of heterogeneity and intervention contexts (colours).
 The left panels show the relative reduction in HIV incidence rate;
@@ -30,7 +39,7 @@ both as compared to a base-case scenario reflecting status quo.
 The number of studies (scenarios) reporting
 incidence reduction, cumulative infections averted, both, or either was:
 \x{n/n.a.api.inc}~(\x{n/n.s.api.inc}),
-\x{n/n.a.api.chi}~(\x{n/n.s.api.chi}), 
+\x{n/n.a.api.chi}~(\x{n/n.s.api.chi}),
 \x{n/n.a.api.both}~(\x{n/n.s.api.both}), and
 \x{n/n.a.api}~(\x{n/n.s.api}), respectively.
 If any study included multiple scenarios of ART scale-up,
@@ -70,16 +79,3 @@ A small random offset has been added to the data points to reduce overlap.
     \label{fig:api:\var}
   \end{figure}
 }
-% ------------------------------------------------------------------------------
-\subsubsection{Table}
-Table~\ref{tab:api} summarizes the median [IQR] projected ART prevention impact (Dataset~B),
-stratified by various factors of heterogeneity and intervention conditions.
-Reported p-values for each factor are from non-parametric Kruskal-Wallis tests
-for differences in ART prevention impact under at least one of the factor levels.
-\begin{table}[H]
-  \centering
-  \caption{Projected ART prevention benefits,
-    stratified by factors of risk heterogeneity and contexts}
-  \input{tab/api}
-  \label{tab:api}
-\end{table}
