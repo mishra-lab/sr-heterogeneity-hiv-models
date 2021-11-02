@@ -13,8 +13,8 @@
 \addbibresource{main}
 % floats
 \usepackage{booktabs,multicol,subcaption,rotating,graphicx}
-\newcommand{\tn}[1]{{\textsuperscript{~#1}}}
-\newcommand{\tnt}[2][]{\textsuperscript{#1~}{#2}}
+\newcommand{\tn}[1]{\textsuperscript{\,#1}}
+\newcommand{\tnt}[2][]{\textsuperscript{#1\,}{#2}}
 \newcommand{\floatfoot}[2][\linewidth]{\vskip 1ex
   \begin{minipage}{#1}\footnotesize#2\end{minipage}}
 \graphicspath{
@@ -42,10 +42,6 @@
     \citeauthor{#1}%
 }}
 \newlength{\tsep}\setlength{\tsep}{1ex}
-\newcommand{\itab}[2]{%
-  \x{api/#1/#2.q2} & ( \x{api/#1/#2.q1}, \x{api/#1/#2.q3} ) & \x{api/#1/n.#2}}
-\newcommand{\xtab}[1]{\itab{inc}{#1} & & \itab{chi}{#1} & }
-\newcommand{\ptab}[2]{\itab{inc}{#1} & \x{api/inc/#2.pval} & \itab{chi}{#1} & \x{api/chi/#2.pval}}
 \usepackage{pdfpages}
 \newcommand{\includepdfcmd}[2]{%
   \includepdf[pages=1, width=\textwidth,pagecommand={#2}]{#1}%
