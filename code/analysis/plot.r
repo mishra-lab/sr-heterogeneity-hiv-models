@@ -46,12 +46,12 @@ plot.map.co = function(X,fill='PLHIV',size='Studies'){
     function(co){ ifelse(co %in% colnames(X), sum(X[[co]],na.rm=TRUE), NA) })
   g = ggplot(Xc) +
       geom_sf(aes_string(fill=fill),
-        alpha = 0.8, color = 'gray') +
+        alpha=0.8,color='gray',size=.3) +
       geom_segment(aes(x=X,y=Y,xend=X0,yend=Y0),alpha=.5,size=.2) +
       geom_point(aes_string(x='X',y='Y',size=size),
-        alpha = 0.6, color = 'red') +
-      scale_fill_viridis(option='inferno',begin=.1,end=.75) +
-      scale_size(range=c(-.5,15)) +
+        alpha=0.6,color='turquoise',stroke=0) +
+      scale_fill_viridis(option='inferno',begin=.1,end=.9) +
+      scale_size(range=c(-.5,15),breaks=c(1,2,5,10,20,50)) +
       xlab(NULL) + ylab(NULL) +
       theme_light()
   return(g)

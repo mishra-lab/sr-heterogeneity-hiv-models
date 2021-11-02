@@ -210,6 +210,7 @@ make.api.prev.cat = function(X){
 }
 
 load.co.polygons = function(region='ssa'){
+  sf::sf_use_s2(FALSE)
   Xc = load.co.data(region=region)
   X = ne_countries(
     country=Xc$admin,
@@ -221,9 +222,10 @@ load.co.polygons = function(region='ssa'){
   C0 = Ci;
   colnames(Ci) = c('X0','Y0')
   scooch = list(
-    Lesotho   = list(x=+5,y=-5),
-    Swaziland = list(x=+5,y=-2),
-    Rwanda    = list(x=-2,y=+2)
+    'Lesotho'      = list(x=+5,y=-5),
+    'Swaziland'    = list(x=+5,y=-2),
+    'Rwanda'       = list(x=-2,y=+2),
+    'South Africa' = list(x=-2,y=-1)
   )
   for (co in names(scooch)){
     C0[co,'X'] = C0[co,'X'] + scooch[[co]]$x

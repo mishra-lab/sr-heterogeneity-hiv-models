@@ -16,11 +16,12 @@ source('analysis/plot.r')
 
 X = load.main.data(api.include=c('Y','x'))
 numeric.main(X)
-plot.map.co(X,size='Studies',fill='PLHIV') %>% save.plot('map-n-vs-plhiv',width=7,height=6)
+
+g = plot.map.co(X,size='Studies',fill='Prev') + labs(fill='% HIV\nPrevalence')
+save.plot(g,'map-n-vs-prev',width=7,height=6)
 
 XA = load.api.data(X)
 numeric.api(XA)
-q() # TEMP
 plot.api.list(XA)
 plot.api.list(XA,drop=TRUE,'Risk')
 plot.distr.list(X)
