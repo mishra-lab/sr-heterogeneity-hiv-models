@@ -178,39 +178,54 @@ save.api.count = function(bib,x,name,dir='n'){
   save.count(x,namefun('s',name),dir)
   save.count(length(unique(bib[x])),namefun('a',name),dir)
 }
-numeric.api = function(XA,agg=FALSE){
+numeric.api = function(XA){
   # counts
   save.api.count(XA$bib,!logical(nrow(XA)),'api')
   save.api.count(XA$bib,XA$api.inc.any,'api.inc')
   save.api.count(XA$bib,XA$api.chi.any,'api.chi')
   save.api.count(XA$bib,XA$api.both.any,'api.both')
-  # distributions
+  # distributions & stats models
+  rm.vars = c('art.init.cat','act.kp','diff.any.kp.cat','art.fail.any','art.drop.any',
+    'api.phase','art.cov.cat') # TODO: impute NA via MICE ?
+  vars.all = setdiff(M$api$table,rm.vars)
+  m.fun = function(vars){
+    for (var in vars){ XA.[[var]] = factor(XA.[[var]]) } # HACK: avoid empty levels
+    f = formula(paste('value ~',paste(vars,collapse='+')))
+    geeglm(f,'gaussian',XA.,id=factor(XA.$bib),corstr='i') }
+  ci.fun = function(coef,var,level,name){
+    varlevel = paste0(var,level)
+    m.ci = 100 * coef[varlevel,1] + c(0,-1.959964,+1.959964) * coef[varlevel,2]
+    save.tex(round(m.ci[1],d=0),namefun(var,level,name,'beta'),   dir=dir,na='')
+    save.tex(round(m.ci[2],d=0),namefun(var,level,name,'beta.lo'),dir=dir,na='')
+    save.tex(round(m.ci[3],d=0),namefun(var,level,name,'beta.hi'),dir=dir,na='')
+  }
+  distr.funs = c('q2','q1','q3')
   dir = tex.dir('api')
-  funs = c('q2','q1','q3')
-  for (which in c('chi','inc')){
+  for (which in c('inc','chi')){
     dir = tex.dir(file.path('api',which))
-    XA. = make.api.data(XA,which=which)
+    XA. = make.api.data(XA,which=which)[c('bib','value',M$api$table)]
+    model.all = m.fun(vars.all)
+    coef.all  = summary(model.all)$coef
+    # print(summary(model.all)) # DEBUG
+    # print(coefplot(model.all,title='',color='black') + theme_light()) # TODO
     for (var in M$api$table){
-      if (agg){
-        XA.v = agg.api.data(XA.,fun=median,var)
-      } else {
-        XA.v = XA.
-      }
-      x = XA.v[[var]]
-      y = XA.v[['value']] * 100
-      if (!is.factor(x)){
-        if (is.logical(x)){
-          x = factor(x,levels=c(FALSE,TRUE),labels=c('N','Y'))
-        } else {
-          x = factor(x)
-        }
-      }
-      f = formula(paste('value ~',var))
-      test = kruskal.test(f,data=XA.v)
-      save.tex(print.p(test$p.value,d=3),namefun(var,'pval'),dir=dir)
+      x = XA.[[var]]
       for (level in levels(x)){
-        save.distr(y[x==level],namefun(var,level),dir=dir,d=0,funs=funs)
-        save.count(  x==level, namefun(var,level),dir=dir)
+        varlevel = paste0(var,level)
+        coef.vl = coef.all[varlevel,]
+        nums = c(sum(x==level,na.rm=TRUE),
+          100 * quantile(XA.[['value']][x==level],c(.5,.25,.75),na.rm=TRUE),
+          100 * (coef.vl[1,1] + c(0,-1.959964,+1.959964) * coef.vl[1,2]))
+        pstr = print.p(coef.vl[1,4])
+        strfun = function(fmt,...){ do.call(sprintf,c(list(fmt),...)) }
+        if (!is.na(nums[5]))  {
+          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & %.0f & ( %.0f , %.0f ) & %s ',nums,pstr)
+        } else if (nums[1]==0 | !var %in% vars.all){
+          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & & & ',nums[1:4])
+        } else {
+          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & \\textsc{ref} & & ',nums[1:4])
+        }
+        save.tex(tabstr,namefun(var,level,'xtab'),dir=dir)
       }
     }
   }
