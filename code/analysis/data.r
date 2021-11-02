@@ -133,14 +133,14 @@ make.risk = function(X){
       if (act & !kp) { return(2) }
       if (kp & kp.diff == 'priority') { return(3) }
       if (kp & kp.diff == 'same')     { return(4) }
-      if (kp & kp.diff == 'gaps')     { return(5) }
+      # if (kp & kp.diff == 'gaps')     { return(5) } # DNE
     }, X$act.n, X$act.def.np, X$kp.any, X$diff.any.kp.cat),
-    levels = c(1,2,3,4,5),
-    labels = c('None','Activity (no KP)','KP (priority)','KP (same)','KP (gaps)')
+    levels = c(1,2,3,4),
+    labels = c('None','Activity (no KP)','KP (priority)','KP (same)')
   )
   return(X)
 }
-  
+
 make.fsw.crit = function(X){
   X$kp.FSW.crit = factor(rowSums(X[,C$fsw.crit]))
   return(X)
@@ -322,9 +322,9 @@ agg.api.data = function(XA,fun=median,...){
   }
 }
 
-make.bib.wt = function(XA){
-  key = apply(XA[,c('bib','t')],1,paste,collapse=':')
+make.bib.wt = function(XA,by=c('bib','t'),fun=sqrt){
+  key = apply(XA[,by],1,paste,collapse=':')
   n.key = table(key)
-  XA$wt = sapply(key, function(key){ 1/sqrt(n.key[[key]]) })
+  XA$wt = sapply(key, function(key){ 1/fun(n.key[[key]]) })
   return(XA)
 }

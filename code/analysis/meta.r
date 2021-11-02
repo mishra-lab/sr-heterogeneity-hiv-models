@@ -69,7 +69,7 @@ M = list(# groups of misc
     t     = c(5,10,15,20,30,40),
     hiv   = c('prev','prev.d1','prev.d2','inc','inc.d1','inc.d2'),
     table = c(
-      't.cat','api.prev.cat',
+      't.cat','api.prev.cat','api.phase',
       'art.rbeta.cat','art.cd4','art.cov.cat','art.init.cat',
       'hiv.x.acute','hiv.x.late','hiv.morb.any',
       'art.tdr','art.fail.any','art.drop.any','bc.any',
@@ -121,12 +121,12 @@ D = list(# definitions
   api.prev     = 'HIV prevalence at $t_0$ (\\%)',
   api.inc      = 'HIV incidence at $t_0$ (per 1000 PY)',
   api.phase    = 'HIV epidemic phase',
-  
+
   art.rbeta    = 'Relative infectiousness on ART',
   art.cd4      = 'CD4 initiation criteria',
   art.cov      = 'ART coverage target',
   art.init     = 'ART initiation rate (per PY)',
-  
+
   hiv.n        = 'Number of HIV states',
   hiv.x.acute  = 'Increased infectiousness during acute infection',
   hiv.x.late   = 'Increased infectiousness during late-stage infection',
@@ -135,7 +135,7 @@ D = list(# definitions
   art.fail.any = 'Any rate or state of ART failure',
   art.drop.any = 'Any rate or state of ART dropout',
   bc.any       = 'Any behaviour change associated with diagnosis or ART',
-  
+
   act.def.sex  = 'Stratified by sex',
   act.n        = 'Number of activity groups',
   act.mix      = 'Type of activity mixing',
@@ -143,7 +143,7 @@ D = list(# definitions
   pt.def       = 'Type of partnership definition',
   age.n        = 'Number of age groups',
   age.mix      = 'Type of age mixing',
-  
+
   act.kp       = 'Activity groups \\& key populations',
   Risk         = 'Summary of risk heterogeneity',
   act.HRW.p    = 'Proportion of women in the highest female activity group',

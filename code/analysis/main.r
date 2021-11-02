@@ -5,6 +5,8 @@ suppressPackageStartupMessages({
   library('rnaturalearth')
   library('rnaturalearthdata')
   library('viridis')
+  library('geepack')
+  # library('coefplot')
 })
 source('analysis/meta.r')
 source('analysis/utils.r')
@@ -18,6 +20,7 @@ plot.map.co(X,size='Studies',fill='PLHIV') %>% save.plot('map-n-vs-plhiv',width=
 
 XA = load.api.data(X)
 numeric.api(XA)
+q() # TEMP
 plot.api.list(XA)
 plot.api.list(XA,drop=TRUE,'Risk')
 plot.distr.list(X)
