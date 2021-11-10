@@ -276,6 +276,7 @@ clean.api.common = function(X){
   X$api.inc  = X$api.inc * 1000
   X$api.prev.cat = cut(X$api.prev,c( 0, 1,10,100),labels=c('Low','Mid','High'))
   X$api.inc.cat  = cut(X$api.inc, c(00,10,20,100),labels=c('Low','Mid','High'))
+  X$api.prev.cat = relevel(X$api.prev.cat,ref=3)
   X = make.api.phase(X)
   return(X)
 }
@@ -311,7 +312,8 @@ make.api.data = function(XA,which='chi'){
       names_pattern=name.pat,
       values_drop_na=TRUE) %>%
     mutate(t=as.numeric(name)+api.dt) %>%
-    mutate(t.cat=cut(t,c(tcut,100),as.character(tcut),right=FALSE))
+    mutate(t.cat=cut(t,c(tcut,100),as.character(tcut),right=FALSE)) %>%
+    mutate(art.cd4=relevel(factor(art.cd4),ref='symp'))
   return(XA)
 }
 

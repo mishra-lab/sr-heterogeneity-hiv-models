@@ -25,7 +25,7 @@ plot.api = function(XAi,which='chi',drop=FALSE,...){
   size.lims = 4*c(ifelse(length(s),min(s),1),ifelse(length(s),max(s),1))
   clr.args = list(option='inferno',begin=.1,end=.75)
   if (!is.numeric(clr)){ clr.args = c(clr.args,list(discrete=TRUE,drop=drop)) }
-  g = XAi %>% rename(args) %>%
+  g = XAi %>% rename.lvls(args) %>%
       ggplot(aes_string(x='t',y='value',...,size=3)) +
       geom_hline(yintercept=0,color='gray') +
       geom_point(alpha=.6,position='jitter') +
@@ -73,7 +73,7 @@ plot.distr = function(X,var){
     args = list(alpha=.4)
   }
   clr.args = list(option='inferno',discrete=TRUE,begin=.1,end=.85,na.value='gray')
-  g = X %>% rename(var) %>%
+  g = X %>% rename.lvls(var) %>%
     ggplot(aes_string(x=var,color=var,fill=var)) +
     do.call(geom,args) +
     do.call(scale_color_viridis,clr.args) +
@@ -81,6 +81,49 @@ plot.distr = function(X,var){
     ylab('Studies') + xlab(detex(D[[decat(var)]])) +
     guides(color=FALSE,fill=FALSE) +
     theme_light()
+  return(g)
+}
+
+gen.effects = function(model,name=NULL,group=''){
+  coef = summary(model)$coef
+  coef$low  = coef$Estimate - 1.96 * coef$Std.err
+  coef$high = coef$Estimate + 1.96 * coef$Std.err
+  dc = dummy.coef(model)
+  E = do.call(rbind,lapply(names(dc),function(var){
+    lvls = names(dc[[var]])
+    varlvls = paste0(var,lvls)
+    if (var=='(Intercept)'){ varlvls = var; i = TRUE; } else { i = FALSE; }
+    E.var = coef[varlvls,c('Estimate','low','high')]
+    lvl.ref = paste0('\n    REF = ',rename.lvl(lvls[is.na(E.var$Estimate)],var))
+    E.var$var = paste0(rename.lvl(var,'vars'),ifelse(i,'',lvl.ref))
+    E.var$lvl = rename.lvl(lvls,var)
+    return(E.var)
+  }))
+  E[[group]] = name
+  E = E[!is.na(E$Estimate),]
+  return(E)
+}
+
+plot.effects = function(model,group='.'){
+  if ('coefficients' %in% names(model)){
+    E = gen.effects(model,name='',group=group)
+  } else {
+    E = do.call(rbind,lapply(names(model),function(name){
+      gen.effects(model[[name]],name=name,group=group) }))
+  }
+  pos = position_dodge(width=.6)
+  g = ggplot(E,aes_string(x='Estimate',y='lvl',xmin='low',xmax='high',color=group)) +
+    geom_point(position=pos) +
+    geom_linerange(position=pos) +
+    scale_color_viridis(option='inferno',discrete=TRUE,begin=.3,end=.7) +
+    facet_grid(rows=vars(E$var),scales='free_y',space='free_y',switch='y') +
+    labs(x='Effect',y='Factor') +
+    theme_light() +
+    theme(legend.position='top',
+      panel.spacing = unit(.4,'lines'),
+      strip.placement='outside',
+      strip.background=element_blank(),
+      strip.text.y.left=element_text(color='grey30',angle=0,vjust=1,hjust=0))
   return(g)
 }
 
@@ -96,7 +139,16 @@ decat = function(name){
   return(gsub('\\.cat','',name))
 }
 
-rename = function(X,...){
+rename.lvl = function(x,name){
+  rmap = R[[name]]
+  if (!is.null(rmap)){
+    return(sapply(x,function(xi){ names(rmap)[xi==rmap] }))
+  } else {
+    return(x)
+  }
+}
+
+rename.lvls = function(X,...){
   names = c(...)
   for (name in names){
     if (!is.null(R[[name]])){

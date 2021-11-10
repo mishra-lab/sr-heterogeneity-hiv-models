@@ -188,7 +188,7 @@ numeric.api = function(XA){
   rm.vars = c('art.init.cat','act.kp','diff.any.kp.cat','art.fail.any','art.drop.any',
     'api.phase','art.cov.cat') # TODO: impute NA via MICE ?
   vars.all = setdiff(M$api$table,rm.vars)
-  m.fun = function(vars){
+  m.fun = function(XA.,vars){
     for (var in vars){ XA.[[var]] = factor(XA.[[var]]) } # HACK: avoid empty levels
     f = formula(paste('value ~',paste(vars,collapse='+')))
     geeglm(f,'gaussian',XA.,id=factor(XA.$bib),corstr='i') }
@@ -201,34 +201,37 @@ numeric.api = function(XA){
   }
   distr.funs = c('q2','q1','q3')
   dir = tex.dir('api')
+  model = list()
   for (which in c('inc','chi')){
     dir = tex.dir(file.path('api',which))
     XA. = make.api.data(XA,which=which)[c('bib','value',M$api$table)]
-    model.all = m.fun(vars.all)
-    coef.all  = summary(model.all)$coef
-    # print(summary(model.all)) # DEBUG
-    # print(coefplot(model.all,title='',color='black') + theme_light()) # TODO
+    model[[which]] = m.fun(XA.,vars.all)
+    coef.all = summary(model[[which]])$coef
+    # print(summary(model[[which]])) # DEBUG
     for (var in M$api$table){
       x = XA.[[var]]
-      for (level in levels(x)){
+      for (level in levels(factor(x))){
         varlevel = paste0(var,level)
         coef.vl = coef.all[varlevel,]
         nums = c(sum(x==level,na.rm=TRUE),
           100 * quantile(XA.[['value']][x==level],c(.5,.25,.75),na.rm=TRUE),
-          100 * (coef.vl[1,1] + c(0,-1.959964,+1.959964) * coef.vl[1,2]))
-        pstr = print.p(coef.vl[1,4])
+          100 * (coef.vl[1,1] + c(0,qnorm(.025),+qnorm(.975)) * coef.vl[1,2]))
+        pstr = print.p(coef.vl[1,4]) # NOTE: removed
         strfun = function(fmt,...){ do.call(sprintf,c(list(fmt),...)) }
         if (!is.na(nums[5]))  {
-          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & %.0f & ( %.0f , %.0f ) & %s ',nums,pstr)
+          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & %.0f & ( %.0f , %.0f ) ',nums)
         } else if (nums[1]==0 | !var %in% vars.all){
-          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & & & ',nums[1:4])
+          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & & ',nums[1:4])
         } else {
-          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & \\textsc{ref} & & ',nums[1:4])
+          tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & \\textsc{ref} & ',nums[1:4])
         }
         save.tex(tabstr,namefun(var,level,'xtab'),dir=dir)
       }
     }
   }
+  names(model) = c('IR','CIA')
+  g = plot.effects(model,group='Outcome')
+  save.plot(g,'effects',dir='api',w=6,h=10)
 }
 save.distr = function(x,name,dir='',d=2,funs=NULL,lt=NULL){
   fun.list = list(
