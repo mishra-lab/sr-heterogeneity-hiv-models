@@ -1,23 +1,23 @@
-\newcommand{\xtab}[1]{\x{api/inc/#1.xtab} & \x{api/chi/#1.xtab} }
-\footnotesize%
+\newcommand{\xtab}[1]{\x{api/inc/#1.xtab} & \x{api/chi/#1.xtab} }%
+\def\baselinestretch{1.1}\footnotesize%
 \centerline{%
 \setlength{\tabcolsep}{.7ex}%
-\begin{tabular}{ll rrc rcr rrc rcr}
+\begin{tabular}{ll rrc rc rrc rc}
   \toprule
-  & & \multicolumn{6}{c}{Incidence Reduction (\%)}
-    & \multicolumn{6}{c}{Cum. Infections Averted (\%)} \\
-  \cmidrule(rl){3-8}\cmidrule(rl){9-14}
-  Factor               & Level            & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} & p\tn{b}
-                                          & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} & p\tn{b} \\
+  & & \multicolumn{5}{c}{Incidence Reduction (\%)}
+    & \multicolumn{5}{c}{Cumulative Infections Averted (\%)} \\
+  \cmidrule(rl){3-7}\cmidrule(rl){8-12}
+  Factor               & Level            & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} 
+                                          & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} \\
   \midrule
-%\begin{tabular}{lll}
+%%\begin{tabular}{lll}
   Time Horizon         & 0-10             & \xtab{t.cat.0}               \\
   (years)              & 11-20            & \xtab{t.cat.10}              \\
                        & 21-30            & \xtab{t.cat.20}              \\
                        & 31+              & \xtab{t.cat.30}              \\[\tsep]
-  HIV Prevalence       & 0-1              & \xtab{api.prev.cat.Low}      \\
+  HIV Prevalence       & 10+              & \xtab{api.prev.cat.High}     \\
   (\%)                 & 1-10             & \xtab{api.prev.cat.Mid}      \\
-                       & 10+              & \xtab{api.prev.cat.High}     \\[\tsep]
+                       & 0-1              & \xtab{api.prev.cat.Low}      \\[\tsep]
   HIV Incidence        & Increasing       & \xtab{api.phase.incr}        \\
   Trend\tn{c}          & Inc-to-stable    & \xtab{api.phase.its}         \\
                        & Stable           & \xtab{api.phase.stab}        \\
@@ -25,13 +25,14 @@
                        & Decreasing       & \xtab{api.phase.decr}        \\
   \midrule
   RR Transmission      & 0.0-0.039        & \xtab{art.rbeta.cat.0}       \\
-  on ART               & 0.4-0.099        & \xtab{art.rbeta.cat.0.04}    \\
+  on ART               & 0.04-0.099       & \xtab{art.rbeta.cat.0.04}    \\
                        & 0.1+             & \xtab{art.rbeta.cat.0.1}     \\[\tsep]
-  CD4 Threshold for    & Mixed            & \xtab{art.cd4.*}             \\
+  CD4 Threshold for    & Symptomatic      & \xtab{art.cd4.symp}          \\
   ART Initiation       & 200              & \xtab{art.cd4.200}           \\
                        & 350              & \xtab{art.cd4.350}           \\
                        & 500              & \xtab{art.cd4.500}           \\
-                       & Any              & \xtab{art.cd4.All}           \\[\tsep]
+                       & Any              & \xtab{art.cd4.All}           \\
+                       & Mixed            & \xtab{art.cd4.*}             \\[\tsep]
   ART Coverage         & 0-59             & \xtab{art.cov.cat.0}         \\
   Target (\%)\tn{c}    & 60-84            & \xtab{art.cov.cat.0.6}       \\
                        & 85+              & \xtab{art.cov.cat.0.85}      \\
@@ -64,8 +65,9 @@
 \floatfoot{
   \tnt[a]{N: number of unique scenarios and time horizons;
     sums across factor levels may be less than 126 and 115 due to missing variables.}
-  \tnt[b]{Effect estimates and p-values from linear multivariate regression
-    with generalized estimating equations \cite{Hojsgaard2006}.}
+  \tnt[b]{Effect estimates from linear multivariate regression
+    with generalized estimating equations \cite{Hojsgaard2006};
+    effects are illustrated in Figure~\ref{fig:effects}.}
   \tnt[c]{Omitted from regression model due to missing data.}
   RR: relative risk;
   HTC: HIV testing and counselling;
