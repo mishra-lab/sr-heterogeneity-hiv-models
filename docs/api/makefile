@@ -1,6 +1,9 @@
 full:
 	pdflatex main ; for aux in *.aux; do bibtex $$aux; done ; pdflatex main
 
+simple:
+	pdflatex main
+
 cover:
 	cd cl && pdflatex cover
 
