@@ -33,47 +33,46 @@ factors of heterogeneity and intervention contexts.
 \subsection{ART Prevention Impact}\label{aa:res:api}
 The following figures illustrate the projected ART prevention impact (Dataset~B),
 stratified by various factors of heterogeneity and intervention contexts (colours).
-The left panels show the relative reduction in HIV incidence rate;
-the right panels show the relative reduction in cumulative new HIV infections;
+Left panels show the relative reduction in HIV incidence rate;
+right panels show the relative reduction in cumulative new HIV infections;
 both as compared to a base-case scenario reflecting status quo.
+If any study included multiple scenarios of ART scale-up,
+then each scenario was included separately;
+if any scenario reported multiple time horizons,
+each time horizon was included separately.
 The number of studies (scenarios) reporting
 incidence reduction, cumulative infections averted, both, or either was:
 \x{n/n.a.api.inc}~(\x{n/n.s.api.inc}),
 \x{n/n.a.api.chi}~(\x{n/n.s.api.chi}),
 \x{n/n.a.api.both}~(\x{n/n.s.api.both}), and
 \x{n/n.a.api}~(\x{n/n.s.api}), respectively.
-If any study included multiple scenarios of ART scale-up,
-then each scenario was included separately,
-but the size of each data point was reduced
-in proportion to the number of scenarios;
-so studies with only one scenario have the largest data points.
-Some scenarios have multiple data points if multiple time horizons were reported.
 If any factor could not be quantified due to missing data or varying values,
-the data point is grey.
-A small random offset has been added to the data points to reduce overlap.
+it was omitted from that plot.
+In box plots, the numbers of unique scenario time-horizons
+contributing to each box are given above it.
 \begin{figure}[H]
   \begin{subfigure}{0.5\linewidth}
-    \includegraphics[width=\linewidth]{{inc.s.Risk.both}.pdf}
+     \includegraphics[width=\linewidth]{{inc.s.Risk.both}.pdf}
     \caption{Reduction in HIV incidence (\%)}
   \end{subfigure}%
   \begin{subfigure}{0.5\linewidth}
-    \includegraphics[width=\linewidth]{{chi.s.Risk.both}.pdf}
+     \includegraphics[width=\linewidth]{{chi.s.Risk.both}.pdf}
     \caption{Cumulative HIV infections averted (\%)}
   \end{subfigure}
   \caption{Projected ART prevention benefits,
     stratified by factors of risk heterogeneity: whether models considered
     differences in sexual activity, key populations, and
-    ART cascade prioritized to key populations.
-    Subset of studies reporting both outcomes.}
+    ART cascade prioritized to key populations
+    (subset of studies reporting both outcomes)}
   \label{fig:api:both}
 \end{figure}
 \foreach \var/\title in \plotlistapi{
   \begin{figure}[H]
     \begin{subfigure}{0.5\linewidth}
-      \includegraphics[width=\linewidth]{{inc.s.\var}.pdf}
+      \includegraphics[width=\linewidth]{{inc.\var}.pdf}
     \end{subfigure}%
     \begin{subfigure}{0.5\linewidth}
-      \includegraphics[width=\linewidth]{{chi.s.\var}.pdf}
+      \includegraphics[width=\linewidth]{{chi.\var}.pdf}
     \end{subfigure}
     \caption{\title}
     \label{fig:api:\var}

@@ -37,7 +37,7 @@ followed by Southern (\x{co/n.re.south}), West (\x{co/n.re.west}), and Central A
 \par
 ART prevention impacts were most often modelled in
 high-prevalence ({$>$10\%}) epidemics (\x{t0/n.prev.High} studies) and
-medium-prevalence ({1-10\%}) epidemics (\x{t0/n.prev.Mid}) (Figure~\ref{fig:api.prev.cat}).
+medium-prevalence ({1-10\%}) epidemics (\x{t0/n.prev.Mid}) (Figure~\ref{fig:api.prev}).
 No studies reported overall HIV prevalence of {$<$1\%} at time of intervention,
 although for \x{t0/n.prev.NA} studies, HIV prevalence was
 not reported or varied across simulated contexts/scenarios.
@@ -195,7 +195,7 @@ including \x{n/n.s.api} scenarios of ART scale-up.
 Relative incidence reduction with ART scale-up
 as compared to status quo
 was reported in \x{n/n.a.api.inc} studies (\x{n/n.s.api.inc} scenarios);
-the proportion of cumulative infections averted due to ART scale-up
+proportion of cumulative infections averted due to ART scale-up
 was reported in \x{n/n.a.api.chi} (\x{n/n.s.api.chi});
 and \x{n/n.a.api.both} (\x{n/n.s.api.both}) reported both.
 Some scenarios reported these outcomes on multiple time horizons.
@@ -227,34 +227,31 @@ was similar to the pattern of infections averted versus modelled heterogeneity
 \begin{figure}
   \begin{subfigure}{0.5\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{{inc.s.Risk}.pdf}
+    \includegraphics[width=\textwidth]{{inc.Risk}.pdf}
     \caption{Reduction in HIV incidence}
     \label{fig:api:inc}
   \end{subfigure}%
   \begin{subfigure}{0.5\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{{chi.s.Risk}.pdf}
+    \includegraphics[width=\textwidth]{{chi.Risk}.pdf}
     \caption{Cumulative HIV infections averted}
     \label{fig:api:chi}
   \end{subfigure}
-  \caption{Projected ART prevention benefits,
-    stratified by factors of risk heterogeneity: whether models considered
+  \caption{Projected ART prevention benefits over different time horizons,
+    stratified by levels of modelled risk heterogeneity: whether models considered
     differences in sexual activity, key populations, and
-    ART cascade prioritized to key populations}
+    ART cascade prioritized to key populations;
+    no scenarios considered lower cascade among key populations.}
   \label{fig:api}
   \floatfoot{
+    The numbers of unique scenario time-horizons
+    contributing to each box are given above it.
     The number of studies (scenarios) reporting
-    incidence reduction, cumulative infections averted, both, or either was:
+    incidence reduction, cumulative infections averted, both, and either was:
     \x{n/n.a.api.inc}~(\x{n/n.s.api.inc}),
     \x{n/n.a.api.chi}~(\x{n/n.s.api.chi}),
     \x{n/n.a.api.both}~(\x{n/n.s.api.both}), and
     \x{n/n.a.api}~(\x{n/n.s.api}), respectively (Dataset~B).
-    If any study included multiple scenarios of ART scale-up,
-    then each scenario was included as a separate data point,
-    but the size of each data point was reduced
-    in proportion to the number of scenarios in the study.
-    Some scenarios have multiple data points if multiple time horizons were reported.
-    A small random offset was added to all data points to reduce overlap.
     KP: key populations;
     priority: cascade transitions were faster for at least one step among KP vs overall;
     same: cascade transitions were assumed the same speed in KP as overall;
@@ -263,9 +260,9 @@ was similar to the pattern of infections averted versus modelled heterogeneity
 \par
 ART prevention impacts were larger with
 longer time horizon,
-lower HIV prevalence (Figure~\ref{fig:api:api.prev}), and
+lower HIV prevalence (Figure~\ref{fig:api:api.prev.cat}), and
 greater ART eligibility (Figure~\ref{fig:api:art.cd4});
 however patterns were not consistent across
 epidemic phase (Figure~\ref{fig:api:api.phase}),
-ART coverage targets (Figure~\ref{fig:api:art.cov}), or
-relative infectiousness on ART (Figure~\ref{fig:api:art.rbeta}).
+ART coverage targets (Figure~\ref{fig:api:art.cov.cat}), or
+relative infectiousness on ART (Figure~\ref{fig:api:art.rbeta.cat}).
