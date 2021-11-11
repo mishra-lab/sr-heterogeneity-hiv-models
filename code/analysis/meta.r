@@ -106,11 +106,11 @@ C = list(# groups of columns
 C$diff = c(C$diff.dx,C$diff.art.i,C$diff.art.o)
 P = list(# stuff to plot
   api = c(
-    'api.prev','api.inc','api.phase',
-    'art.rbeta','art.cd4','art.cov','art.init',
+    'api.prev.cat','api.phase',
+    'art.rbeta.cat','art.cd4','art.cov.cat','art.init.cat',
     'hiv.x.acute','hiv.x.late','hiv.morb.any','art.tdr','art.fail.any','art.drop.any','bc.any',
-    'act.def.sex','Risk','act.n','act.mix','act.turn.any','pt.def','age.n','age.mix',
-    'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr'
+    'act.def.sex','Risk','act.n.cat','act.mix','act.turn.any','pt.def','age.n.cat','age.mix'
+    # 'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr'
   ),
   dist = c('api.prev','api.inc','art.rbeta','act.n','age.n','hiv.n',
            'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr',
@@ -199,6 +199,10 @@ R = list(# Rename stuff
     '500'='500',
     'Any'='All',
     'Symptomatic'='symp'),
+  art.cov.cat = list(
+    '0.0-0.59'='0',
+    '0.60-0.84'='0.6',
+    '0.85+'='0.85'),
   art.rbeta.cat = list(
     '0.0-0.039'='0',
     '0.04-0.099'='0.04',

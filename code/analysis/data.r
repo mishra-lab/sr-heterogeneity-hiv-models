@@ -67,6 +67,7 @@ load.main.data = function(...){
   X = make.diff.any(X)
   X = make.act.kp(X)
   X = make.risk(X)
+  X = make.age.n.cat(X)
   X = make.act.n.cat(X)
   X = make.act.n.sex.max(X)
   X = make.turnover(X)
@@ -102,6 +103,20 @@ clean.numeric = function(x,...){
 get.cols.co = function(X){
   co.names = sapply(rownames(load.co.data()),function(co){ paste0('co.',co) })
   return(co.names[co.names %in% colnames(X)])
+}
+
+make.age.n.cat = function(X){
+  X$age.n.cat = factor(mapply(function(n){
+      if (is.na(n))        { return(NA) }
+      if (n == 1)          { return(1) }
+      if (n >= 2 & n <=  3){ return(2) }
+      if (n >= 4 & n <= 12){ return(3) }
+      if (n >= 13)         { return(4) }
+    },X$age.n),
+    levels = c(1,2,3,4),
+    labels = c('1','2-3','4-12','13+')
+  )
+  return(X)
 }
 
 make.act.n.cat = function(X){
@@ -313,7 +328,7 @@ make.api.data = function(XA,which='chi'){
       values_drop_na=TRUE) %>%
     mutate(t=as.numeric(name)+api.dt) %>%
     mutate(t.cat=cut(t,c(tcut,100),as.character(tcut),right=FALSE)) %>%
-    mutate(art.cd4=relevel(factor(art.cd4),ref='symp'))
+    mutate(art.cd4=relevel(factor(art.cd4),ref='200'))
   return(XA)
 }
 

@@ -1,41 +1,42 @@
-plot.api.list = function(XA,drop=FALSE,...){
+plot.api.list = function(XA,...){
   args = c(...)
   if (length(args)){ plot.vars = args } else { plot.vars = P$api }
   for (which in c('chi','inc')){
     XA. = make.api.data(XA,which=which)
     for (var in plot.vars){
-      XA. %>% make.bib.wt %>%
-        plot.api(which=which,drop=drop,color=var,size='wt') %>%
+      plot.api(XA.,which=which,geom='box',color=var,fill=var) %>%
+        save.plot(namefun(which,var),dir='api',width=5,height=4)
+      plot.api(XA.,which=which,geom='point',color=var) %>%
         save.plot(namefun(which,'s',var),dir='api',width=5,height=4)
-      XA. %>% agg.api.data(fun=median,var) %>%
-        plot.api(which=which,drop=drop,color=var) %>%
-        save.plot(namefun(which,'a',var),dir='api',width=5,height=4)
     }
   }
 }
 
-plot.api = function(XAi,which='chi',drop=FALSE,...){
+plot.api = function(XAi,which='chi',geom='box',...){
   ylabs = list(
     'chi' = 'Cumulative HIV Infections Averted',
     'inc' = 'Reduction in HIV Incidence'
   )
-  args = list(...)
-  clr = XAi[[ifelse(is.null(args$color),NA,args$color)]]
-  s   = XAi[[ifelse(is.null(args$size), NA,args$size )]]
-  size.lims = 4*c(ifelse(length(s),min(s),1),ifelse(length(s),max(s),1))
-  clr.args = list(option='inferno',begin=.1,end=.75)
-  if (!is.numeric(clr)){ clr.args = c(clr.args,list(discrete=TRUE,drop=drop)) }
+  args = list('t.cat',...)
+  clr.args = list(option='inferno',begin=.1,end=.75,discrete=TRUE,drop=TRUE)
   g = XAi %>% rename.lvls(args) %>%
-      ggplot(aes_string(x='t',y='value',...,size=3)) +
+      ggplot(aes_string(x=ifelse(geom=='box','t.cat','t'),y='value',...)) +
       geom_hline(yintercept=0,color='gray') +
-      geom_point(alpha=.6,position='jitter') +
-      ylim(-.15,  1) + ylab(ylabs[[which]]) +
-      xlim(  -1, 41) + xlab('Time since Roll-Out (years)') +
-      scale_size(range=size.lims) +
-      guides(size=FALSE) +
       do.call(scale_color_viridis,clr.args) +
+      do.call(scale_fill_viridis,clr.args) +
+      labs(y=ylabs[[which]],x='Time since Roll-Out (years)') +
+      ylim(-.15, 1.05) +
       theme_light() +
       theme(legend.title=element_blank(),legend.margin=margin(0,0,0,0))
+  if (geom=='box'){
+    pos = position_dodge2(width=.8,preserve='single')
+    g = g + geom_boxplot(alpha=.4,position=pos) +
+      stat_summary(geom='text',show.legend=FALSE,size=2.5,position=pos,
+        fun.data=function(y){ data.frame(y=1.03,label=length(y)) })
+  }
+  if (geom=='point'){
+    g = g + geom_point(alpha=.6,position='jitter',stroke=0,size=2) + xlim(-1,41)
+  }
   return(g)
 }
 
@@ -65,22 +66,19 @@ plot.distr.list = function(X){
 }
 
 plot.distr = function(X,var){
-  if (is.numeric(X[[var]])){
-    geom = geom_histogram
-    args = list(bins=16,alpha=.4,color='red',fill='red')
-  } else {
-    geom = geom_bar
-    args = list(alpha=.4)
-  }
   clr.args = list(option='inferno',discrete=TRUE,begin=.1,end=.85,na.value='gray')
   g = X %>% rename.lvls(var) %>%
     ggplot(aes_string(x=var,color=var,fill=var)) +
-    do.call(geom,args) +
     do.call(scale_color_viridis,clr.args) +
     do.call(scale_fill_viridis,clr.args) +
     ylab('Studies') + xlab(detex(D[[decat(var)]])) +
     guides(color=FALSE,fill=FALSE) +
     theme_light()
+  if (is.numeric(X[[var]])){
+    g = g + geom_histogram(bins=16,alpha=.4,color='#BB3754',fill='#BB3754')
+  } else {
+    g = g + geom_bar(alpha=.4)
+  }
   return(g)
 }
 
