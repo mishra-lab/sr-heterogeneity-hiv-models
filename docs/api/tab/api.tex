@@ -1,5 +1,5 @@
 \newcommand{\xtab}[1]{\x{api/inc/#1.xtab} & \x{api/chi/#1.xtab} }%
-\def\baselinestretch{1.1}\footnotesize%
+\def\baselinestretch{1.0}\footnotesize%
 \centerline{%
 \setlength{\tabcolsep}{.7ex}%
 \begin{tabular}{ll rrc rc rrc rc}
@@ -10,12 +10,11 @@
   Factor               & Level            & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} 
                                           & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} \\
   \midrule
-%%\begin{tabular}{lll}
   Time Horizon         & 0-10             & \xtab{t.cat.0}               \\
   (years)              & 11-20            & \xtab{t.cat.10}              \\
                        & 21-30            & \xtab{t.cat.20}              \\
                        & 31+              & \xtab{t.cat.30}              \\[\tsep]
-  HIV Prevalence       & 10+              & \xtab{api.prev.cat.High}     \\
+  HIV Prevalence       & 11+              & \xtab{api.prev.cat.High}     \\
   (\%)                 & 1-10             & \xtab{api.prev.cat.Mid}      \\
                        & 0-1              & \xtab{api.prev.cat.Low}      \\[\tsep]
   HIV Incidence        & Increasing       & \xtab{api.phase.incr}        \\
@@ -49,17 +48,18 @@
   HTC Behav. Change    & No               & \xtab{bc.any.FALSE}          \\
                        & Any              & \xtab{bc.any.TRUE}           \\
   \midrule
+  Sex Strat. \&        & No               & \xtab{Sex.No}                \\
+  Cascade Diff.        & Yes (Same)       & \xtab{Sex.Yes-(Same)}        \\
+                       & Yes (Diff)       & \xtab{Sex.Yes-(Diff)}        \\[\tsep]
   Risk Definition      & None             & \xtab{Risk.None}             \\
                        & Activity (No KP) & \xtab{Risk.Activity-(no-KP)} \\
-                       & KP (Priority)    & \xtab{Risk.KP-(priority)}    \\
-                       & KP (Same)        & \xtab{Risk.KP-(same)}        \\[\tsep]
+                       & + KP (Same)      & \xtab{Risk.KP-(same)}        \\
+                       & + KP (Priority)  & \xtab{Risk.KP-(priority)}    \\[\tsep]
   Activity Turnover    & No               & \xtab{act.turn.any.FALSE}    \\
                        & Yes              & \xtab{act.turn.any.TRUE}     \\[\tsep]
   Partnership Types    & Generic          & \xtab{pt.def.gen}            \\
                        & By Groups        & \xtab{pt.def.grp}            \\
                        & Overlapping      & \xtab{pt.def.phen}           \\[\tsep]
-  Sex Stratification   & No               & \xtab{act.def.sex.FALSE}     \\
-                       & Yes              & \xtab{act.def.sex.TRUE}      \\
   \bottomrule
 \end{tabular}}
 \floatfoot{
