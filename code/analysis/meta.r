@@ -22,12 +22,14 @@ M = list(# groups of misc
       FSW       = 'FSW',
       Clients   = 'Cli',
       MSM       = 'MSM',
+      Transgen. = 'TG',
       PWID      = 'PWID',
+      Prisoners = 'pris',
       All       = 'All'
     )
   ),
   kp = list(
-    main = c('FSW','Cli','MSM','PWID'), # AGYW, MP
+    main = c('FSW','Cli','MSM','TG','PWID','pris'), # AGYW, MP
     fsw.crit = c('p','pr','cr')
   ),
   pt = list(
@@ -73,8 +75,7 @@ M = list(# groups of misc
       'art.rbeta.cat','art.cd4','art.cov.cat','art.init.cat',
       'hiv.x.acute','hiv.x.late','hiv.morb.any',
       'art.tdr','art.fail.any','art.drop.any','bc.any',
-      'act.def.sex','act.kp','Risk','act.turn.any','pt.def',
-      'diff.any.kp.cat'
+      'Sex','Risk','act.turn.any','pt.def'
     )
   )
 )
@@ -109,7 +110,7 @@ P = list(# stuff to plot
     'api.prev.cat','api.phase',
     'art.rbeta.cat','art.cd4','art.cov.cat','art.init.cat',
     'hiv.x.acute','hiv.x.late','hiv.morb.any','art.tdr','art.fail.any','art.drop.any','bc.any',
-    'act.def.sex','Risk','act.n.cat','act.mix','act.turn.any','pt.def','age.n.cat','age.mix'
+    'act.def.sex','Sex','Risk','act.n.cat','act.mix','act.turn.any','pt.def','age.n.cat','age.mix'
     # 'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr'
   ),
   dist = c('api.prev','api.inc','art.rbeta','act.n','age.n','hiv.n',
@@ -146,6 +147,7 @@ D = list(# definitions
 
   act.kp       = 'Activity groups \\& key populations',
   Risk         = 'Summary of risk heterogeneity',
+  Sex          = 'Sex stratification \\& any ART cascade differences',
   act.HRW.p    = 'Proportion of women in the highest female activity group',
   act.HRM.p    = 'Proportion of men in the client or highest activity male group',
   act.HRW.cr   = 'Ratio of partners per year in the highest vs lowest female activity groups',
@@ -171,6 +173,8 @@ R = list(# Rename stuff
     'Any ART Dropout' = 'art.drop.any',
     'HTC Behav. Change' = 'bc.any',
     'Sex Stratification' = 'act.def.sex',
+    'Any ART Diff. by Sex' = 'diff.any.sex',
+    'Sex Strat. & ART' = 'Sex',
     'Activity Turnover' = 'act.turn.any',
     'Risk Definition' = 'Risk'),
   t.cat = list(

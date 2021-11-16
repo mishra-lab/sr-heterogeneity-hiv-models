@@ -67,6 +67,7 @@ load.main.data = function(...){
   X = make.diff.any(X)
   X = make.act.kp(X)
   X = make.risk(X)
+  X = make.sex(X)
   X = make.age.n.cat(X)
   X = make.act.n.cat(X)
   X = make.act.n.sex.max(X)
@@ -146,12 +147,24 @@ make.risk = function(X){
   X$Risk = factor(mapply(function(n, act, kp, kp.diff){
       if (!act)      { return(1) }
       if (act & !kp) { return(2) }
-      if (kp & kp.diff == 'priority') { return(3) }
-      if (kp & kp.diff == 'same')     { return(4) }
+      if (kp & kp.diff == 'same')     { return(3) }
+      if (kp & kp.diff == 'priority') { return(4) }
       # if (kp & kp.diff == 'gaps')     { return(5) } # DNE
     }, X$act.n, X$act.def.np, X$kp.any, X$diff.any.kp.cat),
     levels = c(1,2,3,4),
-    labels = c('None','Activity (no KP)','KP (priority)','KP (same)')
+    labels = c('None','Activity (no KP)','KP (same)','KP (priority)')
+  )
+  return(X)
+}
+
+make.sex = function(X){
+  X$Sex = factor(mapply(function(sex, sex.diff){
+      if (!sex)            { return(1) }
+      if (sex & !sex.diff) { return(2) }
+      if (sex & sex.diff)  { return(3) }
+    }, X$act.def.sex, X$diff.any.sex),
+    levels = c(1,2,3),
+    labels = c('No','Yes (same)','Yes (diff)')
   )
   return(X)
 }
@@ -341,7 +354,7 @@ agg.api.data = function(XA,fun=median,...){
   }
 }
 
-make.bib.wt = function(XA,by=c('bib','t'),fun=sqrt){
+make.bib.wt = function(XA,by=c('bib'),fun=identity){
   key = apply(XA[,by],1,paste,collapse=':')
   n.key = table(key)
   XA$wt = sapply(key, function(key){ 1/fun(n.key[[key]]) })

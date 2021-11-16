@@ -178,6 +178,20 @@ save.api.count = function(bib,x,name,dir='n'){
   save.count(x,namefun('s',name),dir)
   save.count(length(unique(bib[x])),namefun('a',name),dir)
 }
+fit.model = function(XA.,vars){
+  for (var in vars){ XA.[[var]] = factor(XA.[[var]]) } # HACK: avoid empty levels
+  f = formula(paste('value ~',paste(vars,collapse='+')))
+  m = geeglm(f,'gaussian',XA.,id=factor(XA.$bib),corstr='i')
+  return(m)
+}
+debug.model = function(model,which,XA.){
+  # g = ggpairs(XA.,columns=vars.all,lower=list(discrete='count'),upper=list(discrete='count'))
+  # ggsave(g,file=paste0('pairs-',which,'.pdf'),w=16,h=16)
+  # print(summary(model[[which]]))
+  # print(XA.$bib[abs(dffits(lm(model[[which]])))>2.5])
+  print(plot(lm(model[[which]])))
+  # print(QIC(model[[which]]))
+}
 numeric.api = function(XA){
   # counts
   save.api.count(XA$bib,!logical(nrow(XA)),'api')
@@ -185,16 +199,11 @@ numeric.api = function(XA){
   save.api.count(XA$bib,XA$api.chi.any,'api.chi')
   save.api.count(XA$bib,XA$api.both.any,'api.both')
   # distributions & stats models
-  rm.vars = c('art.init.cat','act.kp','diff.any.kp.cat','art.fail.any','art.drop.any',
-    'api.phase','art.cov.cat') # TODO: impute NA via MICE ?
+  rm.vars = c('api.phase','art.cov.cat','art.init.cat','art.fail.any','art.drop.any')
   vars.all = setdiff(M$api$table,rm.vars)
-  m.fun = function(XA.,vars){
-    for (var in vars){ XA.[[var]] = factor(XA.[[var]]) } # HACK: avoid empty levels
-    f = formula(paste('value ~',paste(vars,collapse='+')))
-    geeglm(f,'gaussian',XA.,id=factor(XA.$bib),corstr='i') }
   ci.fun = function(coef,var,level,name){
     varlevel = paste0(var,level)
-    m.ci = 100 * coef[varlevel,1] + c(0,-1.959964,+1.959964) * coef[varlevel,2]
+    m.ci = 100 * coef[varlevel,1] + c(0,qnorm(.025),qnorm(.975)) * coef[varlevel,2]
     save.tex(round(m.ci[1],d=0),namefun(var,level,name,'beta'),   dir=dir,na='')
     save.tex(round(m.ci[2],d=0),namefun(var,level,name,'beta.lo'),dir=dir,na='')
     save.tex(round(m.ci[3],d=0),namefun(var,level,name,'beta.hi'),dir=dir,na='')
@@ -205,9 +214,9 @@ numeric.api = function(XA){
   for (which in c('inc','chi')){
     dir = tex.dir(file.path('api',which))
     XA. = make.api.data(XA,which=which)[c('bib','value',M$api$table)]
-    model[[which]] = m.fun(XA.,vars.all)
+    model[[which]] = fit.model(XA.,vars.all)
+    # debug.model(model,which,XA.); next
     coef.all = summary(model[[which]])$coef
-    # print(summary(model[[which]])) # DEBUG
     for (var in M$api$table){
       x = XA.[[var]]
       for (level in levels(factor(x))){
