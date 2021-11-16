@@ -2,20 +2,13 @@
 \label{s:meth}
 We conducted a scoping review according to the PRISMA extension for scoping reviews
 (Appendix~\ref{a:prisma}).
-First, we developed a conceptual framework to organize
-assumptions and representations of risk heterogeneity
-in compartmental HIV transmission models.
-Then, we designed and implemented the search strategy,
-and extracted data relevant to the framework to address our objectives.
 % ==============================================================================
 \subsection{Conceptual Framework for Risk Heterogeneity}
 \label{ss:meth:framework}
-We conceptualized ``factors of risk heterogeneity'', meaning
-epidemiological stratifications and phenomena which may/not be included in transmission models.
-Such factors could include if/how populations, rates, and probabilities
-are stratified along various dimensions.
-We defined the following 4 domains in which
-these factors might influence the transmission impact of ART.
+We defined ``factors of risk heterogeneity'' as
+epidemiological phenomena and stratifications of populations, rates, or probabilities
+which may/not be included in transmission models.
+We defined 4 domains in which such factors might influence the transmission impact of ART:
 \begin{itemize}
   \item \textbf{Biological Effects:}
   differential transmission risk within HIV disease course
@@ -50,41 +43,21 @@ and their possible mechanisms of influence on ART prevention impact (Table~\ref{
 We searched MEDLINE and EMBASE via Ovid
 using search terms related to Sub-Saharan Africa (SSA), HIV, and transmission modelling
 (Table~\ref{tab:search}).
-Search results were imported into Covidence \cite{Covidence} for screening.
-Duplicate studies were removed automatically by Ovid and by Covidence;
-four additional duplicates with subtly different titles were later identified and removed manually.
-Potentially relevant studies were identified by title and abstract screening, followed 
-by full-text screening using the inclusion/exclusion criteria below. 
+Search results were de-duplicated and screened by title and abstract in Covidence \cite{Covidence},
+followed by full-text screening using the criteria below.
 One reviewer (JK) conducted the search, screening, and data extraction.
 % ------------------------------------------------------------------------------
 \subsubsection{Inclusion/Exclusion Criteria}
 \label{sss:meth:criteria}
-We included peer-reviewed, primarily modelling studies that used non-linear models of sexual HIV transmission
+See Table~\ref{tab:criteria} for complete inclusion/exclusion criteria and definitions.
+We included peer-reviewed, primary modelling studies that used
+non-linear compartmental models of sexual HIV transmission
 to project the prevention impacts of ART in any setting within SSA.
-See Table~\ref{tab:criteria} for complete inclusion/exclusion criteria.
-We only included studies published in English anytime before Jan~1, 2020.
-We excluded conference publications, and those without primary modelling results and description of the methods,
-such as commentaries and reviews.
-If a model's details were provided in another peer-reviewed publication,
-we extracted data from both publications as required.
-\par
-Inclusion criteria were as follows:
-1) Used a non-linear compartmental model of sexual HIV transmission at the population level.
-We defined \emph{non-linear models} as those where
-future projected infections are a function of previously projected infections,
-and \emph{compartmental models} as those where
-system variables represent the numbers of individuals in each state,
-rather than unique individuals \cite{Garnett2011}.
-Thus, statistical models, models without dynamic transmission, and individual-based models were excluded.
-2) The model was parameterized/calibrated to reflect at least one setting within SSA
-(see Appendix~\ref{aa:defs:context} for countries).
-3) The study simulated at least one scenario with increasing ART coverage,
+We included studies published in English anytime before Jan~1, 2020,
+that simulated at least one scenario with increasing ART coverage,
 possibly alongside other interventions.
-The included studies formed Dataset~A,
-used to complete objectives \ref{rq:1}~and~\ref{rq:2}.
-\par
-A subset of Dataset~A formed Dataset~B,
-used to complete objective~\ref{rq:3}.
+The included studies formed Dataset~A, used to complete objectives \ref{rq:1}~and~\ref{rq:2}.
+A subset of Dataset~A formed Dataset~B, used to complete objective~\ref{rq:3}.
 Studies in Dataset~B met three additional criteria:
 1) examined scale-up of ART coverage alone (versus combination intervention);
 2) examined ART intervention for the whole population (versus ART prioritized to subgroups); and
@@ -95,7 +68,7 @@ relative to a base-case scenario reflecting status quo.
 \label{ss:meth:data}
 Data extraction used the full text and all available supplementary material.
 Data were extracted per-study for objectives \ref{rq:1}~and~\ref{rq:2}, and
-per-scenario for objective~\ref{rq:3}.
+per-scenario for objective~\ref{rq:3}, possibly including multiple time horizons.
 Detailed variables definitions are given in Appendix~\ref{a:defs}.
 % ------------------------------------------------------------------------------
 \subsubsection{Epidemic Context}
