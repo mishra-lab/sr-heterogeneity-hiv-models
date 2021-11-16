@@ -24,8 +24,8 @@
 % temp
 \usepackage{xspace}
 \newcommand{\x}[1]{\input{/home/jesse/phd/proj/sr/out/tex/#1}\unskip}
-\newcommand{\xd}[1]{\x{#1.q2}~[\x{#1.q1},~\x{#1.q3}]\xspace}
-\newcommand{\xdm}[1]{\x{#1.q2}~[\x{#1.q0},~(\x{#1.q1},~\x{#1.q3}),~\x{#1.q4}]\xspace}
+\newcommand{\xd}[2][~]{\x{#2.q2}#1[\x{#2.q1},#1\x{#2.q3}]\xspace}
+\newcommand{\xdm}[2][~]{\x{#2.q2}#1[\x{#2.q0},#1(\x{#2.q1},#1\x{#2.q3}),#1\x{#2.q4}]\xspace}
 \newcommand{\xdmdef}{median [min,~(IQR),~max]\xspace}
 \newcommand{\tx}[1]{\textit{t\textsubscript{#1}}}
 % appendix stuff

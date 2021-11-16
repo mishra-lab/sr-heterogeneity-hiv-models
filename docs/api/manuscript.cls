@@ -21,7 +21,7 @@
   giveninits=true,
 ]{biblatex}
 % spacing
-\def\baselinestretch{1.7}
+\def\baselinestretch{1.5}
 \setlength{\parskip}{1ex}
 \setlength{\parindent}{0ex}
 \setlength{\abovecaptionskip}{1\baselineskip}
