@@ -194,77 +194,56 @@ studies respectively, while \emph{higher} rates were simulated in
 \label{ss:res:api}
 Dataset~B comprised \x{n/n.a.api} studies,
 including \x{n/n.s.api} scenarios of ART scale-up.
-Relative incidence reduction with ART scale-up
-as compared to status quo
+Relative incidence reduction (IR) with ART scale-up as compared to status quo
 was reported in \x{n/n.a.api.inc} studies (\x{n/n.s.api.inc} scenarios);
-proportion of cumulative infections averted due to ART scale-up
+proportion of cumulative infections averted (CIA) due to ART scale-up
 was reported in \x{n/n.a.api.chi} (\x{n/n.s.api.chi});
 and \x{n/n.a.api.both} (\x{n/n.s.api.both}) reported both.
-Some scenarios reported these outcomes on multiple time horizons.
+Some scenarios included multiple time horizons.
 \par
 \begin{table}
   \centering
-  \caption{Projected ART prevention benefits,
+  \caption{Projected ART prevention impacts,
     stratified by factors of risk heterogeneity and contexts}
   \input{tab/api}
   \label{tab:api}
 \end{table}
-Figure~\ref{fig:api} summarizes each outcome versus time since ART scale-up,
-stratified by a composite index of modelled risk heterogeneity.
-Ecological-level analysis across scenarios by degree of risk heterogeneity
-identified differences in proportions of infections averted,
-but not in relative incidence reduction (Table~\ref{tab:api}).
-The largest proportions of infections averted were reported from
-scenarios without risk heterogeneity (median [IQR]\% = \xd{api/chi/Risk.None}), followed by
-scenarios with key populations prioritized for ART (\xd{api/chi/Risk.KP-(priority)}).
-The smallest impacts were observed in scenarios with
-key populations who were not prioritized for ART (\xd{api/chi/Risk.KP-(same)})
-and in models with risk heterogeneity but without key populations
-(\xd{api/chi/Risk.Activity-(No-KP)}).
-Among \x{n/n.s.api.both} scenarios from \x{n/n.a.api.both} studies that provided both outcomes
-\cite{Salomon2005,Abbas2006,Pretorius2010,Nichols2014,Barnighausen2016,Maheu-Giroux2017,Akudibillah2018}, % MAN
-the pattern of incidence reduction versus modelled heterogeneity
-was similar to the pattern of infections averted versus modelled heterogeneity
-(Figure~\ref{fig:api:both}).
 \begin{figure}
-  \begin{subfigure}{0.5\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{{inc.Risk}.pdf}
-    \caption{Reduction in HIV incidence}
-    \label{fig:api:inc}
-  \end{subfigure}%
-  \begin{subfigure}{0.5\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{{chi.Risk}.pdf}
-    \caption{Cumulative HIV infections averted}
-    \label{fig:api:chi}
-  \end{subfigure}
-  \caption{Projected ART prevention benefits over different time horizons,
-    stratified by levels of modelled risk heterogeneity: whether models considered
-    differences in sexual activity, key populations, and
-    ART cascade prioritized to key populations;
-    no scenarios considered lower cascade among key populations.}
-  \label{fig:api}
+  \centering
+  \includegraphics[width=0.75\linewidth]{effects-subset}
+  \caption{Effect estimates for selected factors of heterogeneity on
+    incidence reduction (\%, IR) and cumulative infections averted (\%, CHI)
+    from linear multivariate regression with generalized estimating equations.}
+  \label{fig:effects-sub}
   \floatfoot{
-    The numbers of unique scenario time-horizons
-    contributing to each box are given above it.
-    The number of studies (scenarios) reporting
-    incidence reduction, cumulative infections averted, both, and either was:
-    \x{n/n.a.api.inc}~(\x{n/n.s.api.inc}),
-    \x{n/n.a.api.chi}~(\x{n/n.s.api.chi}),
-    \x{n/n.a.api.both}~(\x{n/n.s.api.both}), and
-    \x{n/n.a.api}~(\x{n/n.s.api}), respectively (Dataset~B).
-    KP: key populations;
-    priority: cascade transitions were faster for at least one step among KP vs overall;
-    same: cascade transitions were assumed the same speed in KP as overall;
-    no scenarios in Dataset~B considered lower cascade among KP.}
+    Numerical results given in Table~\ref{tab:api}.
+    KP: key populations.
+    priority: modelled ART cascade transitions were faster in KP vs overall due to prioritized programs;
+    same: cascade transitions were assumed the same in KP as overall;
+    diff: cascade transitions were slower among men.
+    Factor definitions are given in Appendix~\ref{a:defs}.}
 \end{figure}
+Table~\ref{tab:api} summarizes projected ART prevention impacts (IR, CIA),
+stratified by heterogeneity and contextual factors,
+plus adjusted effect estimates for each factor from multivariate analysis.
+Figures~\ref{fig:api:Risk}--\ref{fig:api:art.rbeta.cat} illustrate
+unadjusted impacts stratified by factor levels, while
+Figures~\ref{fig:effects}~and~\ref{fig:effects-sub} (subset) illustrate effect estimates.
+Including activity groups without key populations
+slightly increased projected ART prevention impacts---adjusted effect (95\% CI):
+\x{api/inc/Risk.Activity-(no-KP).eff}\% IR, \x{api/chi/Risk.Activity-(no-KP).eff}\% CIA.
+Including key population(s) without prioritized ART cascade had a similar effect:
+\x{api/inc/Risk.KP-(same).eff}\% IR, \x{api/chi/Risk.KP-(same).eff}\% CIA.
+However, including turnover of one or more higher risk group(s) reduced ART prevention impacts:
+\x{api/inc/act.turn.any.TRUE.eff}\% IR, \x{api/chi/act.turn.any.TRUE.eff}\% CIA,
+such that overall, including activity groups and/or key population(s) with turnover
+reduced ART prevention impacts.
 \par
-ART prevention impacts were larger with
-longer time horizon,
-lower HIV prevalence (Figure~\ref{fig:api:api.prev.cat}), and
-greater ART eligibility (Figure~\ref{fig:api:art.cd4});
-however patterns were not consistent across
-epidemic phase (Figure~\ref{fig:api:api.phase}),
-ART coverage targets (Figure~\ref{fig:api:art.cov.cat}), or
-relative infectiousness on ART (Figure~\ref{fig:api:art.rbeta.cat}).
+Including ART cascade prioritized to any key population(s)
+increased the projected ART prevention impacts enough to overcome reductions due to turnover:
+\x{api/inc/Risk.KP-(priority).eff}\% IR, \x{api/chi/Risk.KP-(priority).eff}\% CIA.
+No studies in Dataset~B examined lower ART cascade among key population(s).
+Stratifying by sex, and considering lower ART cascade among men was estimated to reduce CIA:
+\x{api/chi/Sex.Yes-(same).eff}\% and \x{api/chi/Sex.Yes-(diff).eff}\%, respectively;
+although similar effects were not observed for IR:
+\x{api/inc/Sex.Yes-(same).eff}\% and \x{api/inc/Sex.Yes-(diff).eff}\%.
