@@ -1,0 +1,119 @@
+\section{Reviewer \#2}
+\begin{comment}[*]
+Knight et al. present a systematic scoping review addressing the impact of risk heterogeneity representation on the estimated impact of antiretroviral therapy to reduce HIV transmission in sub-Saharan Africa. They find a range of risk heterogeneity model paramaterisation, in turn leading to substantial variation in the estimated reduction of HIV incidence/new infections attributable to ART. This represents a significant consolidation exercise and represents a timely and valuable addition to the literature as interest in risk heterogeneity in sub-Saharan Africa, including representation of key populations, increases.
+\end{comment}
+\begin{response}
+We thank the reviewer for their comment.
+\end{response}
+\subsection{Major Comments}
+\begin{comment}\label{recommend}
+It's not immediately clear to me what the key recommendation is that flows from Figure 3. If I have a model with the base case (no risk heterogeneity), which compartments or dynamics should I add first better to represent the true epidemic?
+\end{comment}
+\begin{response}
+As described in \ref{reg.2}, the results section 3.3 and discussion have been
+substantially revised in light of more precise findings.
+The revised discussion now concludes with clear recommendations:
+\quote{In conclusion, model-based evidence of ART prevention impacts could likely be improved by:
+1) consistenly including risk group turnover,
+   to reflect prevention challenges associated with the dynamic nature of sexual risk;
+2) integrating emerging data on differences in ART cascade between sexual risk groups,
+   to reflect services as delivered on the ground; and
+3) routinely incorporating key populations,
+   to reflect intersections of transmission risk and barriers to care
+   that may undermine treatment as prevention.}
+\end{response}
+\begin{comment}\label{risk.explain}
+Further discussion of the headline finding would be welcome - that the omission of key populations but the inclusion of risk heterogeneity in the generalised population brings about the smallest declines in new HIV infections is notable. Where possible - interrogating which dynamics are most important in the discrepancy between 'Activity (no KP)' and the other three model scenarios would be of interest.
+\end{comment}
+\begin{response}
+In the new regression analysis, there is little difference in estimated effect between ``Activity (no KP)'' and ``KP (same)'',
+except for IR for ``KP (same)'', which had wide confidence interval based on only 5 scenario time horizons.
+\end{response}
+\begin{comment}
+Please elaborate on and support Figure C.11 - it's not immediately clear to me that 'the pattern of incidence reduction versus modelled heterogeneity was similar to the pattern of infections averted versus modelled heterogeneity". Recognising that these data do not stem from the same studies, it is noted that in Table C.1 the incidence reduction increases ~2fold between no risk heterogeneity and activity (no KP), whilst averted infections decreases \textasciitilde4 fold. This would appear to be a key difference?
+\end{comment}
+\begin{response}
+As noted above (\ref{risk.explain}), the adjusted effect estimates for
+the ``Risk Stratification \& Cascade Differences'' variable are now more consistent across both outcomes
+(incidence reduction and cumulative infections averted).
+Differences in unadjusted estimates were likely due to confounding by unaccounted factors,
+and random chance due to the small number of scenarios time horizons for some factor levels
+(e.g. 5 and 1 for ``KP (same)'' and ``KP (priority)'' incidence reduction data).
+\end{response}
+\begin{comment}
+As HIV prevalence is linked to epidemic type, it's interesting that ART prevention impacts were larger with lower HIV prevalence. As the lower prevalence epidemics in West Africa are driven by KPs/more so than the epidemics in ESA, I assume that modelling studies in West Africa are more likely to be KP-disaggregated. However, you have shown that KP-disaggregated models estimate smaller ART prevention impacts. Could this be explored further?
+\end{comment}
+\begin{response}
+Essentially as hypothesized by the reviewer,
+the regression analysis reverses the estimated influence of HIV prevalence on ART prevention impacts:
+from larger impact with lower prevalence (43 vs 22 \%IR, 26 vs 18 \%CIA),
+to smaller impact with lower prevalence (-9 \%IR, -9 \%CIA).
+\end{response}
+\begin{comment}
+Whilst recognising this is a scoping review, some more discussion on the impact of these findings for the global HIV response would be welcome. As noted in the discussion, modelled estimates "did not always reflect the available data". The key population estimates (and subsequent estimates of averted HIV transmission) are reliant on weak data and some informed comment on how these results should be used would be good.
+\end{comment}
+\begin{response}
+The key messages of the review and contextualization in the global HIV response
+are now hopefully more clear in the revised discussion (see \ref{recommend}).
+We additionally note possible priority areas for data collection such as:
+\quote{Consistent inclusion of turnover in HIV transmission models would be supported by
+additional data on individual-level trajectories of sexual risk behaviour} \dots
+\quote{Improved modelling and prioritization of key population services
+will rely on continued investment in data collection for hard-to-reach populations} \dots
+\quote{Although recent and/or context-specific key populations data are often lacking,
+further opportunities exist to include key populations more consistenly in transmission models,
+and to improve modelling assumptions in the absence of such data.}
+\end{response}
+\subsection{Minor Comments}
+\begin{comment}
+Figure 2: I would prefer HIV prevalence over PLHIV as the chloropleth.
+\end{comment}
+\begin{response}
+We have revised the figure to use HIV prevalence as the country colour.
+\end{response}
+\begin{comment}
+Do any studies address the age distribution of key populations? This would be useful to include.
+\end{comment}
+\begin{response}
+TBD
+\end{response}
+\begin{comment}
+Were transgender people or prisoners included in any studies?
+\end{comment}
+\begin{response}
+We added transgender people and prisoners to the key populations considered in the review,
+with similar definition to MSM and PWID:
+\quote{Any activity group(s) described by the authors as (transgender/prisoners)}.
+Sections 2.3.1 (Methods), 3.1.1 (Results, including Table 2), and B.2.1 (Appendix: Definitions)
+in the manuscript were each updated accordingly.
+\end{response}
+\begin{comment}
+I find the bubble plots difficult to interpret. The bubbles are often similarly sized, I'm not sure the extra information adds to the results and crowds the plot. Perhaps grouped bar charts or grouped box plots would be easier to read - particularly for Figure 3.
+\end{comment}
+\begin{response}
+We had initially opted for the bubble / point plots over boxplots
+to maintain a continuous x-axis (time since intervention);
+however, we agree that they were often cluttered.
+We have revised to use boxplots,
+stratified by 10-year intervals of time since intervention,
+and categorizing previously continuous variables
+(HIV prevalence, ART coverage target, and relative infectiousness on ART).
+One exception is that, due to the small number of data points,
+we've left Figure~C.11 as a point plot.
+\end{response}
+\begin{comment}
+Consider inserting Table C.1 into the main text
+\end{comment}
+\begin{response}
+We have moved the table into the main text (see~\ref{tab:c1}).
+\end{response}
+\begin{comment}
+Consider a sensitivity analysis of the main findings without South African data
+\end{comment}
+\begin{response}
+We explored the feasibility of this analysis.
+However, only 19 (IR) and 58 (CIA) data points were available without the South African data,
+leading to rank defficiency in the model,
+and thus the parameters could not be estimated
+without changing which parameters were included in the model.
+\end{response}
