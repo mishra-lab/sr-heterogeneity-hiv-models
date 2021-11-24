@@ -2,13 +2,26 @@
 \def\baselinestretch{1.0}\footnotesize%
 \centerline{%
 \setlength{\tabcolsep}{.7ex}%
-\begin{tabular}{ll rrc rc rrc rc}
+\begin{tabular}{ll|rrcrc|rrcrc}
   \toprule
   & & \multicolumn{5}{c}{Incidence Reduction (\%)}
     & \multicolumn{5}{c}{Cumulative Infections Averted (\%)} \\
   \cmidrule(rl){3-7}\cmidrule(rl){8-12}
   Factor               & Level            & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} 
                                           & N\tn{a} & Median & (IQR) & Effect\tn{b} & (95\% CI)\tn{b} \\
+  \midrule
+  Risk Stratif. \&     & None             & \xtab{Risk.None}             \\
+  Cascade Diff.        & Activity (No KP) & \xtab{Risk.Activity-(no-KP)} \\
+                       & + KP (Same)      & \xtab{Risk.KP-(same)}        \\
+                       & + KP (Priority)  & \xtab{Risk.KP-(priority)}    \\[\tsep]
+  Activity Turnover    & No               & \xtab{act.turn.any.FALSE}    \\
+                       & Yes              & \xtab{act.turn.any.TRUE}     \\[\tsep]
+  Sex Stratif. \&      & No               & \xtab{Sex.No}                \\
+  Cascade Diff.        & Yes (Same)       & \xtab{Sex.Yes-(same)}        \\
+                       & Yes (Men Low)    & \xtab{Sex.Yes-(diff)}        \\[\tsep]
+  Partnership Types    & Generic          & \xtab{pt.def.gen}            \\
+                       & By Groups        & \xtab{pt.def.grp}            \\
+                       & Overlapping      & \xtab{pt.def.phen}           \\
   \midrule
   Time Horizon         & 0-10             & \xtab{t.cat.0}               \\
   (years)              & 11-20            & \xtab{t.cat.10}              \\
@@ -47,19 +60,6 @@
                        & Any              & \xtab{hiv.morb.any.TRUE}     \\[\tsep]
   HTC Behav. Change    & No               & \xtab{bc.any.FALSE}          \\
                        & Any              & \xtab{bc.any.TRUE}           \\
-  \midrule
-  Sex Strat. \&        & No               & \xtab{Sex.No}                \\
-  Cascade Diff.        & Yes (Same)       & \xtab{Sex.Yes-(Same)}        \\
-                       & Yes (Diff)       & \xtab{Sex.Yes-(Diff)}        \\[\tsep]
-  Risk Definition      & None             & \xtab{Risk.None}             \\
-                       & Activity (No KP) & \xtab{Risk.Activity-(no-KP)} \\
-                       & + KP (Same)      & \xtab{Risk.KP-(same)}        \\
-                       & + KP (Priority)  & \xtab{Risk.KP-(priority)}    \\[\tsep]
-  Activity Turnover    & No               & \xtab{act.turn.any.FALSE}    \\
-                       & Yes              & \xtab{act.turn.any.TRUE}     \\[\tsep]
-  Partnership Types    & Generic          & \xtab{pt.def.gen}            \\
-                       & By Groups        & \xtab{pt.def.grp}            \\
-                       & Overlapping      & \xtab{pt.def.phen}           \\[\tsep]
   \bottomrule
 \end{tabular}}
 \floatfoot{
