@@ -115,8 +115,9 @@ P = list(# stuff to plot
   ),
   dist = c('api.prev','api.inc','art.rbeta','act.n','age.n','hiv.n',
            'act.HRW.p','act.HRM.p','act.HRW.cr','act.HR.pr',
-           'api.prev.cat','api.phase','Risk','pt.def')
+           'api.prev.cat','api.phase','Risk','pt.def'),
   # TODO: api.inc, api.chi from XA
+  eff.sub = c('Sex','Risk','act.turn.any','pt.def')
 )
 D = list(# definitions
   api.prev     = 'HIV prevalence at $t_0$ (\\%)',
@@ -146,7 +147,7 @@ D = list(# definitions
   age.mix      = 'Type of age mixing',
 
   act.kp       = 'Activity groups \\& key populations',
-  Risk         = 'Summary of risk heterogeneity',
+  Risk         = 'Risk Stratification \\& ART cascade differences',
   Sex          = 'Sex stratification \\& any ART cascade differences',
   act.HRW.p    = 'Proportion of women in the highest female activity group',
   act.HRM.p    = 'Proportion of men in the client or highest activity male group',
@@ -174,9 +175,9 @@ R = list(# Rename stuff
     'HTC Behav. Change' = 'bc.any',
     'Sex Stratification' = 'act.def.sex',
     'Any ART Diff. by Sex' = 'diff.any.sex',
-    'Sex Strat. & ART' = 'Sex',
+    'Sex Stratif. & Cascade Diff.' = 'Sex',
     'Activity Turnover' = 'act.turn.any',
-    'Risk Definition' = 'Risk'),
+    'Risk Stratif. & Cascade Diff.' = 'Risk'),
   t.cat = list(
     '0-10'='0',
     '11-20'='10',

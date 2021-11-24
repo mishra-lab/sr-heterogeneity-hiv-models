@@ -93,8 +93,9 @@ gen.effects = function(model,name=NULL,group=''){
     if (var=='(Intercept)'){ varlvls = var; i = TRUE; } else { i = FALSE; }
     E.var = coef[varlvls,c('Estimate','low','high')]
     lvl.ref = paste0('\n    REF = ',rename.lvl(lvls[is.na(E.var$Estimate)],var))
-    E.var$var = paste0(rename.lvl(var,'vars'),ifelse(i,'',lvl.ref))
+    E.var$var = var
     E.var$lvl = rename.lvl(lvls,var)
+    E.var$grp = paste0(rename.lvl(var,'vars'),ifelse(i,'',lvl.ref))
     return(E.var)
   }))
   E[[group]] = name
@@ -102,19 +103,20 @@ gen.effects = function(model,name=NULL,group=''){
   return(E)
 }
 
-plot.effects = function(model,group='.'){
+plot.effects = function(model,group='.',subset=NULL){
   if ('coefficients' %in% names(model)){
     E = gen.effects(model,name='',group=group)
   } else {
     E = do.call(rbind,lapply(names(model),function(name){
       gen.effects(model[[name]],name=name,group=group) }))
   }
+  if (!is.null(subset)){ E = E[E$var %in% subset,] }
   pos = position_dodge(width=.6)
   g = ggplot(E,aes_string(x='Estimate',y='lvl',xmin='low',xmax='high',color=group)) +
     geom_point(position=pos) +
     geom_linerange(position=pos) +
     scale_color_viridis(option='inferno',discrete=TRUE,begin=.3,end=.7) +
-    facet_grid(rows=vars(E$var),scales='free_y',space='free_y',switch='y') +
+    facet_grid(rows=vars(E$grp),scales='free_y',space='free_y',switch='y') +
     labs(x='Effect',y='Factor') +
     theme_light() +
     theme(legend.position='top',

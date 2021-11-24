@@ -234,6 +234,7 @@ numeric.api = function(XA){
         } else {
           tabstr = strfun('%.0f & %.0f & ( %.0f , %.0f ) & \\textsc{ref} & ',nums[1:4])
         }
+        save.tex(strfun('%.0f~(%.0f,~%.0f)',nums[5:7]),namefun(var,level,'eff'),dir=dir)
         save.tex(tabstr,namefun(var,level,'xtab'),dir=dir)
       }
     }
@@ -241,6 +242,8 @@ numeric.api = function(XA){
   names(model) = c('IR','CIA')
   g = plot.effects(model,group='Outcome')
   save.plot(g,'effects',dir='api',w=6,h=10)
+  g = plot.effects(model,group='Outcome',subset=c(P$eff.sub,'(Intercept)'))
+  save.plot(g,'effects-subset',dir='api',w=6,h=4)
 }
 save.distr = function(x,name,dir='',d=2,funs=NULL,lt=NULL){
   fun.list = list(
