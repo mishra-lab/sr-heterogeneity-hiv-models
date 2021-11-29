@@ -11,7 +11,7 @@ A limitation of this review, which the authors acknowledge, is that it is essent
 \end{comment}
 \begin{response}
 We agree with that the paper could be strengthened with a regression analysis,
-and have revised the paper to include one.
+and have revised as suggested.
 We describe our analysis as a ``multivariate regression'', and not a ``meta-regression'',
 as we did not pool uncertainty estimates.
 Confidence intervals were only given for
@@ -36,7 +36,7 @@ A related concern is that the tests for statistically significant differences in
 \begin{response}
 To account for clustering of the data points by study, we used generalized estimating equations to fit the regression model
 (specifically, the \texttt{geeglm} model from the \texttt{geepack} packge in R).
-This semi-parametric model allows estimation of population-averaged effects of each factor on the outcome,
+This semi-parametric model allows estimation of population-averaged effects of each factor on the outcome, %SM: nicely phrased and excellent re: providing rationale in response letter
 while controlling for within-study correlation of outcomes as a nuisance.
 We assume independence (\texttt{corstr='independence'}) of outcomes within each cluster (study) because it is more robust for small / imbalanced data such as ours;
 this assumption would only affect the standard errors, not the point estimates of effects.
@@ -46,10 +46,10 @@ while the adjusted effect estimates are added to Table 3 (formerly C.1),
 and key findings are highlighted in Section 3.3 (Results).
 Figures 2 and C.20 also gives a forest plots of effect estimates.
 \par
-The headline findings of the review have also been revised in light of the regression results:
-We found that heterogeneity alone (defined by activity groups with or without key populations)
-was not a strong determinant of predicted ART prevention impacts,
-but rather risk group turnover and potential cascade differences between groups.
+The key findings of the review have also been revised in light of the regression results:
+We found that heterogenetiy (defined by activity groups with or without key populations) acts through risk group turnover and cascade differences between groups.
+That is, across models, inclusion/exclusion of risk heterogeneity was not sufficient on its own, to be associated with ART prevention impact. 
+But if risk heterogenetiy included differential cascade, then risk heterogeneity was associated with ART prevention impact.
 The results in section 3.3 and the discussion have been revised substantially in light of these findings.
 \end{response}
 \begin{comment}
@@ -77,15 +77,15 @@ The third paragraph of the Introduction mentions possible inequalities in uptake
 \begin{response}
 We have updated the introduction to mention heterosexual men:
 \quote{Populations experiencing barriers to viral suppression under UTT
-may be at highest risk for acquisition and onward transmission, including key populations like
-sex workers and men who have sex with men [Hakim2018, Nyato2019].
-Other sub-populations, including youth and heterosexual men, also
+may be at highest risk for acquisition and onward transmission, including key populations such as
+women and men engaged in sex work, and men who have sex with men [Hakim2018, Nyato2019].
+Data suggest other sub-populations, including youth and men who have sex with women, may also  %SM: moving away from term "heterosexual" in updated guidance
 experience barriers to engagement in ART care [Green2020, Quinn2019]
 that could undermine treatment as prevention.}
-Additionally, the ``sex'' stratification variable for objective 3
+Additionally, the ``sex/gender'' stratification variable for objective 3 %SM: strictly speaking then you are talkinig about gender not sex. sex is a biological variable. engagement in care reflects gender not biology (see CIHR guidance on sex/gender-based analysis).
 has been updated to distinguish between models that do and do not consider
 lower cascade among men,
-with findings discussed in section 3.3.
+with findings discussed in section 3.3. Note that we refer to 'sex/'gender' as the variable, and not sex as a biological variable, because we are examining in the context of engagement in care (gender) and also transmission probability (sex as a biological variable).
 \end{response}
 \begin{comment}
 It was not clear why the authors excluded individual-based approaches from this review. Although people tend to use the terms 'compartmental models' and 'deterministic models' interchangeably, some would argue the terms mean slightly different things (see Garnett, STIs, 2002, 78:7-12). The point is that it's possible for an individual-based model to be 'compartmental' in the sense that it works with categorical variables rather than continuously-defined variables. In such cases one could argue for including an individual-based model in the review, since its compartments/categories can be classified in the same way as a deterministic model. But even when key variables are defined on a continuous scale it's not clear why you would want to exclude the individual-based model from the review.
@@ -134,12 +134,11 @@ I felt there could have been more explanation for some of the unexpected finding
 \begin{response}
 In the regression analysis, adjusted factor effects appear to be more consistent with expected findings.
 Additionally, since the main factors of interest were those related to risk heterogeneity,
-we did not seek to explore or explain all covariate effects from the model,
-which could lead to ``table 2 fallacy''.
+we did not seek to explore or explain all covariate effects from the model, as per best practices in analsyes of secondary data when the focus is on the primary exposure variables of interest. %SM: refer to table 2 fallacy
 Finally, we added the following to the limitations paragraph:
-\quote{Third, we did not extract data on model fitting,
+\quote{Third, we did not extract data on model fitting, %SM: I don't follow ... what do we mean extract data on model fitting? did not examine how models were calibrated or what the calibration targets were? or...?
 which could explain some counterintuitive effect estimates.
-For example, modelling increased infectiousness in late-stage HIV reduced ART prevention impacts.
+For example, modelling increased infectiousness in late-stage HIV reduced ART prevention impacts. 
 However, in most studies, newly ART-eligible patients via scale-up had earlier stage HIV;
 therefore, such patients would have lower modelled infectiousness than late-stage HIV,
 and lower infectiousness than in a model with uniform infectiousness fitted to the same data.
@@ -149,6 +148,6 @@ A similar mechanism could explain increased ART prevention impacts when includin
 The references in the supplementary materials are incorrectly formatted. Often they give the second initial of the author but not the first initial. For example, L. Korenromp (reference 62) should be E.L. Korenromp, and J. Abu-Raddad (reference 56) should be L.J. Abu-Raddad.
 \end{comment}
 \begin{response}
-We apologize for these errors.
+Thank you for catching these errors.
 The references have been thoroughly checked and should now be correct.
 \end{response}
