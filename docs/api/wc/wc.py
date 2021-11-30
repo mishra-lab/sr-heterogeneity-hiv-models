@@ -40,8 +40,8 @@ for i in igs:
 for n in range(3):
   body = body.replace('\n\n\n','\n\n')
 
-with open('body.tex','w') as f:
+with open('body.tmp','w') as f:
   f.write(body)
 
-os.system('wc -w body.tex | cut -d " " -f1 > words && cat words')
+os.system('wc -w body.tmp | cut -d " " -f1 > words && cat words && rm body.tmp')
 
