@@ -49,7 +49,7 @@ Most reported incidence trends were decreasing or stable
 % ------------------------------------------------------------------------------
 \subsubsection{Key Populations}
 \label{sss:res:kp}
-Groups representing FSW were described in \x{kp/n.FSW.named} studies.
+FSW were explicitly modelled in \x{kp/n.FSW.named} studies.
 Among these (of studies where it was possible to evaluate):
 \x{kp/n.FSW.n.crit.p} (of \x{kp/n.FSW.n.crit.p.v}) were {$<$5\%} of the female population;
 \x{kp/n.FSW.n.crit.pr} (of \x{kp/n.FSW.n.crit.pr.v}) were {$<$1/3} the size of the client population; and
@@ -61,8 +61,8 @@ were {$>$3$\times$} the size of the FSW population.
 In another \x{kp/n.Cli.named.p} studies, clients were defined as a proportion of another group,
 among which \x{kp/n.Cli.n.p.crit} (of \x{kp/n.Cli.n.p.crit.v})
 were {$>$3$\times$} the FSW population size.
-Activity groups representing
-men who have sex with men (MSM) were noted in \x{kp/n.MSM} studies;
+Models expliciltly modelled men who have sex with men (MSM)
+in \x{kp/n.MSM} studies;
 transgender in \x{kp/n.TG};
 people who inject drugs (PWID) in \x{kp/n.PWID}; and
 prisoners in \x{kp/n.pris}.
@@ -226,25 +226,29 @@ Some scenarios included multiple time horizons.
 \end{figure}
 Table~\ref{tab:api} summarizes projected ART prevention impacts (IR, CIA),
 stratified by heterogeneity and contextual factors,
-plus adjusted effect estimates for each factor from multivariate analysis.
+plus adjusted effect estimates for each factor from multivariate analysis.  %SM: suggest we revise terminology a bit to say 'associated with' rather than "reduced/increased"
 Figures~\ref{fig:api:Risk}--\ref{fig:api:art.rbeta.cat} illustrate
 unadjusted impacts stratified by factor levels, while
 Figures~\ref{fig:effects}~and~\ref{fig:effects-sub} (subset) illustrate effect estimates.
-Including activity groups without key populations
-slightly increased projected ART prevention impacts---adjusted effect (95\% CI):
+Compared with zero risk heterogenetiy, including risk heterogeneity with activity groups but without key populations was associated with
+slightly higher impacts ---adjusted effect (95\% CI):
 \x{api/inc/Risk.Activity-(no-KP).eff}\% IR, \x{api/chi/Risk.Activity-(no-KP).eff}\% CIA.
-Including key population(s) without prioritized ART cascade had a similar effect:
-\x{api/inc/Risk.KP-(same).eff}\% IR, \x{api/chi/Risk.KP-(same).eff}\% CIA.
-However, including turnover of one or more higher risk group(s) reduced ART prevention impacts:
-\x{api/inc/act.turn.any.TRUE.eff}\% IR, \x{api/chi/act.turn.any.TRUE.eff}\% CIA,
-such that overall, including activity groups and/or key population(s) with turnover
+Scenarios that included key population(s) and assumed similar ART cascade between groups were 
+generally associated with a slightly larger impact compared with models without risk 
+hetrogeneity: \x{api/inc/Risk.KP-(same).eff}\% IR, \x{api/chi/Risk.KP-(same).eff}\% CIA.
+However, models that included turnover of one or more higher risk group(s) were associated with smaller 
+ART prevention impacts compared with models without turnover: 
+\x{api/inc/act.turn.any.TRUE.eff}\% IR, \x{api/chi/act.turn.any.TRUE.eff}\% CIA.
+Taken together, models that captured heterogenetiy in risk across activity groups and/or key population(s) with turnover were associated with 
 reduced ART prevention impacts.
 \par
-Including ART cascade prioritized to any key population(s)
-increased the projected ART prevention impacts enough to overcome reductions due to turnover:
-\x{api/inc/Risk.KP-(priority).eff}\% IR, \x{api/chi/Risk.KP-(priority).eff}\% CIA.
-No studies in Dataset~B examined lower ART cascade among key population(s).
-Stratifying by sex/gender, and considering lower ART cascade among men was estimated to reduce CIA:
+After including risk heterogeneity, further capturing differential ART cascade across activity groups or key populations was associated with differences in projected ART prevention impacts.
+In models that had stratifyied by sex/gender, capturing a lower ART cascade among men was associated with a smaller CIA:
 \x{api/chi/Sex.Yes-(same).eff}\% and \x{api/chi/Sex.Yes-(diff).eff}\%, respectively;
 although similar effects were not observed for IR:
 \x{api/inc/Sex.Yes-(same).eff}\% and \x{api/inc/Sex.Yes-(diff).eff}\%.
+In the context of risk heterogeneity where key populations were expliciltly modelled, 
+including ART cascade prioritized to any key population(s) was associated with an
+increased impact and enough to overcome reductions due to turnover:
+\x{api/inc/Risk.KP-(priority).eff}\% IR, \x{api/chi/Risk.KP-(priority).eff}\% CIA.
+No studies in Dataset~B examined lower ART cascade among key population(s). %SM: key point! (added to abstract)
