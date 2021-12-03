@@ -43,5 +43,6 @@ for n in range(3):
 with open('body.tmp','w') as f:
   f.write(body)
 
-os.system('wc -w body.tmp | cut -d " " -f1 > words && cat words && rm body.tmp')
+os.system('wc -w body.tmp | cut -d " " -f1 && rm body.tmp')
+os.system('wc -w ../abstract.tex | cut -d " " -f1')
 

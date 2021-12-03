@@ -1,5 +1,5 @@
 full:
-	make tex ; make bib ; make tex ; make tex
+	make clean ; make tex ; make bib ; make tex ; make tex ; make words
 
 tex:
 	pdflatex main
@@ -18,3 +18,6 @@ words:
 
 submit:
 	cd sub && ./submit.sh
+
+clean:
+	texclean .
