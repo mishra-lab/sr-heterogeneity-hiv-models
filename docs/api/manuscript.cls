@@ -32,6 +32,7 @@
 \def\dummy{NYLL}
 \newcommand{\runhead}[1]{\gdef\@runhead{#1}}
 \newcommand{\funding}[1]{\gdef\@funding{#1}}
+\newcommand{\journal}[2][(preprint)]{\gdef\@journal{#2 #1}}
 \newcommand{\coi}[1]{\gdef\@coi{#1}}
 \newcommand{\acknowl}[1]{\gdef\@acknowl{#1}}
 \newcommand{\contrib}[1]{\gdef\@contrib{#1}}
@@ -50,6 +51,7 @@
   \tpart{Running Head}{\@runhead}
   \tpart{Authors}{\@author}
   \tpart{Date}{\@date}
+  \tpart{Journal}{\@journal}
   \tpart{Funding}{\@funding}
   \tpart{Conflicts of Interest}{\@coi}
   \tpart{Words}{\@words}
